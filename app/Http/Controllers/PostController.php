@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

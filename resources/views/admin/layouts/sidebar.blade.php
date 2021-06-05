@@ -4,8 +4,8 @@
 
         <!-- User box -->
         <div class="user-box text-center">
-            <img src="{{ asset('adminto/assets/images/users/user-1.jpg') }}" alt="user-img" title="Mat Helme"
-                class="rounded-circle img-thumbnail avatar-md">
+            <img src="{{ asset(Auth::user()->profile->avatar == '' ? 'images/default/default_picture.png' : Auth::user()->profile->avatar) }}"
+                alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
             <div class="dropdown">
                 <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown"
                     aria-expanded="false">{{ Auth::user()->name }}</a>
@@ -19,25 +19,17 @@
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-settings mr-1"></i>
-                        <span>Settings</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-lock mr-1"></i>
-                        <span>Lock Screen</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-log-out mr-1"></i>
                         <span>Logout</span>
                     </a>
 
                 </div>
             </div>
-            <p class="text-muted">Administrator</p>
+            <label class="text-muted">@if(!empty(Auth::user()->getRoleNames()))
+                @foreach(Auth::user()->getRoleNames() as $v)
+                <span class="badge badge-pill badge-primary">{{ $v }}</span>
+                @endforeach
+                @endif</label>
         </div>
 
         <!--- Sidemenu -->
@@ -47,6 +39,7 @@
 
                 <li class="menu-title">Daftar Menu</li>
 
+                @hasanyrole('admin|operator')
                 <li>
                     <a href="{{ route('home') }}">
                         <i class="mdi mdi-view-dashboard"></i>
@@ -80,12 +73,32 @@
                     </ul>
                 </li>
 
+
                 <li>
                     <a href="{{ route('users') }}">
                         <i class="mdi mdi-account"></i>
                         <span> User </span>
                     </a>
                 </li>
+                @endhasanyrole()
+
+                @hasanyrole('dosen')
+                <li>
+                    <a href="{{ route('profile') }}">
+                        <i class="mdi mdi-account"></i>
+                        <span> Profile </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="mdi mdi-book"></i>
+                        <span> Data Dosen </span>
+                    </a>
+                </li>
+                @endhasanyrole()
+
+
             </ul>
 
         </div>

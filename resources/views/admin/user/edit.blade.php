@@ -55,6 +55,17 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="tag">Role</label>
+                        <div class="col-md-10">
+                            <select class="multiple-input" name="roles[]">
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <span class="col-md-2"></span>
                         <div class="col-md-10">
                             <button type="submit" class="btn btn-primary">Update Data</button>
@@ -71,7 +82,8 @@
 
 @section('js')
 <script type="text/javascript">
-    $(document).ready(function(){		
+    $(document).ready(function(){
+        $('.multiple-input').select2();		
 		$('.form-checkbox').click(function(){
 			if($(this).is(':checked')){
 				$('.form-password').attr('type','text');

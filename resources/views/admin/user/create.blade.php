@@ -16,8 +16,7 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Name</label>
                         <div class="col-md-10">
                             <input name="name" type="text" id="simpleinput"
-                                class="form-control @error('name') is-invalid @enderror"
-                                placeholder="Insert Category Name">
+                                class="form-control @error('name') is-invalid @enderror" placeholder="Insert Your Name">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -26,6 +25,7 @@
                             @enderror
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="simpleinput">Email</label>
                         <div class="col-md-10">
@@ -42,6 +42,17 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="tag">Role</label>
+                        <div class="col-md-10">
+                            <select class="multiple-input" name="roles[]">
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <span class="col-md-2"></span>
                         <div class="col-md-10">
                             <button type="submit" class="btn btn-primary">Input Data</button>
@@ -54,4 +65,12 @@
     </div>
 </div> <!-- end row -->
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        $('.multiple-input').select2();
+    });
+</script>
 @endsection

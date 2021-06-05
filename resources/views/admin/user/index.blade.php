@@ -24,6 +24,7 @@
                         <th>No.</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -37,10 +38,15 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
+                            @if(!empty($user->getRoleNames()))
+                            @foreach($user->getRoleNames() as $v)
+                            <label class="badge badge-success">{{ $v }}</label>
+                            @endforeach
+                            @endif
+                        </td>
+                        <td>
                             <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-sm btn-info"><i
                                     class="mdi mdi-pencil"></i> Edit</a>
-                            {{-- <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-sm
-                            btn-danger"><i class="mdi mdi-delete"></i> Delete </a> --}}
                             <a href="#" data-id="{{ $user->id }}" class="btn btn-sm btn-danger swal-confirm">
                                 <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST"
                                     id="delete{{ $user->id }}">

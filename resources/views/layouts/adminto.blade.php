@@ -50,26 +50,11 @@
         <div class="navbar-custom">
             <ul class="list-unstyled topnav-menu float-right mb-0">
 
-                <li class="d-none d-sm-block">
-                    <form class="app-search">
-                        <div class="app-search-box">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <button class="btn" type="submit">
-                                        <i class="fe-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </li>
-
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="{{ asset('adminto/assets/images/users/user-1.jpg') }}" alt="user-image"
-                            class="rounded-circle">
+                        <img src="{{ asset(Auth::user()->profile->avatar == '' ? 'images/default/default_picture.png' : Auth::user()->profile->avatar) }}"
+                            alt="user-image" class="rounded-circle">
                         <span class="pro-user-name ml-1">
                             {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
                         </span>
@@ -81,21 +66,9 @@
                         </div>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="{{ route('profile') }}" class="dropdown-item notify-item">
                             <i class="fe-user"></i>
                             <span>My Account</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-settings"></i>
-                            <span>Settings</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-lock"></i>
-                            <span>Lock Screen</span>
                         </a>
 
                         <div class="dropdown-divider"></div>

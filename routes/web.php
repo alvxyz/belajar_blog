@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+Route::get('/spatie', function () {
+    // return view('auth.login');
+    // $user = auth()->user();
+    // auth()->user()->assignRole('admin');
+});
 
 // Route Untuk Fornt End
 @include('frontend.php');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
+    //User
+    Route::get('/users', 'UserController@index')->name('users');
+    Route::get('/user/create', 'UserController@create')->name('user.create');
+    Route::post('/user/store', 'UserController@store')->name('user.store');
+    Route::post('/user/update/{id}', 'UserController@update')->name('user.update');
+    Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
+    Route::delete('/user/delete/{id}', 'UserController@destroy')->name('user.delete');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], function () {
+    //User
+    Route::get('/users', 'UserController@index')->name('users');
+    Route::get('/user/create', 'UserController@create')->name('user.create');
+    Route::post('/user/store', 'UserController@store')->name('user.store');
+    Route::post('/user/update/{id}', 'UserController@update')->name('user.update');
+    Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
+    Route::delete('/user/delete/{id}', 'UserController@destroy')->name('user.delete');
 
     // Category
     Route::get('/categories', 'CategoryController@index')->name('categories');
@@ -48,15 +69,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/tag/update/{id}', 'TagController@update')->name('tag.update');
     Route::get('tag/edit/{id}', 'TagController@edit')->name('tag.edit');
     Route::delete('tag/delete/{id}', 'TagController@destroy')->name('tag.delete');
-
-    //User
-    Route::get('/users', 'UserController@index')->name('users');
-    Route::get('/user/create', 'UserController@create')->name('user.create');
-    Route::post('/user/store', 'UserController@store')->name('user.store');
-    Route::post('/user/update/{id}', 'UserController@update')->name('user.update');
-    Route::get('/user/edit/{id}', 'UserController@edit')->name('user.edit');
-    Route::delete('/user/delete/{id}', 'UserController@destroy')->name('user.delete');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator|dosen']], function () {
+    //Dosen Route
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::post('/profile/update/{id}', 'UserController@update_profile')->name('profile.update');
+});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
