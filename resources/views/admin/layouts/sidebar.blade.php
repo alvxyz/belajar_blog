@@ -73,13 +73,28 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="{{ route('repository') }}">
+                        <i class="mdi mdi-source-repository"></i>
+                        <span> Repositori </span>
+                    </a>
+                </li>
+                @endhasanyrole()
 
+                @hasanyrole('admin')
                 <li>
                     <a href="{{ route('users') }}">
                         <i class="mdi mdi-account"></i>
                         <span> User </span>
                     </a>
                 </li>
+
+                {{-- <li>
+                    <a href="#">
+                        <i class="mdi mdi-book-account"></i>
+                        <span> Data Dosen </span>
+                    </a>
+                </li> --}}
                 @endhasanyrole()
 
                 @hasanyrole('dosen')
@@ -91,12 +106,21 @@
                 </li>
 
                 <li>
-                    <a href="#">
-                        <i class="mdi mdi-book"></i>
-                        <span> Data Dosen </span>
+                    <a href="{{ route('lecturer.edit_from_dosen')}}">
+                        <i class="mdi mdi-book-account"></i>
+                        <span> Detail Dosen </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('publications')}}">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span> Publikasi </span>
+                    </a>
+                </li>
+
                 @endhasanyrole()
+
 
 
             </ul>

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Lecturer;
 use App\Post;
+use App\Profile;
+use App\Publication;
+use App\Repository;
 use App\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class FrontEndController extends Controller
 {
@@ -70,5 +76,58 @@ class FrontEndController extends Controller
         $category = Category::find($id);
         $posts = Post::where('category_id', request('id'))->orderBy('created_at', 'desc')->paginate(6);
         return view('frontend.berita.category', compact('posts', 'category'));
+    }
+
+    public function dosen()
+    {
+        $dosen = User::select(
+            'users.id',
+            'users.name',
+            'users.email'
+        )
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->where('model_has_roles.role_id', '=', 3)->paginate(3);
+
+        // dd($dosen);
+
+        $profil = Profile::all();
+        $lecturer = Lecturer::all();
+
+        return view('frontend.dosen.index', compact('dosen', 'profil', 'lecturer'));
+    }
+
+    public function dosen_detail(Request $request, $id)
+    {
+        $dosen = User::find($id);
+
+        $profil = Profile::all();
+        $lecturer = Lecturer::where('id' . '=' . $request->id);
+
+        // dd($lecturer);
+
+        return view('frontend.dosen.detail', compact('dosen', 'profil', 'lecturer', 'publications'));
+    }
+
+    public function repositori()
+    {
+        // mengarahkan view ke halaman
+        $repositories = Repository::latest()->paginate(6);
+        return view('frontend.repositori.index', compact('repositories'));
+    }
+
+    public function repositori_detail($id)
+    {
+        // mengarahkan view ke halaman
+        $repositories = Repository::find($id);
+        return view('frontend.repositori.detail', compact('repositories'));
+        return response()->file($repositories->file);
+    }
+
+    public function downloadFile($id)
+    {
+        $file_name = Repository::find($id);
+        // return Storage::download(public_path('uploads/file/' . $file));
+        $file = public_path($file_name->file);
+        return response()->download($file);
     }
 }

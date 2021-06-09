@@ -60,7 +60,7 @@
                         <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
-                                rows="5" id="editor" name="content">{{ old('content') }}</textarea>
+                                rows="5" id="editor">{{ old('content') }}</textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">
@@ -72,7 +72,14 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="simpleinput">Image</label>
                         <div class="col-md-10">
-                            <input name="featured" type="file" class="form-control">
+                            <input name="featured" type="file"
+                                class="form-control @error('featured') is-invalid @enderror">
+
+                            @error('content')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">

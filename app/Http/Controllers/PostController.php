@@ -8,6 +8,7 @@ use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostController extends Controller
 {
@@ -49,7 +50,8 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'category_id' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'featured' => 'required'
         ]);
 
         $post = new Post();
@@ -59,17 +61,28 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->users_id = Auth::id();
 
-        $image_path = "";
+        // $image_path = "";
+
+        // if ($request->hasFile('featured')) {
+        //     $image = $request->featured;
+        //     $image_name = time() . $image->getClientOriginalName();
+        //     $image->move('uploads/post/', $image_name);
+
+        //     $image_path = 'uploads/post/' . $image_name;
+        // }
 
         if ($request->hasFile('featured')) {
             $image = $request->featured;
             $image_name = time() . $image->getClientOriginalName();
-            $image->move('uploads/post/', $image_name);
 
-            $image_path = 'uploads/post/' . $image_name;
+            $destinationPath = 'uploads/post';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1240, 699);
+            $image_resize->save($destinationPath . '/' . $image_name);
+            $destinationPath = 'uploads/post' . '/' . $image_name;
         }
 
-        $post->featured = $image_path;
+        $post->featured = $destinationPath;
         $post->save();
 
         $post->tags()->attach($request->tags);
@@ -124,17 +137,34 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $post->content = $request->content;
 
+        // if ($request->hasFile('featured')) {
+        //     if (file_exists($post->featured)) {
+        //         unlink($post->featured);
+        //     }
+
+        //     $image = $request->featured;
+        //     $image_name = time() . $image->getClientOriginalName();
+        //     $image->move('uploads/post/', $image_name);
+
+        //     $post->featured = 'uploads/post/' . $image_name;
+        // }
+
         if ($request->hasFile('featured')) {
             if (file_exists($post->featured)) {
                 unlink($post->featured);
             }
-
             $image = $request->featured;
             $image_name = time() . $image->getClientOriginalName();
-            $image->move('uploads/post/', $image_name);
 
-            $post->featured = 'uploads/post/' . $image_name;
+            $destinationPath = 'uploads/post';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1240, 699);
+            $image_resize->save($destinationPath . '/' . $image_name);
+            $destinationPath = 'uploads/post' . '/' . $image_name;
+
+            $post->featured = $destinationPath;
         }
+
 
         $post->save();
 

@@ -149,7 +149,9 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            &copy; Laravel Blog by Alvian Putra
+                            &copy; Website Teknik Informatika POLNEP created by <a
+                                href="https://www.instagram.com/_alvian.design/" target="blank">Alvian Teddy Cahya
+                                Putra</a>
                         </div>
                     </div>
                 </div>
@@ -165,6 +167,8 @@
 
     </div>
     <!-- END wrapper -->
+
+
 
     <!-- Vendor js -->
     <script src="{{ asset('adminto/assets/js/vendor.min.js') }}"></script>
@@ -206,6 +210,8 @@
     {{-- Select 2 JS --}}
     <script src="{{ asset('js/select2.min.js') }}"></script>
 
+    @yield('js')
+
 
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <script>
@@ -216,7 +222,7 @@
         }
     </script>
 
-    @yield('js')
+
 
 </body>
 

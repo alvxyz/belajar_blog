@@ -1,5 +1,7 @@
 <?php
 
+use App\Lecturer;
+use App\Profile;
 use App\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -14,27 +16,44 @@ class UserSeeder extends Seeder
     public function run()
     {
         $admin = User::create([
-            'name' => 'Admin Role',
+            'name' => 'Akun Admin',
             'email' => 'admin@role.test',
             'password' => bcrypt('12345678')
+        ]);
+
+        $profile = Profile::create([
+            'users_id' => $admin->id,
         ]);
 
         $admin->assignRole('admin');
 
         $user = User::create([
-            'name' => 'Operator Role',
+            'name' => 'Akun Operator',
             'email' => 'operator@role.test',
             'password' => bcrypt('12345678')
         ]);
 
+        $profile = Profile::create([
+            'users_id' => $user->id,
+        ]);
+
         $user->assignRole('operator');
 
-        $user = User::create([
-            'name' => 'Dosen Role',
+        $dosen = User::create([
+            'name' => 'Akun Dosen',
             'email' => 'dosen@role.test',
             'password' => bcrypt('12345678')
         ]);
 
-        $user->assignRole('dosen');
+
+        $lecturer = Lecturer::create([
+            'users_id' => $user->id,
+        ]);
+
+        $profile = Profile::create([
+            'users_id' => $dosen->id,
+        ]);
+
+        $dosen->assignRole('dosen');
     }
 }

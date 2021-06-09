@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Lecturer;
 use App\Profile;
+use App\Publication;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
 {
@@ -43,6 +46,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request);
         $this->validate($request, [
             'name' => 'required|min:5',
             'email' => 'required|email',
@@ -58,11 +63,15 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
+        if ($request->roles[0] == 3) {
+            $lecturer = Lecturer::create([
+                'users_id' => $user->id,
+            ]);
+        }
 
         $profile = Profile::create([
             'users_id' => $user->id,
         ]);
-
 
         toastr()->success('User has been created succesfully!');
 
@@ -167,12 +176,16 @@ class UserController extends Controller
             }
             $image = $request->avatar;
             $image_name = time() . $image->getClientOriginalName();
-            $image->move('uploads/photo_profile/', $image_name);
-            $image_path = 'uploads/photo_profile/' . $image_name;
+
+            $destinationPath = 'uploads/thumbnail';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1000);
+            $image_resize->save($destinationPath . '/' . $image_name);
+            $destinationPath = 'uploads/thumbnail' . '/' . $image_name;
 
             $user->profile()->update([
                 'about' => $about,
-                'avatar' => $image_path,
+                'avatar' => $destinationPath,
             ]);
         }
 
@@ -192,5 +205,46 @@ class UserController extends Controller
         toastr()->success('Profile berhasil diperbarui!');
 
         return redirect()->route('profile');
+    }
+
+    public function edit_from_dosen()
+    {
+        // Edit data Tag
+        $user = User::with('Lecturer')->find(Auth::id());
+        return view('admin.lecturer.edit', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_dosen_detail(Request $request, $id)
+    {
+        // Update Data Tag
+        $user = User::find($id);
+
+        $biography = $request->biography;
+        $education = $request->education;
+        $research = $request->research;
+        $expertise = $request->expertise;
+
+        $user->lecturer()->update([
+            'biography' => $biography,
+            'education' => $education,
+            'research' => $research,
+            'expertise' => $expertise,
+        ]);
+
+        // $publication = Publication::create([ // Publication dibuat saat user input data
+        //     'lecturer_id' => $user->id,
+        // ]);
+
+        $user->save();
+
+        toastr()->success('Lecturer has been updated succesfully!');
+        return redirect()->route('lecturer.edit_from_dosen');
     }
 }

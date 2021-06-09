@@ -44,8 +44,7 @@
                                                                         Studi</a> </li>
                                                                 <li><a href="{{ route('visidanmisi') }}">Visi dan
                                                                         Misi</a> </li>
-                                                                <li><a href="index3.html">University
-                                                                        01</a> </li>
+                                                                <li><a href="{{ route('dosen') }}">Dosen</a> </li>
                                                                 <li><a href="index4.html">E-Learning</a> </li>
                                                                 <li><a href="index5.html">Distance Learning</a> </li>
                                                             </ul>
@@ -95,7 +94,7 @@
                                         </li>
 
                                         <li class="menu-item">
-                                            <a href="#">Repositori</a>
+                                            <a href="{{ route('repositori') }}">Repositori</a>
                                         </li>
                                     </ul> <!-- //.nav-menu -->
                                 </nav>

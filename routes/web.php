@@ -69,12 +69,42 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], fun
     Route::post('/tag/update/{id}', 'TagController@update')->name('tag.update');
     Route::get('tag/edit/{id}', 'TagController@edit')->name('tag.edit');
     Route::delete('tag/delete/{id}', 'TagController@destroy')->name('tag.delete');
+
+    //Repositori
+    Route::get('/repositorys', 'RepositoryController@index')->name('repository');
+    Route::get('/repository/create', 'RepositoryController@create')->name('repository.create');
+    Route::post('/repository/store', 'RepositoryController@store')->name('repository.store');
+    Route::post('/repository/update/{id}', 'RepositoryController@update')->name('repository.update');
+    Route::get('repository/edit/{id}', 'RepositoryController@edit')->name('repository.edit');
+    Route::delete('repository/delete/{id}', 'RepositoryController@destroy')->name('repository.delete');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator|dosen']], function () {
-    //Dosen Route
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::post('/profile/update/{id}', 'UserController@update_profile')->name('profile.update');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|dosen']], function () {
+    //Dosen
+    // Route::get('/lecturers', 'LecturerController@index')->name('lecturers');
+    Route::get('/lecturer/create', 'LecturerController@create')->name('lecturer.create');
+    Route::post('/lecturer/store', 'LecturerController@store')->name('lecturer.store');
+    // Route::get('lecturer/edit/{id}', 'LecturerController@edit')->name('lecturer.edit');
+    Route::delete('lecturer/delete/{id}', 'LecturerController@destroy')->name('lecturer.delete');
+
+
+    Route::get('lecturer/edit/dosen', 'UserController@edit_from_dosen')->name('lecturer.edit_from_dosen');
+    Route::post('/lecturer/update/{id}', 'UserController@update_dosen_detail')->name('lecturer.update');
+
+
+    //Publikasi
+    Route::get('/publications', 'PublicationController@index')->name('publications');
+    Route::get('/publication/create', 'PublicationController@create')->name('publication.create');
+    Route::delete('publication/delete/{id}', 'PublicationController@destroy')->name('publication.delete');
+
+    Route::post('/publication/store', 'PublicationController@store')->name('publication.store');
+    Route::post('/publication/update/{id}', 'PublicationController@update')->name('publication.update');
+    Route::get('publication/edit/{id}', 'PublicationController@edit_from_dosen')->name('publication.edit_from_dosen');
 });
 
 
