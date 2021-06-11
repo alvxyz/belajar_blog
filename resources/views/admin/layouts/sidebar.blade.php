@@ -48,16 +48,9 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('categories') }}">
-                        <i class="mdi mdi-page-next"></i>
-                        <span> Category </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('tags') }}">
-                        <i class="mdi mdi-code-tags"></i>
-                        <span> Tag </span>
+                    <a href="{{ route('slider.admin') }}">
+                        <i class="mdi mdi-view-carousel"></i>
+                        <span> Slider </span>
                     </a>
                 </li>
 
@@ -68,9 +61,18 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{ route('categories') }}">Kategori Berita</a></li>
+                        <li><a href="{{ route('tags') }}">Tag Berita</a></li>
                         <li><a href="{{ route('posts') }}">List Berita</a></li>
                         <li><a href="{{ route('post.trashed') }}">Trash Berita</a></li>
                     </ul>
+                </li>
+
+                <li>
+                    <a href="{{ route('agenda.admin') }}">
+                        <i class="mdi mdi-calendar-check"></i>
+                        <span> Agenda </span>
+                    </a>
                 </li>
 
                 <li>
@@ -79,22 +81,30 @@
                         <span> Repositori </span>
                     </a>
                 </li>
+
                 @endhasanyrole()
 
                 @hasanyrole('admin')
                 <li>
-                    <a href="{{ route('users') }}">
-                        <i class="mdi mdi-account"></i>
-                        <span> User </span>
+                    <a href="{{ route('partner.admin') }}">
+                        <i class="mdi mdi-handshake"></i>
+                        <span> Kerja Sama </span>
                     </a>
                 </li>
 
-                {{-- <li>
-                    <a href="#">
-                        <i class="mdi mdi-book-account"></i>
-                        <span> Data Dosen </span>
+                <li>
+                    <a href="{{ route('facility.admin') }}">
+                        <i class="mdi mdi-laptop-chromebook"></i>
+                        <span> Fasilitas </span>
                     </a>
-                </li> --}}
+                </li>
+
+                <li>
+                    <a href="{{ route('users') }}">
+                        <i class="mdi mdi-account"></i>
+                        <span> Manajemen User </span>
+                    </a>
+                </li>
                 @endhasanyrole()
 
                 @hasanyrole('dosen')

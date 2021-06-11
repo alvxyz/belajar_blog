@@ -10,7 +10,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src={{ asset("images/tentangprodi/breadcrumbtentang.jpg") }} alt="Breadcrumbs Image">
+            <img src="{{ asset('images/breadcrumb/berita-breadcrumb.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h4 class="text-white">Hasil Pencarian</h4>
@@ -33,17 +33,6 @@
                     </div>
                 </form>
             </div>
-            {{-- <div class="row">
-                <div class="col-md-6 text-center mt-5 mb-5 pt-3">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search ......"
-                            aria-label="Recipient's username">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
             <div class="row">
                 @foreach ($posts as $post)
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-40">
@@ -62,7 +51,7 @@
                                     {{ $post->created_at->diffForHumans()}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-user-o"></i> Admin
+                                    <i class="fa fa-user-o"></i> {{$post->users->name }}
                                 </li>
                                 <li>
                                     <i class="fa fa-book"></i>

@@ -45,8 +45,10 @@
                                                                 <li><a href="{{ route('visidanmisi') }}">Visi dan
                                                                         Misi</a> </li>
                                                                 <li><a href="{{ route('dosen') }}">Dosen</a> </li>
-                                                                <li><a href="index4.html">E-Learning</a> </li>
-                                                                <li><a href="index5.html">Distance Learning</a> </li>
+                                                                <li><a href="{{ route('partner') }}">Kerja Sama</a>
+                                                                </li>
+                                                                <li><a href="{{ route('fasilitas') }}">Fasilitas</a>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                         <div class="single-megamenu">
@@ -90,7 +92,7 @@
                                         </li>
 
                                         <li class="menu-item">
-                                            <a href="#">Agenda</a>
+                                            <a href="{{ route('agenda') }}">Agenda</a>
                                         </li>
 
                                         <li class="menu-item">

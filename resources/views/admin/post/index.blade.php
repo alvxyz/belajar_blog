@@ -22,13 +22,13 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Aksi</th>
                         <th>Gambar</th>
                         <th>Title</th>
                         <th>Creator</th>
                         <th>Category</th>
                         <th>Tag</th>
                         <th>Content</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
 
@@ -38,6 +38,12 @@
                     <?php $no++ ?>
                     <tr>
                         <td>{{ $no }}</td>
+                        <td>
+                            <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="btn btn-sm btn-info"><i
+                                    class="mdi mdi-pencil"></i></a>
+                            <a href="{{ route('post.trash', ['id' => $post->id]) }}" class="btn btn-sm btn-danger"><i
+                                    class="mdi mdi-delete"></i></a>
+                        </td>
                         <td>
                             <img src="{{ asset($post->featured) }}" alt="{{ $post->title }}" width="80px">
                         </td>
@@ -52,12 +58,6 @@
                             @endforeach
                         </td>
                         <td>{{ substr($post->content, 0, 50) }}</td>
-                        <td>
-                            <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="btn btn-sm btn-info"><i
-                                    class="mdi mdi-pencil"></i> Edit</a>
-                            <a href="{{ route('post.trash', ['id' => $post->id]) }}" class="btn btn-sm btn-danger"><i
-                                    class="mdi mdi-delete"></i> Delete</a>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>

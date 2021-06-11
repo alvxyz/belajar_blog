@@ -123,14 +123,44 @@ border-radius: 5px;
 position: relative; 
 }
 
+.font-h6 {
+  font-size: 20px;
+  color: #273C66;
+  font-weight: 400;
+}
+
 .card-repository {
   border: 1.5px solid #ddd;
   color: #273C66;
-  padding: 15px 15px;
+  padding: 30px 40px;
   width: 100%;
   border-radius: 5px;
-  display: flex;
-  align-items: start;
+}
+
+.slider-alvian {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.btn-alvian {
+  padding: 16px 0px 16px 0px;
+  box-shadow: 0px 28px 50px 0px rgb(0 0 0 / 5%);
+  outline: none;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 3px;
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background: #273C66;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* width: 100%; */
+  text-transform: uppercase;
 }
 
 .card-repository .selected {
@@ -165,6 +195,22 @@ position: relative;
   color: #21a7d0 !important;
 }
 
+@media only screen and (max-width:600px){
+  .btn-download {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .rs-inner-blog .blog-item .blog-content .blog-desc img{
+    height: 100% !important;
+    width: 50px !important;
+    }
+    
+}
+
+
+/* Akhir CSS Sendiri */
 
 .home-style2 h1,
 .home-style2 h2,
@@ -237,7 +283,7 @@ ul {
   background: #111111;
 }
 .gray-bg {
-  background: #f3f8f9;
+  background: #EDF8FB;
 }
 .gray-bg3 {
   background: #e7f9fb;
@@ -638,6 +684,19 @@ blockquote p {
   background: #171F32;
   border-color: #171F32;
 }
+
+.readon.blue-btn {
+  color: #FFFFFF;
+  background: #21A7D0;
+  border-color: #21A7D0;
+  border-radius: 4px 4px 4px 4px;
+}
+.readon.blue-btn:hover {
+  color: #ffffff;
+  background: #171F32;
+  border-color: #171F32;
+}
+
 .readon.yellow-btn.transparent3:hover {
   color: #1c335f;
   background: #ffffff;
@@ -4265,20 +4324,21 @@ body .modal-backdrop {
   padding: 250px 0;
 }
 .rs-slider.style1 .slider-content .sl-sub-title {
-  font-size: 48px;
-  line-height: 58px;
+  font-size: 25px;
+  line-height: 10px;
   font-family: 'Nunito', sans-serif;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 .rs-slider.style1 .slider-content .sl-title {
-  font-size: 90px;
-  line-height: 100px;
-  margin-bottom: 39px;
+  font-size: 50px;
+  line-height: auto;
+  margin-bottom: 40px;
   margin-left: -5px;
 }
 .rs-slider.style1 .slider-content.slide1 {
   /* background: url(assets/images/slider/h2-1.jpg); */
   background-size: cover;
+  object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -4496,6 +4556,7 @@ body .modal-backdrop {
 }
 .rs-breadcrumbs .breadcrumbs-img img {
   width: 100%;
+  object-fit: cover;
 }
 .rs-breadcrumbs .breadcrumbs-text {
   position: absolute;
@@ -4967,7 +5028,7 @@ body .modal-backdrop {
   font-size: 18px;
   line-height: 28px;
   font-weight: 500;
-  color: #f4bf00;
+  color: #21a7d0;
   text-transform: uppercase;
 }
 .rs-about.style9 .content .sl-title {
@@ -5963,13 +6024,13 @@ body .modal-backdrop {
 .rs-popular-courses.style3 .courses-item .content-part .meta-part li {
   display: inline;
   margin-right: 10px;
-  font-weight: 700;
+  font-weight: 400;
 }
 .rs-popular-courses.style3 .courses-item .content-part .meta-part li:last-child {
   margin: 0;
 }
 .rs-popular-courses.style3 .courses-item .content-part .title a {
-  color: #111111;
+  color: #273C66;
 }
 .rs-popular-courses.style3 .courses-item .content-part .bottom-part {
   overflow: hidden;
@@ -8386,7 +8447,7 @@ body .modal-backdrop {
   top: -13px;
 }
 .rs-testimonial.style3 .testi-item {
-  background-color: #f3f8f9;
+  background-color: #EDF8FB;
   background-image: url(assets/images/testimonial/cloud-pattern.png);
   background-repeat: no-repeat;
   background-size: 130%;
@@ -9901,7 +9962,7 @@ body .modal-backdrop {
   line-height: 35px;
 }
 .rs-inner-blog .blog-item .blog-content .blog-title a {
-  color: #111111;
+  color: #273C66;
 }
 .rs-inner-blog .blog-item .blog-content .blog-title a:hover {
   color: #21a7d0;

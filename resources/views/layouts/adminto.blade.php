@@ -36,7 +36,6 @@
     <!-- App Css-->
     <link href="{{ asset('adminto/assets/css/app.min.css') }}" id="app-stylesheet" rel="stylesheet" type="text/css" />
 
-
     @FilemanagerScript
 
 </head>
@@ -209,6 +208,8 @@
 
     {{-- Select 2 JS --}}
     <script src="{{ asset('js/select2.min.js') }}"></script>
+
+
 
     @yield('js')
 

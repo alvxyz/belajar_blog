@@ -10,7 +10,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src={{ asset("images/tentangprodi/breadcrumbtentang.jpg") }} alt="Breadcrumbs Image">
+            <img src="{{ asset('images/breadcrumb/berkas-breadcrumb.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h1 class="text-white page-title">Repositori</h1>
@@ -42,11 +42,10 @@
                 @foreach ($repositories as $repository)
                 <div class="col-lg-12 mb-10">
                     <div class="card-repository">
-                        <div class="selected">
-                            <a href="{{ route('repositori.detail', ['id' => $repository->id]) }}">
-                                <h6><i class="fa fa-file-text" aria-hidden="true"></i> {{ $repository->title }}</h6>
-                            </a>
-                        </div>
+                        <a href="{{ route('repositori.detail', ['slug' => $repository->slug]) }}">
+                            <span class="font-h6"><i class="fa fa-file-text mr-40" aria-hidden="true"></i>
+                                {{ $repository->title }}</span>
+                        </a>
                     </div>
 
                 </div>

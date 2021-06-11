@@ -10,7 +10,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src={{ asset("images/tentangprodi/breadcrumbtentang.jpg") }} alt="Breadcrumbs Image">
+            <img src={{ asset('images/breadcrumb/tentangbreadcrumb.jpg') }} alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h1 class="page-title">Dosen</h1>
@@ -39,10 +39,10 @@
             </div>
 
             @foreach ($dosen as $data_dosen)
-            <div class="row mt-5">
+            <div class="row mt-100">
                 <div class="col-lg-6 col-md-12 md-mb-30 text-center">
                     <img src="{{ asset($data_dosen->profile['avatar'] == '' ? 'images/default/default_picture.png' : $data_dosen->profile['avatar']) }}"
-                        alt="Image Kosong" style="max-width:300px;  border-radius: 5px">
+                        alt="Image Kosong" style="max-width:235px;  border-radius: 5px">
                 </div>
                 <div class="col-lg-6 col-md-12 md-mb-30">
                     <div class="sec-title2">

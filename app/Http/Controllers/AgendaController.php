@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Agenda;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AgendaController extends Controller
 {
@@ -13,7 +17,8 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        //
+        $agenda = Agenda::all();
+        return view('admin.agenda.index', compact('agenda'));
     }
 
     /**
@@ -23,7 +28,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.agenda.create');
     }
 
     /**
@@ -34,7 +39,37 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'place' => 'required',
+            'date' => 'required',
+            'content' => 'required',
+            'image' => 'required'
+        ]);
+
+        $agenda = new Agenda();
+        $agenda->title = $request->title;
+        $agenda->slug = SlugService::createSlug(Agenda::class, 'slug', $request->title);
+        $agenda->place = $request->place;
+        $agenda->date = $request->date;
+        $agenda->content = $request->content;
+
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $image_name = time() . $image->getClientOriginalName();
+
+            $destinationPath = 'uploads/agenda';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1240, 699);
+            $image_resize->save($destinationPath . '/' . $image_name);
+            $destinationPath = 'uploads/agenda' . '/' . $image_name;
+        }
+
+        $agenda->image = $destinationPath;
+        $agenda->save();
+
+        toastr()->success('Agenda berhasil ditambahkan !');
+        return redirect()->route('agenda.admin');
     }
 
     /**
@@ -56,7 +91,8 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agenda = Agenda::find($id);
+        return view('admin.agenda.edit', compact('agenda'));
     }
 
     /**
@@ -68,7 +104,41 @@ class AgendaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'title' => 'required',
+            'place' => 'required',
+            'date' => 'required',
+            'content' => 'required',
+        ]);
+
+        $agenda = Agenda::find($id);
+
+        $agenda->title = $request->title;
+        $agenda->slug = SlugService::createSlug(Agenda::class, 'slug', $request->title);
+        $agenda->place = $request->place;
+        $agenda->date = $request->date;
+        $agenda->content = $request->content;
+
+        if ($request->hasFile('image')) {
+            if (file_exists($agenda->image)) {
+                unlink($agenda->image);
+            }
+            $image = $request->image;
+            $image_name = time() . $image->getClientOriginalName();
+
+            $destinationPath = 'uploads/agenda';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1240, 699);
+            $image_resize->save($destinationPath . '/' . $image_name);
+            $destinationPath = 'uploads/agenda' . '/' . $image_name;
+            $agenda->image = $destinationPath;
+        }
+
+        $agenda->save();
+
+        toastr()->success('Agenda berhasil diperbarui !');
+        return redirect()->route('agenda.admin');
     }
 
     /**
@@ -79,6 +149,10 @@ class AgendaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agenda = Agenda::find($id);
+        $agenda->delete();
+
+        toastr()->success('Agenda berhasil dihapus !');
+        return redirect()->route('agenda.admin');
     }
 }

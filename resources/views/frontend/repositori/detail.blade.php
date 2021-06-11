@@ -13,25 +13,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 mb-10">
-                    {{-- <div class="row mb-5">
-                        <embed src="{{ url($repositories->file) }}" type="">
-                </div> --}}
-                <div class="row">
-                    <div class="col-6">
-                        <h6>{{ $repositories->title }}</h6>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <h2>{{ $repositories->title }}</h2>
+                        </div>
+                        <div class="col-lg-6 col-md-12 btn-download text-right">
+                            <a type="button" href="{{ route('repositori.download', ['id' => $repositories->id]) }}"
+                                class="btn-alvian"><i class="fa fa-arrow-circle-down"></i>
+                                Download</a>
+                        </div>
                     </div>
-                    <div class="col-6 text-right">
-                        <a type="button" href="{{ route('repositori.download', ['id' => $repositories->id]) }}"
-                            class="btn btn-primary"><i class="fa fa-arrow-circle-down"></i>
-                            Download</a>
-                    </div>
-                </div>
 
+                    <div class="isi mt-3">
+                        <p>{{ $repositories->content }}</p>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Popular Courses Section End -->
+    <!-- Popular Courses Section End -->
 
 </div>
 

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Post;
 use App\Tag;
+use App\Post;
+use App\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostController extends Controller
 {
@@ -56,7 +57,7 @@ class PostController extends Controller
 
         $post = new Post();
         $post->title = $request->title;
-        $post->slug = Str::slug($request->title);
+        $post->slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         $post->category_id = $request->category_id;
         $post->content = $request->content;
         $post->users_id = Auth::id();
@@ -134,20 +135,9 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->title = $request->title;
+        $post->slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         $post->category_id = $request->category_id;
         $post->content = $request->content;
-
-        // if ($request->hasFile('featured')) {
-        //     if (file_exists($post->featured)) {
-        //         unlink($post->featured);
-        //     }
-
-        //     $image = $request->featured;
-        //     $image_name = time() . $image->getClientOriginalName();
-        //     $image->move('uploads/post/', $image_name);
-
-        //     $post->featured = 'uploads/post/' . $image_name;
-        // }
 
         if ($request->hasFile('featured')) {
             if (file_exists($post->featured)) {

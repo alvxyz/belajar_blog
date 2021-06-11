@@ -51,7 +51,7 @@
                                     {{ $post->created_at->diffForHumans()}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-user-o"></i> Admin
+                                    <i class="fa fa-user-o"></i> {{$post->users->name }}
                                 </li>
                                 <li>
                                     <i class="fa fa-book"></i>

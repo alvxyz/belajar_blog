@@ -16,6 +16,7 @@ class CreateAgendaTable extends Migration
         Schema::create('agenda', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->string('place');
             $table->date('date');
             $table->longText('content');

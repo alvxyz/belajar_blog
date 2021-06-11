@@ -28,6 +28,18 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <div class="col-md-10">
+                            <textarea name="content" class="form-control @error('content') is-invalid @enderror"
+                                rows="5" id="editor">{{ old('content') }}</textarea>
+                            @error('content')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="simpleinput">File</label>
                         <div class="col-md-10">
                             <input name="file" type="file" id="simpleinput"

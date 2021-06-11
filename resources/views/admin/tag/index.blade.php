@@ -22,8 +22,8 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Aksi</th>
                         <th>Tag</th>
-                        <th>Edit</th>
                     </tr>
                 </thead>
 
@@ -33,19 +33,19 @@
                     <?php $no++ ?>
                     <tr>
                         <td>{{ $no}}</td>
-                        <td>{{ $tag->tag }}</td>
                         <td>
                             <a href="{{ route('tag.edit', ['id' => $tag->id]) }}" class="btn btn-sm btn-info"><i
-                                    class="mdi mdi-pencil"></i> Edit</a>
+                                    class="mdi mdi-pencil"></i></a>
                             <a href="#" data-id="{{ $tag->id }}" class="btn btn-sm btn-danger swal-confirm">
                                 <form action="{{ route('tag.delete', ['id' => $tag->id]) }}" method="POST"
                                     id="delete{{ $tag->id }}">
                                     @csrf
                                     @method('delete')
                                 </form>
-                                <i class="mdi mdi-delete"></i> Delete
+                                <i class="mdi mdi-delete"></i>
                             </a>
                         </td>
+                        <td>{{ $tag->tag }}</td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -42,19 +42,30 @@
                                 <div class="faq-content">
                                     <div id="accordion" class="accordion">
                                         <div class="card">
-                                            @foreach ($lecturer as $data)
-                                            <div class="card-header">
+                                            @foreach ($publication as $data)
+                                            <div class="card-header mb-2">
                                                 <a class="card-link" data-toggle="collapse"
-                                                    href="#collapseOne">{{ $data->publication->link1}}</a>
+                                                    href="#collapseOne">{{ $data->title}}</a>
                                             </div>
                                             <div id="collapseOne" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <a type="button" class="readon-publikasi">Google
+                                                    @if($data->link1)
+                                                    <a href="{{ $data->link1 }}" type="button"
+                                                        class="readon-publikasi">Google
                                                         Scholar</a>
-                                                    <a type=" button" class="readon-publikasi">Google
-                                                        Scholar</a>
-                                                    <a type=" button" class="readon-publikasi">Google
-                                                        Scholar</a>
+                                                    @endif
+                                                    @if($data->link2)
+                                                    <a href="{{ $data->link2 }}" type="button"
+                                                        class="readon-publikasi">Scopus</a>
+                                                    @endif
+                                                    @if($data->link3)
+                                                    <a href="{{ $data->link3 }}" type="button"
+                                                        class="readon-publikasi">SINTA</a>
+                                                    @endif
+                                                    @if($data->link4)
+                                                    <a href="{{ $data->link4 }}" type="button"
+                                                        class="readon-publikasi">Lainnya</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                             @endforeach

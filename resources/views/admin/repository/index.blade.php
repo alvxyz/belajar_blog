@@ -24,6 +24,7 @@
                         <th>No.</th>
                         <th>Aksi</th>
                         <th>Nama File</th>
+                        <th>Keterangan</th>
                         <th>File</th>
                     </tr>
                 </thead>
@@ -47,6 +48,7 @@
                             </a>
                         </td>
                         <td>{{ $repository->title }}</td>
+                        <td>{{ $repository->content }}</td>
                         <td>{{ $repository->file }}</td>
                     </tr>
                     @endforeach

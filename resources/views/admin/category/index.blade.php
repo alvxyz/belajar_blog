@@ -22,8 +22,8 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Name</th>
                         <th>Aksi</th>
+                        <th>Name</th>
                     </tr>
                 </thead>
 
@@ -33,13 +33,13 @@
                     <?php $no++ ?>
                     <tr>
                         <td>{{ $no}}</td>
-                        <td>{{ $category->name }}</td>
                         <td>
                             <a href="{{ route('category.edit', ['id' => $category->id]) }}"
-                                class="btn btn-sm btn-info"><i class="mdi mdi-pencil"></i> Edit</a>
+                                class="btn btn-sm btn-info"><i class="mdi mdi-pencil"></i></a>
                             <a href="{{ route('category.delete', ['id' => $category->id]) }}"
-                                class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i> Delete</a>
+                                class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
                         </td>
+                        <td>{{ $category->name }}</td>
                     </tr>
                     @endforeach
                 </tbody>

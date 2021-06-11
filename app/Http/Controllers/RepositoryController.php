@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repository;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class RepositoryController extends Controller
 {
@@ -38,11 +39,14 @@ class RepositoryController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'content' => 'required',
             'file' => 'required'
         ]);
 
         $repository = new Repository();
         $repository->title = $request->title;
+        $repository->slug = SlugService::createSlug(Repository::class, 'slug', $request->title);
+        $repository->content = $request->content;
 
         if ($request->hasFile('file')) {
             $file = $request->file;
@@ -96,6 +100,8 @@ class RepositoryController extends Controller
         $repository = Repository::find($id);
 
         $repository->title = $request->title;
+        $repository->slug = SlugService::createSlug(Repository::class, 'slug', $request->title);
+        $repository->content = $request->content;
 
         if ($request->hasFile('file')) {
             if (file_exists($repository->file)) {

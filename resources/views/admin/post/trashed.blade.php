@@ -20,11 +20,11 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Aksi</th>
                         <th>Gambar</th>
                         <th>Title</th>
                         <th>Category</th>
                         <th>Content</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
 
@@ -35,17 +35,17 @@
                     <tr>
                         <td>{{ $no }}</td>
                         <td>
+                            <a href=" {{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-sm btn-info"><i
+                                    class="mdi mdi-recycle"></i></a>
+                            <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-sm btn-danger"><i
+                                    class="mdi mdi-delete"></i></a>
+                        </td>
+                        <td>
                             <img src="{{ asset($post->featured) }}" alt="{{ $post->title }}" width="50px">
                         </td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->category->name }}</td>
                         <td>{{ substr($post->content, 0, 100) }}</td>
-                        <td>
-                            <a href=" {{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-sm btn-info"><i
-                                    class="mdi mdi-recycle"></i> Restore</a>
-                            <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-sm btn-danger"><i
-                                    class="mdi mdi-delete"></i> Delete</a>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>

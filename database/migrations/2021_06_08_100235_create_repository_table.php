@@ -13,9 +13,11 @@ class CreateRepositoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('repository', function (Blueprint $table) {
+        Schema::create('repositories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
+            $table->longText('content');
             $table->longText('file');
             $table->timestamps();
         });

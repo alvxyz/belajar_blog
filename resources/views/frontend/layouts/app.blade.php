@@ -72,9 +72,9 @@
     <!-- modernizr js -->
     <script src={{ asset("educavo/assets/js/modernizr-2.8.3.min.js") }}></script>
     <!-- jquery latest version -->
-    <script src={{ asset("educavo/assets/js/jquery.min.js") }}> </script> <!-- Bootstrap v4.4.1 js -->
-    <script src={{ asset("educavo/assets/js/bootstrap.min.js") }}>
-    </script>
+    <script src={{ asset("educavo/assets/js/jquery.min.js") }}> </script>
+    <!-- Bootstrap v4.4.1 js -->
+    <script src={{ asset("educavo/assets/js/bootstrap.min.js") }}></script>
     <!-- Menu js -->
     <script src={{ asset("educavo/assets/js/rsmenu-main.js") }}></script>
     <!-- op nav js -->
@@ -98,12 +98,15 @@
     <script src={{ asset("educavo/assets/js/jquery.mb.YTPlayer.min.js") }}></script>
     <!-- magnific popup js -->
     <script src={{ asset("educavo/assets/js/jquery.magnific-popup.min.js") }}></script>
+    {{-- tilt JS --}}
+    <script src="{{ asset('educavo/assets/js/tilt.jquery.min.js') }}"></script>
     <!-- plugins js -->
     <script src={{ asset("educavo/assets/js/plugins.js") }}></script>
     <!-- contact form js -->
     <script src={{ asset("educavo/assets/js/contact.form.js") }}></script>
     <!-- main js -->
     <script src={{ asset("educavo/assets/js/main.js") }}></script>
+
 
 </body>
 

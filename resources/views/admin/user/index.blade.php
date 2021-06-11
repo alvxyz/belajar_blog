@@ -22,10 +22,10 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
                         <th>Aksi</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
 
@@ -35,8 +35,19 @@
                     <?php $no++ ?>
                     <tr>
                         <td>{{ $no }}</td>
+                        <td>
+                            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-sm btn-info"><i
+                                    class="mdi mdi-pencil"></i></a>
+                            <a href="#" data-id="{{ $user->id }}" class="btn btn-sm btn-danger swal-confirm">
+                                <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST"
+                                    id="delete{{ $user->id }}">
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                                <i class="mdi mdi-delete"></i>
+                            </a>
+                        </td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
                         <td>
                             @if(!empty($user->getRoleNames()))
                             @foreach($user->getRoleNames() as $v)
@@ -44,18 +55,7 @@
                             @endforeach
                             @endif
                         </td>
-                        <td>
-                            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-sm btn-info"><i
-                                    class="mdi mdi-pencil"></i> Edit</a>
-                            <a href="#" data-id="{{ $user->id }}" class="btn btn-sm btn-danger swal-confirm">
-                                <form action="{{ route('user.delete', ['id' => $user->id]) }}" method="POST"
-                                    id="delete{{ $user->id }}">
-                                    @csrf
-                                    @method('delete')
-                                </form>
-                                <i class="mdi mdi-delete"></i> Delete
-                            </a>
-                        </td>
+                        <td>{{ $user->email }}</td>
                     </tr>
                     @endforeach
                 </tbody>
