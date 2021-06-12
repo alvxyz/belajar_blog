@@ -2215,7 +2215,9 @@ ul.listing-style.modify li:before {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(39, 60, 102, 0.9) !important;
+  /* background: rgba(39, 60, 102, 0.9) !important; */
+  background-image: radial-gradient(circle at 80% 150%,#21A7D0,#273C66) !important;
+  /* background-image: radial-gradient(circle at 1% 1%,#21A7D0,#273C66) !important; */
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 .full-width-header .rs-header .menu-area.sticky .logo-area img {
@@ -2675,7 +2677,8 @@ ul.listing-style.modify li:before {
   color: #273c66;
 }
 .full-width-header.header-style2 .rs-header .menu-area.sticky {
-  background: #273c66 !important;
+  background-image: radial-gradient(circle at 1% 1%,#328bf2,#1644ad);
+  /* background: #273c66 !important; */
 }
 .full-width-header.header-style2 .rs-header .menu-area.sticky .logo-cat-wrap {
   display: flex;
@@ -8448,7 +8451,7 @@ body .modal-backdrop {
 }
 .rs-testimonial.style3 .testi-item {
   background-color: #EDF8FB;
-  background-image: url(assets/images/testimonial/cloud-pattern.png);
+  /* background-image: url(assets/images/testimonial/cloud-pattern.png); */
   background-repeat: no-repeat;
   background-size: 130%;
   background-position: 0 70px;

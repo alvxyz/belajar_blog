@@ -49,6 +49,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () 
     Route::post('/facility/update/{id}', 'FacilityController@update')->name('facility.update');
     Route::get('facility/edit/{id}', 'FacilityController@edit')->name('facility.edit');
     Route::delete('facility/delete/{id}', 'FacilityController@destroy')->name('facility.delete');
+
+    //Testimonial
+    Route::get('/testimonial_admin', 'TestimonialController@index')->name('testimonial.admin');
+    Route::get('/testimonial/create', 'TestimonialController@create')->name('testimonial.create');
+    Route::post('/testimonial/store', 'TestimonialController@store')->name('testimonial.store');
+    Route::post('/testimonial/update/{id}', 'TestimonialController@update')->name('testimonial.update');
+    Route::get('testimonial/edit/{id}', 'TestimonialController@edit')->name('testimonial.edit');
+    Route::delete('testimonial/delete/{id}', 'TestimonialController@destroy')->name('testimonial.delete');
+
+    //Category Creation
+    Route::get('/categorycreation_admin', 'CategoryCreationController@index')->name('categorycreation.admin');
+    Route::get('/categorycreation/create', 'CategoryCreationController@create')->name('categorycreation.create');
+    Route::post('/categorycreation/store', 'CategoryCreationController@store')->name('categorycreation.store');
+    Route::post('/categorycreation/update/{id}', 'CategoryCreationController@update')->name('categorycreation.update');
+    Route::get('categorycreation/edit/{id}', 'CategoryCreationController@edit')->name('categorycreation.edit');
+    Route::delete('categorycreation/delete/{id}', 'CategoryCreationController@destroy')->name('categorycreation.delete');
+
+    //Creation
+    Route::get('/creation_admin', 'CreationController@index')->name('creation.admin');
+    Route::get('/creation/create', 'CreationController@create')->name('creation.create');
+    Route::post('/creation/store', 'CreationController@store')->name('creation.store');
+    Route::post('/creation/update/{id}', 'CreationController@update')->name('creation.update');
+    Route::get('creation/edit/{id}', 'CreationController@edit')->name('creation.edit');
+    Route::delete('creation/delete/{id}', 'CreationController@destroy')->name('creation.delete');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], function () {

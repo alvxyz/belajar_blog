@@ -18,7 +18,7 @@
             data-md-device-dots="false">
             @foreach ($sliders as $slider)
             <div class="slider-content slide1 slider-alvian"
-                style="background: linear-gradient(358.57deg, rgba(39, 60, 102, 0.8) 3.32%, rgba(196, 196, 196, 0) 157.54%), url({{ asset($slider->image) }}); object-fit:cover !important">
+                style="background: radial-gradient(148.13% 2184.32% at 3.26% 11.5%, rgba(39, 60, 102, 0.83) 0%, rgba(33, 167, 208, 0.62) 88.07%), url({{ asset($slider->image) }}); object-fit:cover !important">
                 <div class="container">
                     <div class="sl-sub-title white-color wow bounceInLeft" data-wow-delay="300ms"
                         data-wow-duration="2000ms">{{ $slider->sub_title }}</div>
@@ -90,8 +90,8 @@
                     </div>
                     <div class="blog-content new-style">
                         <ul class="blog-meta">
-                            <li><i class="fa fa-user"></i> {{$post->users->name }}</li>
-                            <li><i class="fa fa-calendar"></i>
+                            <li><i class="fa fa-user mr-1"></i> {{$post->users->name }}</li>
+                            <li><i class="fa fa-calendar mr-1"></i>
                                 {{ $post->created_at->diffForHumans()}}</li>
                         </ul>
                         <h3 class="title"><a href="{{ route('berita.detail', ['slug' => $post->slug]) }}">{!!
@@ -153,7 +153,7 @@
                     <div class="event-wrap">
                         @foreach ($agendas as $agenda)
                         <div class="events-short mb-30 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="2000ms">
-                            <div class="date-part bgc1">
+                            <div class="date-part bgc3">
                                 <span class="month">{{ Carbon\Carbon::parse($agenda->date)->isoFormat('MMMM') }}</span>
                                 <div class="date">
                                     {{ Carbon\Carbon::parse($agenda->date)->isoFormat('Do') }}</div>
@@ -222,70 +222,22 @@
                             data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false"
                             data-ipad-device-dots2="false" data-md-device="2" data-md-device-nav="false"
                             data-md-device-dots="true">
+                            @foreach ($testimonials as $testimonial)
                             <div class="testi-item">
                                 <div class="row y-middle no-gutter">
                                     <div class="col-md-4">
                                         <div class="user-info">
-                                            <img src="{{ asset('images/beranda/astrid.png') }}" alt="">
-                                            <h4 class="name">Saiko Najran</h4>
-                                            <span class="designation">Student</span>
+                                            <img src="{{$testimonial->image}}" alt="" style="border-radius: 100%">
+                                            <h4 class="name">{{ $testimonial->name }}</h4>
+                                            <span class="designation">{{ $testimonial->position }}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="desc">The charms of pleasure of the moment so blinded by desire that
-                                            they cannot foresee the pain and trouble that are bound ensue and equal
-                                            blame belongs to those who fail in their duty.</div>
+                                        <div class="desc pl-20">{!! $testimonial->content !!}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="testi-item">
-                                <div class="row y-middle no-gutter">
-                                    <div class="col-md-4">
-                                        <div class="user-info">
-                                            <img src="{{ asset('images/beranda/astrid.png') }}" alt="">
-                                            <h4 class="name">Saiko Najran</h4>
-                                            <span class="designation">Student</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="desc">The charms of pleasure of the moment so blinded by desire that
-                                            they cannot foresee the pain and trouble that are bound ensue and equal
-                                            blame belongs to those who fail in their duty.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testi-item">
-                                <div class="row y-middle no-gutter">
-                                    <div class="col-md-4">
-                                        <div class="user-info">
-                                            <img src="{{ asset('images/beranda/astrid.png') }}" alt="">
-                                            <h4 class="name">Saiko Najran</h4>
-                                            <span class="designation">Student</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="desc">The charms of pleasure of the moment so blinded by desire that
-                                            they cannot foresee the pain and trouble that are bound ensue and equal
-                                            blame belongs to those who fail in their duty.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testi-item">
-                                <div class="row y-middle no-gutter">
-                                    <div class="col-md-4">
-                                        <div class="user-info">
-                                            <img src="{{ asset('images/beranda/astrid.png') }}" alt="">
-                                            <h4 class="name">Saiko Najran</h4>
-                                            <span class="designation">Student</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="desc">The charms of pleasure of the moment so blinded by desire that
-                                            they cannot foresee the pain and trouble that are bound ensue and equal
-                                            blame belongs to those who fail in their duty.</div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -308,88 +260,34 @@
                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="3"
                 data-md-device-nav="false" data-md-device-dots="false">
+                @foreach ($creations as $creation)
                 <div class="blog-item">
                     <div class="image-part">
-                        <img src={{ asset("educavo/assets/images/blog/style2/1.jpg") }} alt="">
+                        <a href="{{ route('karya.detail', ['slug' => $creation->slug]) }}"><img
+                                src="{{ asset($creation->image) }}" alt="{{ $creation->title }}"
+                                style="max-height: 250px; object-fit:cover; !important" class="img-fluid"></a>
                     </div>
                     <div class="blog-content new-style">
                         <ul class="blog-meta">
-                            <li><i class="fa fa-user-o"></i> Admin</li>
-                            <li><i class="fa fa-calendar"></i>June 15, 2019</li>
+                            <li><i class="fa fa-user mr-2"></i> {{$creation->creator }}</li>
                         </ul>
-                        <h3 class="title"><a href="blog-single.html">University While The Lovely Valley Team
-                                Work</a></h3>
-                        <div class="desc">the acquisition of knowledge, skills, values befs, and habits. Educational
-                            methods include teach ing, training, storytelling</div>
+                        <h3 class="title"><a href="{{ route('karya.detail', ['slug' => $creation->slug]) }}">{!!
+                                $creation->title !!}</a></h3>
+                        <div class="desc"> {!! substr($creation->content, 0, 200) !!}</div>
                         <ul class="blog-bottom">
-                            <li class="cmnt-part"><a href="#">(12) Comments</a></li>
-                            <li class="btn-part"><a class="readon-arrow" href="#">Read More</a></li>
+                            <li><i class="fa fa-book mr-2"></i> {{$creation->category_creation->name }}</li>
+                            <li class="btn-part"><a class="readon-arrow"
+                                    href="{{ route('karya.detail', ['slug' => $creation->slug]) }}"></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="blog-item">
-                    <div class="image-part">
-                        <img src={{ asset("educavo/assets/images/blog/style2/1.jpg") }} alt="">
-                    </div>
-                    <div class="blog-content new-style">
-                        <ul class="blog-meta">
-                            <li><i class="fa fa-user-o"></i> Admin</li>
-                            <li><i class="fa fa-calendar"></i>June 15, 2019</li>
-                        </ul>
-                        <h3 class="title"><a href="blog-single.html">University While The Lovely Valley Team
-                                Work</a></h3>
-                        <div class="desc">the acquisition of knowledge, skills, values befs, and habits. Educational
-                            methods include teach ing, training, storytelling</div>
-                        <ul class="blog-bottom">
-                            <li class="cmnt-part"><a href="#">(12) Comments</a></li>
-                            <li class="btn-part"><a class="readon-arrow" href="#">Read More</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-item">
-                    <div class="image-part">
-                        <img src={{ asset("educavo/assets/images/blog/style2/1.jpg") }} alt="">
-                    </div>
-                    <div class="blog-content new-style">
-                        <ul class="blog-meta">
-                            <li><i class="fa fa-user-o"></i> Admin</li>
-                            <li><i class="fa fa-calendar"></i>June 15, 2019</li>
-                        </ul>
-                        <h3 class="title"><a href="blog-single.html">University While The Lovely Valley Team
-                                Work</a></h3>
-                        <div class="desc">the acquisition of knowledge, skills, values befs, and habits. Educational
-                            methods include teach ing, training, storytelling</div>
-                        <ul class="blog-bottom">
-                            <li class="cmnt-part"><a href="#">(12) Comments</a></li>
-                            <li class="btn-part"><a class="readon-arrow" href="#">Read More</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-item">
-                    <div class="image-part">
-                        <img src={{ asset("educavo/assets/images/blog/style2/1.jpg") }} alt="">
-                    </div>
-                    <div class="blog-content new-style">
-                        <ul class="blog-meta">
-                            <li><i class="fa fa-user-o"></i> Admin</li>
-                            <li><i class="fa fa-calendar"></i>June 15, 2019</li>
-                        </ul>
-                        <h3 class="title"><a href="blog-single.html">University While The Lovely Valley Team
-                                Work</a></h3>
-                        <div class="desc">the acquisition of knowledge, skills, values befs, and habits. Educational
-                            methods include teach ing, training, storytelling</div>
-                        <ul class="blog-bottom">
-                            <li class="cmnt-part"><a href="#">(12) Comments</a></li>
-                            <li class="btn-part"><a class="readon-arrow" href="#">Read More</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
+                @endforeach
             </div>
         </div>
     </div>
     {{-- Akhir Karya Terbaik --}}
+
 
 </div>
 

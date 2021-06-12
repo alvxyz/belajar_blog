@@ -1,5 +1,6 @@
 <!-- Footer Start -->
-<footer id="rs-footer" class="rs-footer">
+<footer id="rs-footer" class="rs-footer"
+    style="background-image: radial-gradient(circle at 80% 100%,#21A7D0,#273C66) !important">
     <div class="footer-top">
         <div class="container">
             <div class="row">

@@ -21,6 +21,10 @@ Route::get('/partner/detail/{slug}', 'FrontEndController@detailpartner')->name('
 Route::get('/fasilitas', 'FrontEndController@fasilitas')->name('fasilitas');
 Route::get('/fasilitas/detail/{slug}', 'FrontEndController@detailfasilitas')->name('fasilitas.detail');
 
+// Route Karya Terbaik
+Route::get('/karya', 'FrontEndController@karya')->name('karya');
+Route::get('/karya/detail/{slug}', 'FrontEndController@detailkarya')->name('karya.detail');
+
 // Route untuk Menu Profil
 Route::get('/tentangprodi', 'FrontEndController@tentangprogramstudi')->name('tentang');
 Route::get('/visidanmisi', 'FrontEndController@visidanmisi')->name('visidanmisi');

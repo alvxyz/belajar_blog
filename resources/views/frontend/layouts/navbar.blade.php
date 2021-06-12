@@ -77,7 +77,7 @@
                                             <a href="#">Mahasiswa <i class="fa fa-caret-down"
                                                     aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="course.html">Courses One</a> </li>
+                                                <li><a href="course.html">Karya Terbaik</a> </li>
                                                 <li><a href="course2.html">Courses Two</a> </li>
                                                 <li><a href="course3.html">Courses Three</a> </li>
                                                 <li><a href="course4.html">Courses Four</a>

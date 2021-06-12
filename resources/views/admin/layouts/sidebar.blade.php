@@ -85,10 +85,30 @@
                 @endhasanyrole()
 
                 @hasanyrole('admin')
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-post"></i>
+                        <span> Karya Terbaik </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{ route('categorycreation.admin') }}">Kategori Karya</a></li>
+                        <li><a href="{{ route('creation.admin') }}">List Karya</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="{{ route('partner.admin') }}">
                         <i class="mdi mdi-handshake"></i>
                         <span> Kerja Sama </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('testimonial.admin') }}">
+                        <i class="mdi mdi-message-processing"></i>
+                        <span> Testimoni </span>
                     </a>
                 </li>
 

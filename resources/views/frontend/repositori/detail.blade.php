@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="isi mt-3">
-                        <p>{{ $repositories->content }}</p>
+                        <p>{!! $repositories->content !!}</p>
                     </div>
 
                 </div>

@@ -10,7 +10,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src="{{ asset('images/breadcrumb/berita-breadcrumb.jpg') }}" alt="Breadcrumbs Image">
+            <img src="{{ asset('images/breadcrumb/berita2.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h1 class="page-title">Berita</h1>

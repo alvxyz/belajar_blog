@@ -50,20 +50,20 @@
                                             <div id="collapseOne" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     @if($data->link1)
-                                                    <a href="{{ $data->link1 }}" type="button"
+                                                    <a href="{{ $data->link1 }}" type="button" target="blank"
                                                         class="readon-publikasi">Google
                                                         Scholar</a>
                                                     @endif
                                                     @if($data->link2)
-                                                    <a href="{{ $data->link2 }}" type="button"
+                                                    <a href="{{ $data->link2 }}" type="button" target="blank"
                                                         class="readon-publikasi">Scopus</a>
                                                     @endif
                                                     @if($data->link3)
-                                                    <a href="{{ $data->link3 }}" type="button"
+                                                    <a href="{{ $data->link3 }}" type="button" target="blank"
                                                         class="readon-publikasi">SINTA</a>
                                                     @endif
                                                     @if($data->link4)
-                                                    <a href="{{ $data->link4 }}" type="button"
+                                                    <a href="{{ $data->link4 }}" type="button" target="blank"
                                                         class="readon-publikasi">Lainnya</a>
                                                     @endif
                                                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agenda;
 use App\Category;
+use App\Creation;
 use App\Facility;
 use App\Lecturer;
 use App\Partner;
@@ -12,6 +13,7 @@ use App\Profile;
 use App\Publication;
 use App\Repository;
 use App\Slider;
+use App\Testimonial;
 use App\User;
 use Carbon\Carbon;
 use Facade\FlareClient\Http\Response;
@@ -39,7 +41,9 @@ class FrontEndController extends Controller
         $partners = Partner::all();
         $posts = Post::all();
         $agendas = Agenda::orderBy('date', 'asc')->take(3)->get();
-        return view('frontend.beranda.beranda', compact('sliders', 'posts', 'agendas', 'partners'));
+        $testimonials = Testimonial::all();
+        $creations = Creation::all();
+        return view('frontend.beranda.beranda', compact('sliders', 'posts', 'agendas', 'partners', 'testimonials', 'creations'));
     }
 
     public function detailslider($slug)
@@ -59,6 +63,19 @@ class FrontEndController extends Controller
     {
         $partner = Partner::where('slug', $slug)->firstOrFail();
         return view('frontend.partner.detail', compact('partner'));
+    }
+
+    public function karya()
+    {
+        $creations = Creation::latest()->paginate(6);
+        return view('frontend.partner.index', compact('creations'));
+    }
+
+    public function detailkarya($slug)
+    {
+        //mencoba mengunjungi halaman beranda
+        $creation = Creation::where('slug', $slug)->firstOrFail();
+        return view('frontend.karya.detail', compact('creation'));
     }
 
 
