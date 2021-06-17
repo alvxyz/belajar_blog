@@ -25,8 +25,8 @@
                         <th>Aksi</th>
                         <th>Gambar</th>
                         <th>Nama Agenda</th>
-                        <th>Tempat</th>
                         <th>Tanggal</th>
+                        <th>Tempat</th>
                         <th>Content</th>
                     </tr>
                 </thead>
@@ -51,8 +51,8 @@
                         </td>
                         <td><img src="{{ asset($agenda->image) }}" alt="{{ $agenda->title }}" width="80px"></td>
                         <td>{{$agenda->title }}</td>
+                        <td>{{ Carbon\Carbon::parse($agenda->date)->isoFormat('Do MMMM YYYY') }}</td>
                         <td>{{$agenda->place }}</td>
-                        <td>{{$agenda->date }}</td>
                         <td>{{$agenda->content }}</td>
                     </tr>
                     @endforeach

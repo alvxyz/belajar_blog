@@ -27,7 +27,9 @@
                         <th>Judul</th>
                         <th>Kategori Karya</th>
                         <th>Posisi</th>
+                        <th>Foto Pembuat</th>
                         <th>Content</th>
+                        <th>Thumbnail Video</th>
                         <th>Link Video</th>
                     </tr>
                 </thead>
@@ -54,7 +56,11 @@
                         <td>{{$creation->title }}</td>
                         <td>{{$creation->category_creation->name }}</td>
                         <td>{{$creation->position }}</td>
+                        <td><img src="{{ asset($creation->creator_image) }}" alt="{{ $creation->title }}" width="80px">
+                        </td>
                         <td>{{$creation->content }}</td>
+                        <td><img src="{{ asset($creation->thumbnail) }}" alt="{{ $creation->title }}" width="80px">
+                        </td>
                         <td>{{$creation->video }}</td>
                     </tr>
                     @endforeach

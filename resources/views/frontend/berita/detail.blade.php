@@ -36,7 +36,7 @@
                             </li>
                         </ul>
                         <div class="blog-desc">
-                            <h4> {{ $post->title }} </h4>
+                            <h3> {{ $post->title }} </h3>
                             {!! $post->content !!}
                         </div>
 

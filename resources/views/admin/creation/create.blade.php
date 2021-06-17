@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
+                        <label class="col-md-2 col-form-label" for="simpleinput">Gambar Karya</label>
                         <div class="col-md-10">
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
                             <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Rasio 16:9</small>
@@ -95,10 +95,39 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="simpleinput">Foto Kreator</label>
+                        <div class="col-md-10">
+                            <input name="creator_image" type="file"
+                                class="form-control @error('creator_image') is-invalid @enderror">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Rasio 1:1</small>
+                            @error('creator_image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="simpleinput">Thumbnail Video</label>
+                        <div class="col-md-10">
+                            <input name="thumbnail" type="file"
+                                class="form-control @error('thumbnail') is-invalid @enderror">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Rasio 16:1</small>
+                            @error('thumbnail')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="example-textarea">Link Video</label>
                         <div class="col-md-10">
                             <input name="video" type="url"
                                 class="form-control @error('video') is-invalid @enderror">{{ old('video') }}
+                            <small id="emailHelp" class="form-text text-muted">Salin Link YouTube ke kolom ini</small>
                             @error('video')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -28,7 +28,7 @@
     <div id="rs-about" class="rs-about style3 pt-100 pb-100 md-pt-70">
         <div class="container">
 
-            <div class="row align-self-center">
+            {{-- <div class="row align-self-center">
                 <div class="col">
                     <p class="text-center">Demi mendukung kegiatan akademik yang berkualitas, Program Studi Teknik
                         Informatika Politeknik Negeri
@@ -36,7 +36,7 @@
                         Studi
                         Teknik Informatika Politeknik Negeri Pontianak :</p>
                 </div>
-            </div>
+            </div> --}}
 
             @foreach ($partners as $partner)
             <div class="row mt-100">

@@ -65,7 +65,8 @@
                 <div class="col-lg-8 md-mb-20">
                     <div class="copyright md-text-left">
                         <p>&copy; 2009-2021 Teknik Informatika POLNEP | Dibangun oleh Ahmad R dan dikembangkan oleh<a
-                                href="https://www.instagram.com/_alvian.design/"> Alvian Putra</a></p>
+                                style="color: white !important" href="https://www.instagram.com/_alvian.design/"> Alvian
+                                Putra</a></p>
                     </div>
                 </div>
                 <div class="col-lg-4 text-right md-text-left">

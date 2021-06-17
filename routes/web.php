@@ -58,6 +58,74 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () 
     Route::get('testimonial/edit/{id}', 'TestimonialController@edit')->name('testimonial.edit');
     Route::delete('testimonial/delete/{id}', 'TestimonialController@destroy')->name('testimonial.delete');
 
+
+    //Visi dan Misi
+    Route::get('/visionandmissions', 'VisionAndMissionController@index')->name('visionandmissions');
+    Route::get('/visionandmission/create', 'VisionAndMissionController@create')->name('visionandmission.create');
+    Route::post('/visionandmission/store', 'VisionAndMissionController@store')->name('visionandmission.store');
+    Route::post('/visionandmission/update/{id}', 'VisionAndMissionController@update')->name('visionandmission.update');
+    Route::get('visionandmission/edit/{id}', 'VisionAndMissionController@edit')->name('visionandmission.edit');
+    Route::delete('visionandmission/delete/{id}', 'VisionAndMissionController@destroy')->name('visionandmission.delete');
+
+    //Accreditation
+    Route::get('/accreditations', 'AccreditationController@index')->name('accreditations');
+    Route::get('/accreditation/create', 'AccreditationController@create')->name('accreditation.create');
+    Route::post('/accreditation/store', 'AccreditationController@store')->name('accreditation.store');
+    Route::post('/accreditation/update/{id}', 'AccreditationController@update')->name('accreditation.update');
+    Route::get('accreditation/edit/{id}', 'AccreditationController@edit')->name('accreditation.edit');
+    Route::delete('accreditation/delete/{id}', 'AccreditationController@destroy')->name('accreditation.delete');
+
+    //about
+    Route::get('/abouts', 'AboutController@index')->name('abouts');
+    Route::get('/about/create', 'AboutController@create')->name('about.create');
+    Route::post('/about/store', 'AboutController@store')->name('about.store');
+    Route::post('/about/update/{id}', 'AboutController@update')->name('about.update');
+    Route::get('about/edit/{id}', 'AboutController@edit')->name('about.edit');
+    Route::delete('about/delete/{id}', 'AboutController@destroy')->name('about.delete');
+
+    //Structure
+    Route::get('/structures', 'structureController@index')->name('structures');
+    Route::get('/structure/create', 'structureController@create')->name('structure.create');
+    Route::post('/structure/store', 'structureController@store')->name('structure.store');
+    Route::post('/structure/update/{id}', 'structureController@update')->name('structure.update');
+    Route::get('structure/edit/{id}', 'structureController@edit')->name('structure.edit');
+    Route::delete('structure/delete/{id}', 'structureController@destroy')->name('structure.delete');
+
+    //Calendar
+    Route::get('/calendars', 'CalendarController@index')->name('calendars');
+    Route::get('/calendar/create', 'CalendarController@create')->name('calendar.create');
+    Route::post('/calendar/store', 'CalendarController@store')->name('calendar.store');
+    Route::post('/calendar/update/{id}', 'CalendarController@update')->name('calendar.update');
+    Route::get('calendar/edit/{id}', 'CalendarController@edit')->name('calendar.edit');
+    Route::delete('calendar/delete/{id}', 'CalendarController@destroy')->name('calendar.delete');
+
+    //Achievement
+    Route::get('/achievements', 'AchievementController@index')->name('achievements');
+    Route::get('/achievement/create', 'AchievementController@create')->name('achievement.create');
+    Route::post('/achievement/store', 'AchievementController@store')->name('achievement.store');
+    Route::post('/achievement/update/{id}', 'AchievementController@update')->name('achievement.update');
+    Route::get('achievement/edit/{id}', 'AchievementController@edit')->name('achievement.edit');
+    Route::delete('achievement/delete/{id}', 'AchievementController@destroy')->name('achievement.delete');
+
+    //Graduate Profile
+    Route::get('/graduateprofiles', 'GraduateProfileController@index')->name('graduateprofiles');
+    Route::get('/graduateprofile/create', 'GraduateProfileController@create')->name('graduateprofile.create');
+    Route::post('/graduateprofile/store', 'GraduateProfileController@store')->name('graduateprofile.store');
+    Route::post('/graduateprofile/update/{id}', 'GraduateProfileController@update')->name('graduateprofile.update');
+    Route::get('graduateprofile/edit/{id}', 'GraduateProfileController@edit')->name('graduateprofile.edit');
+    Route::delete('graduateprofile/delete/{id}', 'GraduateProfileController@destroy')->name('graduateprofile.delete');
+
+    //Competence of Graduation
+    Route::get('/competences', 'CompetenceController@index')->name('competences');
+    Route::get('/competence/create', 'CompetenceController@create')->name('competence.create');
+    Route::post('/competence/store', 'CompetenceController@store')->name('competence.store');
+    Route::post('/competence/update/{id}', 'CompetenceController@update')->name('competence.update');
+    Route::get('competence/edit/{id}', 'CompetenceController@edit')->name('competence.edit');
+    Route::delete('competence/delete/{id}', 'CompetenceController@destroy')->name('competence.delete');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], function () {
+
     //Category Creation
     Route::get('/categorycreation_admin', 'CategoryCreationController@index')->name('categorycreation.admin');
     Route::get('/categorycreation/create', 'CategoryCreationController@create')->name('categorycreation.create');
@@ -73,9 +141,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () 
     Route::post('/creation/update/{id}', 'CreationController@update')->name('creation.update');
     Route::get('creation/edit/{id}', 'CreationController@edit')->name('creation.edit');
     Route::delete('creation/delete/{id}', 'CreationController@destroy')->name('creation.delete');
-});
-
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], function () {
 
     // Category
     Route::get('/categories', 'CategoryController@index')->name('categories');

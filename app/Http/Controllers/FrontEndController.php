@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
+use App\Accreditation;
+use App\Achievement;
 use App\Agenda;
+use App\Calendar;
 use App\Category;
+use App\CategoryCreation;
+use App\Competence;
 use App\Creation;
 use App\Facility;
+use App\GraduateProfile;
 use App\Lecturer;
 use App\Partner;
 use App\Post;
@@ -13,8 +20,11 @@ use App\Profile;
 use App\Publication;
 use App\Repository;
 use App\Slider;
+use App\Structure;
 use App\Testimonial;
 use App\User;
+use App\VisionAndMission;
+use App\Visitor;
 use Carbon\Carbon;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
@@ -39,11 +49,30 @@ class FrontEndController extends Controller
         //mencoba mengunjungi halaman beranda
         $sliders = Slider::all();
         $partners = Partner::all();
+        $partner = Partner::latest()->take(4)->get();
         $posts = Post::all();
-        $agendas = Agenda::orderBy('date', 'asc')->take(3)->get();
+        // $agendas = Agenda::orderBy('date', 'asc')->take(3)->get();
+        $agendas = Agenda::where('date', '>=', Carbon::today())->orderBy('date', 'asc')->take(3)->get();
         $testimonials = Testimonial::all();
         $creations = Creation::all();
-        return view('frontend.beranda.beranda', compact('sliders', 'posts', 'agendas', 'partners', 'testimonials', 'creations'));
+        $about1 = About::take(1)->latest()->get();
+
+        $now = Carbon::now();
+
+        $days = Visitor::whereDate('created_at', Carbon::today())->get();
+
+        $months = Visitor::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get(['date', 'created_at']);
+
+        $years = Visitor::whereYear('created_at', date('Y'))
+            ->get(['date', 'created_at']);
+
+        $total = Visitor::all();
+
+        // dd($years);
+
+        return view('frontend.beranda.beranda', compact('sliders', 'posts', 'agendas', 'partners', 'testimonials', 'creations', 'days', 'months', 'years', 'total', 'about1', 'partner'));
     }
 
     public function detailslider($slug)
@@ -67,8 +96,9 @@ class FrontEndController extends Controller
 
     public function karya()
     {
+        $categorycreations = CategoryCreation::all();
         $creations = Creation::latest()->paginate(6);
-        return view('frontend.partner.index', compact('creations'));
+        return view('frontend.karya.index', compact('creations', 'categorycreations'));
     }
 
     public function detailkarya($slug)
@@ -95,13 +125,65 @@ class FrontEndController extends Controller
     public function tentangprogramstudi()
     {
         // mengarahkan view ke halaman tentang
-        return view('frontend.profil.tetangprogramstudi');
+        $about1 = About::take(1)->latest()->get();
+        // $about2 = VisionAndMission::all();
+        return view('frontend.profil.tetangprogramstudi', compact('about1'));
+    }
+
+    public function struktur()
+    {
+        // mengarahkan view ke halaman 
+        $structure1 = Structure::take(1)->latest()->get();
+        $structure2 = Structure::all();
+        return view('frontend.profil.strukturorganisasi', compact('structure1', 'structure2'));
+    }
+
+    public function kalender()
+    {
+        // mengarahkan view ke halaman 
+        $calendar1 = Calendar::take(1)->latest()->get();
+        $calendar2 = Calendar::all();
+        return view('frontend.kalender.index', compact('calendar1', 'calendar2'));
+    }
+
+    public function capaianpembelajaran()
+    {
+        // mengarahkan view ke halaman 
+        $achievement1 = Achievement::take(1)->latest()->get();
+        $achievement2 = Achievement::all();
+        return view('frontend.capaian.index', compact('achievement1', 'achievement2'));
+    }
+
+    public function profillulusan()
+    {
+        // mengarahkan view ke halaman 
+        $graduateprofile1 = GraduateProfile::take(1)->latest()->get();
+        $graduateprofile2 = GraduateProfile::all();
+        return view('frontend.profillulusan.index', compact('graduateprofile1', 'graduateprofile2'));
+    }
+
+    public function kompetensi()
+    {
+        // mengarahkan view ke halaman 
+        $competence1 = Competence::take(1)->latest()->get();
+        $competence2 = Competence::all();
+        return view('frontend.kompetensi.index', compact('competence1', 'competence2'));
     }
 
     public function visidanmisi()
     {
         // mengarahkan view ke halaman visi dan misi
-        return view('frontend.profil.visidanmisi');
+        $visionandmissions = VisionAndMission::take(1)->latest()->get();
+        $visionandmission2 = VisionAndMission::all();
+        return view('frontend.profil.visidanmisi', compact('visionandmissions', 'visionandmission2'));
+    }
+
+    public function akreditasi()
+    {
+        // mengarahkan view ke halaman Akreditasi
+        $accreditation1 = Accreditation::take(1)->latest()->get();
+        $accreditation2 = Accreditation::all();
+        return view('frontend.profil.akreditasi', compact('accreditation1', 'accreditation2'));
     }
 
     public function berita()
@@ -194,6 +276,14 @@ class FrontEndController extends Controller
     public function downloadFile($id)
     {
         $file_name = Repository::find($id);
+        // return Storage::download(public_path('uploads/file/' . $file));
+        $file = public_path($file_name->file);
+        return response()->download($file);
+    }
+
+    public function downloadFileKalender($id)
+    {
+        $file_name = Calendar::find($id);
         // return Storage::download(public_path('uploads/file/' . $file));
         $file = public_path($file_name->file);
         return response()->download($file);

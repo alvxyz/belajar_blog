@@ -82,10 +82,6 @@
                     </a>
                 </li>
 
-                @endhasanyrole()
-
-                @hasanyrole('admin')
-
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-post"></i>
@@ -96,6 +92,24 @@
                         <li><a href="{{ route('categorycreation.admin') }}">Kategori Karya</a></li>
                         <li><a href="{{ route('creation.admin') }}">List Karya</a></li>
                     </ul>
+                </li>
+
+                @endhasanyrole()
+
+                @hasanyrole('admin')
+
+                <li>
+                    <a href="{{ route('users') }}">
+                        <i class="mdi mdi-account"></i>
+                        <span> Manajemen User </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('abouts') }}">
+                        <i class="mdi mdi-library"></i>
+                        <span> Tentang Prodi </span>
+                    </a>
                 </li>
 
                 <li>
@@ -113,6 +127,27 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('visionandmissions') }}">
+                        <i class="mdi mdi-text-box"></i>
+                        <span> Visi dan Misi </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('accreditations') }}">
+                        <i class="mdi mdi-star-circle"></i>
+                        <span> Akreditasi </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('structures') }}">
+                        <i class="mdi mdi-chemical-weapon"></i>
+                        <span> Struktur Organisasi </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="{{ route('facility.admin') }}">
                         <i class="mdi mdi-laptop-chromebook"></i>
                         <span> Fasilitas </span>
@@ -120,11 +155,34 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('users') }}">
-                        <i class="mdi mdi-account"></i>
-                        <span> Manajemen User </span>
+                    <a href="{{ route('graduateprofiles') }}">
+                        <i class="mdi mdi-file-certificate"></i>
+                        <span> Profil Lulusan </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('achievements') }}">
+                        <i class="mdi mdi-vector-point"></i>
+                        <span> Capaian Pembelajaran </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('competences') }}">
+                        <i class="mdi mdi-check-decagram"></i>
+                        <span> Kompetensi Lulusan </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('calendars') }}">
+                        <i class="mdi mdi-calendar-month"></i>
+                        <span> Kalender Akademik </span>
+                    </a>
+                </li>
+
+
                 @endhasanyrole()
 
                 @hasanyrole('dosen')

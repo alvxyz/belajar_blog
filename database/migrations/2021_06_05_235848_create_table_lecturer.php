@@ -16,7 +16,7 @@ class CreateTableLecturer extends Migration
         Schema::create('lecturers', function (Blueprint $table) {
             $table->id();
             $table->string('biography')->nullable();
-            $table->string('education')->nullable();
+            $table->string('education')->nullbable();
             $table->longText('research')->nullable();
             $table->longText('expertise')->nullable();
             $table->foreignId('users_id');

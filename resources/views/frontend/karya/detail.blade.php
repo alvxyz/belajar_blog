@@ -30,13 +30,41 @@
                             </li>
                         </ul>
                         <div class="blog-desc">
-                            <h3> {{ $creation->title }} </h3>
+                            <h2> {{ $creation->title }} </h2>
                             <p>
                                 {!! $creation->content !!}
                             </p>
                         </div>
+                        <div class="video text-center mt-60">
+                            <div class="intro-video media-icon orange-color2">
+                                <img class="video-img" src="{{ asset($creation->thumbnail) }}" alt="Video Image"
+                                    style="max-width: 80% !important">
+                                <a class="popup-videos" href="{{ $creation->video }}">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="dibuat-oleh mt-100 mb-50">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-6 col-sm-12">
+                                    <img src="{{ asset($creation->creator_image) }}" alt=""
+                                        style="border-radius: 100%; max-width:150px">
+                                </div>
+                                <div class="col-lg-10 col-md-6 col-sm-12 pt-20">
+                                    <p style="margin: 0 0 5px;
+                                    line-height: 1.8; !important">Dibuat Oleh</p>
+                                    <h4 style="margin: 0 0 5px;
+                                    line-height: 1.8; !important">{{ $creation->creator }}</h4>
+                                    <p>{{ $creation->position }}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
+
                 <div id="disqus_thread" class="pt-70"></div>
                 <script>
                     /**

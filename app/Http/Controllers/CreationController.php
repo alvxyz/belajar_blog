@@ -48,6 +48,8 @@ class CreationController extends Controller
             'content' => 'required',
             'image' => 'required',
             'video' => 'required',
+            'thumbnail' => 'required',
+            'creator_image' => 'required',
             'category_creation_id' => 'required'
         ]);
 
@@ -76,6 +78,39 @@ class CreationController extends Controller
         }
 
         $creation->image = $destinationPath;
+
+        if ($request->hasFile('creator_image')) {
+            $image = $request->creator_image;
+            $image_real_name = $image->getClientOriginalName();
+            $image_name = time() . str_replace(' ', '',  $image_real_name);
+            $image_name = str_replace('(', '',  $image_name);
+            $image_name = str_replace(')', '',  $image_name);
+
+            $destinationPath2 = 'uploads/creation';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(400, 400);
+            $image_resize->save($destinationPath2 . '/' . $image_name);
+            $destinationPath2 = 'uploads/creation' . '/' . $image_name;
+        }
+
+        $creation->creator_image = $destinationPath2;
+
+        if ($request->hasFile('thumbnail')) {
+            $image = $request->thumbnail;
+            $image_real_name = $image->getClientOriginalName();
+            $image_name = time() . str_replace(' ', '',  $image_real_name);
+            $image_name = str_replace('(', '',  $image_name);
+            $image_name = str_replace(')', '',  $image_name);
+
+            $destinationPath3 = 'uploads/creation';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1240, 699);
+            $image_resize->save($destinationPath3 . '/' . $image_name);
+            $destinationPath3 = 'uploads/creation' . '/' . $image_name;
+        }
+
+        $creation->thumbnail = $destinationPath3;
+
         $creation->video = $request->video;
         $creation->category_creation_id = $request->category_creation_id;
 
@@ -155,6 +190,44 @@ class CreationController extends Controller
             $destinationPath = 'uploads/creation' . '/' . $image_name;
             $creation->image = $destinationPath;
         }
+
+        if ($request->hasFile('creator_image')) {
+            if (file_exists($creation->creator_image)) {
+                unlink($creation->creator_image);
+            }
+            $image = $request->creator_image;
+            $image_real_name = $image->getClientOriginalName();
+            $image_name = time() . str_replace(' ', '',  $image_real_name);
+            $image_name = str_replace('(', '',  $image_name);
+            $image_name = str_replace(')', '',  $image_name);
+
+            $destinationPath2 = 'uploads/creation';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(400, 400);
+            $image_resize->save($destinationPath2 . '/' . $image_name);
+            $destinationPath2 = 'uploads/creation' . '/' . $image_name;
+            $creation->creator_image = $destinationPath2;
+        }
+
+
+        if ($request->hasFile('thumbnail')) {
+            if (file_exists($creation->thumbnail)) {
+                unlink($creation->thumbnail);
+            }
+            $image = $request->thumbnail;
+            $image_real_name = $image->getClientOriginalName();
+            $image_name = time() . str_replace(' ', '',  $image_real_name);
+            $image_name = str_replace('(', '',  $image_name);
+            $image_name = str_replace(')', '',  $image_name);
+
+            $destinationPath3 = 'uploads/creation';
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1240, 699);
+            $image_resize->save($destinationPath3 . '/' . $image_name);
+            $destinationPath3 = 'uploads/creation' . '/' . $image_name;
+            $creation->thumbnail = $destinationPath3;
+        }
+
 
         $creation->video = $request->video;
         $creation->category_creation_id = $request->category_creation_id;

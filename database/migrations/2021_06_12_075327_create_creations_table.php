@@ -18,9 +18,11 @@ class CreateCreationsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('creator');
+            $table->string('creator_image');
             $table->string('position');
             $table->longText('content');
             $table->string('image');
+            $table->string('thumbnail');
             $table->string('video');
             $table->string('category_creation_id');
             $table->timestamps();

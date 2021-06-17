@@ -220,6 +220,10 @@
             CKEDITOR.replace('editor', {
                 filebrowserBrowseUrl: filemanager.ckBrowseUrl,
             });
+
+            CKEDITOR.replace('editor2', {
+                filebrowserBrowseUrl: filemanager.ckBrowseUrl,
+            });
         }
     </script>
 

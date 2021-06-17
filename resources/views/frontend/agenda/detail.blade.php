@@ -30,7 +30,7 @@
                             </li>
                         </ul>
                         <div class="blog-desc">
-                            <h4> {{ $agenda->title }} </h4>
+                            <h3> {{ $agenda->title }} </h3>
                             {!! $agenda->content !!}
                         </div>
 

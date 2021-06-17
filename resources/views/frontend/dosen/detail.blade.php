@@ -45,9 +45,10 @@
                                             @foreach ($publication as $data)
                                             <div class="card-header mb-2">
                                                 <a class="card-link" data-toggle="collapse"
-                                                    href="#collapseOne">{{ $data->title}}</a>
+                                                    href="#{{Str::slug($data->title)}}">{{ $data->title}}</a>
                                             </div>
-                                            <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                            <div id="{{Str::slug($data->title)}}" class="collapse"
+                                                data-parent="#accordion">
                                                 <div class="card-body">
                                                     @if($data->link1)
                                                     <a href="{{ $data->link1 }}" type="button" target="blank"

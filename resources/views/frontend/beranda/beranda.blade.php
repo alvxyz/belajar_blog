@@ -47,19 +47,19 @@
                 </div>
                 <div class="col-lg-6 pl-100 md-pl-15 col-md-12">
                     <div class="content">
-                        <div class="sub-title mb-20">
+                        <div class="sub-title mb-10">
                             Tentang Kami
                         </div>
-                        <h2 class="sl-title mb-40 md-mb-20">Program Studi Teknik Informatika Terbaik di Pontianak</h2>
-                        <p class="desc mb-50">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, eius to mod tempor incidi dunt ut
-                            labore et dolore magna aliqua. Ut enims ad minim veniam.Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit, eius to mod tempor incidi dunt ut labore et dolore magna
-                            aliqua. Ut enims ad minim veniam.Lorem sum dolor sit amet.
+                        <h2 class="sl-title mb-10 md-mb-20">Program Studi Teknik Informatika POLNEP</h2>
+                        <p class="desc">
+                            @foreach ($about1 as $about)
+                            {!! substr($about->content, 0, 250) !!}
+                            {{-- {{ substr($about->content, 0, 200) }} --}}
+                            @endforeach
                         </p>
                     </div>
                     <div class="btn-part">
-                        <a class="readon blue-btn" href="#">Selengkapnya</a>
+                        <a class="readon blue-btn" href="{{ route('tentang') }}">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
     <div id="rs-blog" class="rs-blog style2 pt-94 pb-100 md-pt-64 md-pb-70 gray-bg">
         <div class="container">
             <div class="sec-title mb-60 text-center">
-                <div class="sub-title primary">Pembaruan</div>
+                <div class="sub-title primary">Kumpulan</div>
                 <h2 class="title mb-0">Berita Terbaru</h2>
             </div>
             <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true"
@@ -110,29 +110,40 @@
     <!-- Blog Section End -->
 
     {{-- Statistik Pengunjung --}}
-    <div class="rs-about style9 pt-100 pb-100 md-pt-70 md-pb-70">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 pl-100 md-pl-15 col-md-12">
-                    <div class="content">
-                        <div class="sub-title mb-20">
-                            About Us
-                        </div>
-                        <h2 class="sl-title mb-40 md-mb-20">We are leading discovery and innovation since 1905</h2>
-                        <p class="desc mb-50">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, eius to mod tempor incidi dunt ut
-                            labore et dolore magna aliqua. Ut enims ad minim veniam.Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit, eius to mod tempor incidi dunt ut labore et dolore magna
-                            aliqua. Ut enims ad minim veniam.Lorem sum dolor sit amet.
-                        </p>
-                    </div>
-                    <div class="btn-part">
-                        <a class="readon blue-btn" href="#">Discover More</a>
-                    </div>
+
+    <div class="statistik container pt-94 pb-100 md-pt-64 md-pb-70">
+        <div class="sec-title mb-60 text-center">
+            <div class="sub-title primary">Total</div>
+            <h2 class="title mb-0">Pengunjung</h2>
+        </div>
+        <div class="row rs-counter style-home8">
+            <div class="col-lg-3 col-md-6 md-mb-30">
+                <div class="counter-item text-center">
+                    <h2 class="rs-count">{{ count($days) }}</h2>
+                    <h4 class="title mb-0">Hari Ini</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 md-mb-30">
+                <div class="counter-item text-center">
+                    <h2 class="number rs-count">{{ count($months) }}</h2>
+                    <h4 class="title mb-0">Bulan Ini</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 md-mb-30">
+                <div class="counter-item text-center">
+                    <h2 class="number rs-count ">{{ count($years) }}</h2>
+                    <h4 class="title mb-0">Tahun Ini</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-item text-center">
+                    <h2 class="number rs-count">{{ count($total)+131292 }}</h2>
+                    <h4 class="title mb-0">Total</h4>
                 </div>
             </div>
         </div>
     </div>
+
     {{-- Akhir Statistik Pengunjung --}}
 
     {{-- Agenda --}}

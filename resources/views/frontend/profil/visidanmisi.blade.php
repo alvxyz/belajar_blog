@@ -24,36 +24,54 @@
     </div>
     <!-- Breadcrumbs End -->
 
-    <!-- Counter Section Start -->
-    <div id="rs-about" class="rs-about style3 pt-100 pb-100 md-pt-70">
-        <div class="container">
 
-            <div class="search-widget mb-50">
-                <div class="search-wrap">
-                    <input type="search" placeholder="Searching..." name="s" class="search-input" value="">
-                    <button type="submit" value="Search"><i class=" flaticon-search"></i></button>
+
+    <!-- Blog Section Start -->
+    <div class="rs-inner-blog rs-color pt-100 pb-100 md-pt-70 md-pb-70">
+        <div class="container">
+            <div class="pt-10">
+                <div class="blog-full">
+                    <h3 class="text-center">Visi</h3>
+                    @foreach ($visionandmissions as $visionandmission)
+                    <p>{!! $visionandmission->vision !!}</p>
+                    @endforeach
+
+                    <h3 class="text-center pt-30">Misi</h3>
+                    @foreach ($visionandmissions as $visionandmission)
+                    <p>{!! $visionandmission->mission !!}</p>
+                    @endforeach
+                </div>
+                <div class="rs-faq-part pt-100 md-pt-70 md-pb-70">
+                    <div class="container">
+                        <div class="content-part mb-50 md-mb-30">
+                            <div class="title mb-40 md-mb-15">
+                                <h3 class="text">Riwayat Visi dan Misi</h3>
+                            </div>
+                            <div id="accordion" class="accordion">
+                                @foreach ($visionandmission2 as $visionandmission)
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="card-link" data-toggle="collapse"
+                                            href="#{{Str::slug($visionandmission->period)}}">{{ $visionandmission->period }}</a>
+                                    </div>
+                                    <div id="{{Str::slug($visionandmission->period)}}" class="collapse"
+                                        data-parent="#accordion">
+                                        <div class="card-body">
+                                            <h3>Visi</h3>
+                                            <p>{!! $visionandmission->vision !!}</p>
+                                            <h3>Misi</h3>
+                                            <p>{!! $visionandmission->mission !!}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="fototentang">
-                <img src={{ asset("images/tentangprodi/contoh1.jpg") }} alt="">
-
-                <h3 class="mt-50">Tentang Prodi D3 Teknik Informatika Polnep</h3>
-                <p>Consequat do voluptate sunt id irure. Laboris sunt aute ad nostrud sint culpa ullamco aute occaecat.
-                    Commodo proident ipsum magna consequat tempor et. Voluptate sit qui consectetur duis occaecat
-                    commodo anim nulla eiusmod nostrud mollit et. Minim duis in cillum deserunt sint velit officia magna
-                    quis cupidatat nostrud ut. Excepteur eu adipisicing fugiat adipisicing nostrud est esse in aliquip
-                    nostrud proident enim sunt. Adipisicing incididunt velit et eiusmod enim deserunt mollit. Minim
-                    irure sint deserunt culpa esse reprehenderit culpa ullamco dolor. Et consequat veniam nulla eiusmod
-                    elit est irure. Minim irure sint deserunt culpa esse reprehenderit culpa ullamco dolor. Et consequat
-                    veniam nulla eiusmod elit est irure. Minim irure sint deserunt culpa esse reprehenderit culpa
-                    ullamco dolor. Et consequat veniam nulla eiusmod elit est irure. </p>
-            </div>
-
-
         </div>
     </div>
-    <!-- Counter Section End -->
 
 </div>
 
