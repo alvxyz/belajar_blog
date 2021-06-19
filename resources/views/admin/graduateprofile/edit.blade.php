@@ -18,7 +18,8 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Nama Profil Lulusan" value="{{ $graduateprofile->period }}">
+                                placeholder="Masukkan Periode Profil Lulusan, contoh: Profil Lulusan Tahun 2021"
+                                value="{{ $graduateprofile->period }}">
                             <small id="emailHelp" class="form-text text-muted">Masukkan Gabungan Teks dan Angka (Profil
                                 Lulusan Tahun 2021)</small>
                             @error('period')

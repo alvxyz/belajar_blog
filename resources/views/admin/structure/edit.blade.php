@@ -18,7 +18,8 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Periode" value="{{ $structure->period }}">
+                                placeholder="Masukkan Periode Sturktur Organisasi, contoh: Struktur Organisasi Tahun 2021"
+                                value="{{ $structure->period }}">
                             @error('period')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -30,7 +31,7 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
                         <div class="col-md-10">
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi 1600px x
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi 1600x
                                 800px atau 2:1</small>
                             @error('image')
                             <span class="invalid-feedback" role="alert">

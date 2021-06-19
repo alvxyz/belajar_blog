@@ -12,6 +12,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminto/assets/images/favicon.ico') }}">
 
+
+
     <!-- third party css -->
     <link href="{{ asset('adminto/assets/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet"
         type="text/css" />
@@ -214,7 +216,8 @@
     @yield('js')
 
 
-    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('ckeditor4full/ckeditor.js')}}"></script>
+
     <script>
         window.onload = function () {
             CKEDITOR.replace('editor', {
@@ -226,8 +229,6 @@
             });
         }
     </script>
-
-
 
 </body>
 

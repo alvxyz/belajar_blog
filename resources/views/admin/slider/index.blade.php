@@ -10,7 +10,7 @@
             <div class="row mb-2">
                 <div class="col-6">
                     <h4 class="mt-0 mb-2 header-title">List Slider</h4>
-                    <p>Daftar slider yang telah tersimpan</p>
+                    <p>Daftar Slider yang telah tersimpan</p>
                 </div>
                 <div class="col-6 text-right">
                     <a href="{{route('slider.create') }}" type="button" class="btn btn-primary"><i

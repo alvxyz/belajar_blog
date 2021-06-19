@@ -1,13 +1,13 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Repository')
+@section('judulhalaman', 'Repositori')
 
 @section('content')
 
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <h4 class="mt-0 mb-2 header-title">Edit Repository <strong>{{ $repository->title }}</strong></h4>
+            <h4 class="mt-0 mb-2 header-title">Edit Repositori <strong>{{ $repository->title }}</strong></h4>
 
             <div class="p-2">
                 <form action="{{ route('repository.update', ['id' => $repository->id]) }}" method="POST"
@@ -18,7 +18,7 @@
                         <div class="col-md-10">
                             <input name="title" type="text" id="simpleinput"
                                 class="form-control @error('name') is-invalid @enderror"
-                                placeholder="Insert Category Name" value="{{ $repository->title }}" required>
+                                placeholder="Masukkan Nama File" value="{{ $repository->title }}" required>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
                                 rows="5" id="editor">{{ $repository->content }}</textarea>
@@ -44,6 +44,8 @@
                         <div class="col-md-10">
                             <input name="file" type="file" id="simpleinput"
                                 class="form-control @error('name') is-invalid @enderror">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan File dengan Format PDF, Doc,
+                                JPG</small>
 
                             @error('file')
                             <span class="invalid-feedback" role="alert">

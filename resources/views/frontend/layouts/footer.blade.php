@@ -48,12 +48,10 @@
                 </div>
 
                 <div class="col-lg-3 col-md-12 col-sm-12 footer-widget">
-                    <h4 class="widget-title">Kerja Sama</h4>
+                    <h4 class="widget-title">Lainnya</h4>
                     <ul class="site-map">
-                        <li><a href="http://polnep.ac.id/" target="blank">McU</a></li>
-                        <li><a href="http://elektro.polnep.ac.id/" target="blank">Jurusan Teknik Elektro</a></li>
-                        <li><a href="https://elearning.elektro.polnep.ac.id/" target="blank">E-Learning Elektro</a></li>
-                        <li><a href="http://semesta.elektro.polnep.ac.id/" target="blank">Semesta</a></li>
+                        <li><a href="{{ route('panduan') }}" target="blank">Panduan</a></li>
+                        <li><a href="http://polnep.ac.id/" target="blank">Lokasi</a></li>
                     </ul>
                 </div>
             </div>

@@ -18,7 +18,7 @@
                         <div class="col-md-10">
                             <input name="name" type="text" id="simpleinput"
                                 class="form-control @error('title') is-invalid @enderror"
-                                placeholder="Masukkan Nama Judul" value="{{ $testimonial->name }}">
+                                placeholder="Masukkan Nama Pemberi Testimoni" value="{{ $testimonial->name }}">
                             @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
                         <div class="col-md-10">
                             <input name="position" type="text" id="simpleinput"
                                 class="form-control @error('position') is-invalid @enderror"
-                                placeholder="Masukkan Nama Judul" value="{{ $testimonial->position }}">
+                                placeholder="Masukkan Jabatan/Posisi" value="{{ $testimonial->position }}">
                             @error('position')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
                                 rows="5" id="editor">{{ $testimonial->content }}</textarea>

@@ -34,6 +34,7 @@
                 </form>
             </div>
             <div class="row">
+                @if($repositories->count() > 0)
                 @foreach ($repositories as $repository)
                 <div class="col-lg-12 mb-10">
                     <div class="card-repository">
@@ -46,6 +47,11 @@
                     </div>
                 </div>
                 @endforeach
+                @else
+                <div class="col-12 text-center mt-50">
+                    <img src="{{ asset('images/search/404.png') }}" alt="">
+                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@ class Agenda extends Model
     protected $table = 'agenda';
 
     protected $fillable = [
-        'title', 'place', 'date', 'content', 'image', 'slug'
+        'title', 'place', 'date_start', 'date_end', 'time_start', 'time_end', 'link', 'organizer', 'content', 'image', 'slug'
     ];
 
     public function sluggable(): array

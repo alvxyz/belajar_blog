@@ -14,10 +14,11 @@
                     role="form">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="simpleinput">Name</label>
+                        <label class="col-md-2 col-form-label" for="simpleinput">Nama</label>
                         <div class="col-md-10">
                             <input name="name" type="text" id="simpleinput"
-                                class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}">
+                                class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}"
+                                placeholder="Masukkan Nama Pengguna">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -30,7 +31,8 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Email</label>
                         <div class="col-md-10">
                             <input name="email" type="email" id="simpleinput"
-                                class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}">
+                                class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}"
+                                placeholder="Masukkan Email Pengguna">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -62,6 +64,9 @@
                                 <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>
+                            <small id="emailHelp" class="form-text text-muted">Pastikan Role yang dipilih tepat, Jika
+                                Role Dosen di ganti ke Role Lain maka data Dosen tidak akan tampil di fitur
+                                Dosen</small>
                         </div>
                     </div>
 

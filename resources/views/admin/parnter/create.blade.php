@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
                                 rows="5" id="editor">{{ old('content') }}</textarea>
@@ -43,7 +43,10 @@
                         <div class="col-md-10">
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
                             <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi 1600px x
-                                800px atau 2:1</small>
+                                800px atau 2:1, pastikan setiap gambar harus sama ukurannya agar tampil rapi di halaman
+                                front
+                                end
+                            </small>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

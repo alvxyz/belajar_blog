@@ -31,7 +31,7 @@
                         <div class="col-md-10">
                             <input name="sub_title" type="text" id="simpleinput"
                                 class="form-control @error('sub_title') is-invalid @enderror"
-                                placeholder="Masukkan Nama Judul" value="{{ $slider->sub_title }}">
+                                placeholder="Masukkan Nama Sub Judul" value="{{ $slider->sub_title }}">
                             @error('sub_title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -55,6 +55,9 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
                         <div class="col-md-10">
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi Optimal
+                                1925x820
+                                px atau dengan Rasio 16:9</small>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

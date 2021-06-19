@@ -17,7 +17,7 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Nama Tentang Prodi" value="{{ old('title') }}">
+                                placeholder="Contoh: Periode Tahun 2021" value="{{ old('title') }}">
                             @error('period')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

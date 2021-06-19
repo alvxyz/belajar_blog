@@ -24,8 +24,8 @@
                         <th>No.</th>
                         <th>Aksi</th>
                         <th>Gambar</th>
-                        <th>Name</th>
-                        <th>Content</th>
+                        <th>Nama</th>
+                        <th>Konten</th>
                     </tr>
                 </thead>
 

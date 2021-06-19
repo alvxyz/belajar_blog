@@ -15,7 +15,7 @@
                 <div class="col-6 text-right">
                     <a href="{{route('post.create') }}" type="button" class="btn btn-primary"><i
                             class="mdi mdi-plus-circle"></i> Add
-                        Post</a>
+                        Berita</a>
                 </div>
             </div>
             <table id="datatable" class="table table-bordered dt-responsive nowrap">
@@ -24,11 +24,11 @@
                         <th>No.</th>
                         <th>Aksi</th>
                         <th>Gambar</th>
-                        <th>Title</th>
-                        <th>Creator</th>
-                        <th>Category</th>
+                        <th>Judul</th>
+                        <th>Kreator</th>
+                        <th>Kategori</th>
                         <th>Tag</th>
-                        <th>Content</th>
+                        <th>Konten</th>
                     </tr>
                 </thead>
 

@@ -1,13 +1,13 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Kerja Sama')
+@section('judulhalaman', 'Karya Terbaik')
 
 @section('content')
 
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <h4 class="mt-0 mb-2 header-title">Edit Kerja Sama</h4>
+            <h4 class="mt-0 mb-2 header-title">Edit Karya Terbaik</h4>
 
             <div class="p-2">
                 <form action="{{ route('creation.update', ['id' => $creation->id]) }}" method="POST"
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
                                 rows="5" id="editor">{{ $creation->content }}</textarea>

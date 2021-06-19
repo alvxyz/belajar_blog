@@ -152,9 +152,9 @@
             <div class="row">
                 <div class="col-lg-6 pr-65 pt-24 md-pt-0 md-pr-15 md-mb-30">
                     <div class="sec-title mb-42">
-                        <div class="sub-title primary">Agenda Terbaru</div>
-                        <h2 class="title mb-0">Agenda Prodi</h2>
-                        <h2 class="title mb-0">Teknik Informatika</h2>
+                        <div class="sub-title primary">Kumpulan</div>
+                        <h2 class="title mb-0">Agenda Terbaru</h2>
+                        {{-- <h2 class="title mb-0">Terbaru</h2> --}}
                     </div>
                     <div class="single-img wow fadeInUp" data-wow-delay="300ms" data-wow-duration="2000ms">
                         <img src="{{ asset('images/beranda/event.png') }}" alt="Event Image">
@@ -165,9 +165,11 @@
                         @foreach ($agendas as $agenda)
                         <div class="events-short mb-30 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="2000ms">
                             <div class="date-part bgc3">
-                                <span class="month">{{ Carbon\Carbon::parse($agenda->date)->isoFormat('MMMM') }}</span>
+                                <span
+                                    class="month">{{ Carbon\Carbon::parse($agenda->date_start)->isoFormat('MMMM') }}</span>
                                 <div class="date">
-                                    {{ Carbon\Carbon::parse($agenda->date)->isoFormat('Do') }}</div>
+                                    {{ Carbon\Carbon::parse($agenda->date_start)->isoFormat('Do') }}
+                                </div>
                             </div>
                             <div class="content-part">
                                 <div class="categorie">
@@ -262,7 +264,7 @@
         <div class="container">
             <div class="sec-title mb-60 text-center">
                 <div class="sub-title primary">Kumpulan</div>
-                <h2 class="title mb-0">Tugas Akhir Terbaik Mahasiswa</h2>
+                <h2 class="title mb-0">Karya Terbaik Mahasiswa</h2>
             </div>
             <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true"
                 data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false"

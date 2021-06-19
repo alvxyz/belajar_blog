@@ -13,11 +13,11 @@
                 <form action="{{ route('tag.store') }}" method="POST" class="form-horizontal" role="form">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="simpleinput">Tag Name</label>
+                        <label class="col-md-2 col-form-label" for="simpleinput">Nama Tag</label>
                         <div class="col-md-10">
                             <input name="tag" type="text" id="simpleinput"
                                 class="form-control @error('name') is-invalid @enderror"
-                                placeholder="Insert Category Name">
+                                placeholder="Masukkan Nama Tag">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">

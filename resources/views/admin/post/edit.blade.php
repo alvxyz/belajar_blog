@@ -1,27 +1,27 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Post')
+@section('judulhalaman', 'Berita')
 
 @section('content')
 
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <h4 class="mt-0 mb-2 header-title">Edit Post</h4>
+            <h4 class="mt-0 mb-2 header-title">Edit Berita</h4>
 
             <div class="p-2">
                 <form action="{{ route('post.update', ['id' => $post->id]) }}" method="POST"
                     enctype="multipart/form-data" class="form-horizontal" role="form">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="simpleinput">Title</label>
+                        <label class="col-md-2 col-form-label" for="simpleinput">Judul</label>
                         <div class="col-md-10">
                             <input name="title" type="text" id="simpleinput" class="form-control"
                                 value="{{ $post->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="category_id">Category</label>
+                        <label class="col-md-2 col-form-label" for="category_id">Kategori</label>
                         <div class="col-md-10">
                             <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
                                 @foreach ($categories as $category)
@@ -53,16 +53,19 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control" rows="5" id="editor"
                                 name="content">{{ $post->content }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="simpleinput">Image</label>
+                        <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
                         <div class="col-md-10">
                             <input name="featured" type="file" class="form-control">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi Optimal
+                                1240x699
+                                px atau dengan Rasio 16:9</small>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -14,10 +14,10 @@
                     role="form">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="simpleinput">Tag Name</label>
+                        <label class="col-md-2 col-form-label" for="simpleinput">Nama Tag</label>
                         <div class="col-md-10">
                             <input name="tag" type="text" id="simpleinput" class="form-control"
-                                placeholder="Insert Tag Name" value="{{ $tag->tag }}">
+                                placeholder="Masukkan Nama Tag" value="{{ $tag->tag }}">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -18,7 +18,8 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Nama Akreditasi" value="{{ $accreditation->period }}">
+                                placeholder="Masukkan Periode Akreditasi, contoh: Akreditasi Tahun 2021"
+                                value="{{ $accreditation->period }}">
                             @error('period')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

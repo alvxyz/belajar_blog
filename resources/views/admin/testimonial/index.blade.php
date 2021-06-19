@@ -26,7 +26,7 @@
                         <th>Gambar</th>
                         <th>Nama</th>
                         <th>Posisi</th>
-                        <th>Content</th>
+                        <th>Konten</th>
                     </tr>
                 </thead>
 

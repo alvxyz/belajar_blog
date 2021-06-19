@@ -13,6 +13,7 @@ use App\Competence;
 use App\Creation;
 use App\Facility;
 use App\GraduateProfile;
+use App\Guide;
 use App\Lecturer;
 use App\Partner;
 use App\Post;
@@ -27,6 +28,7 @@ use App\VisionAndMission;
 use App\Visitor;
 use Carbon\Carbon;
 use Facade\FlareClient\Http\Response;
+use Hamcrest\Core\AllOf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -52,7 +54,7 @@ class FrontEndController extends Controller
         $partner = Partner::latest()->take(4)->get();
         $posts = Post::all();
         // $agendas = Agenda::orderBy('date', 'asc')->take(3)->get();
-        $agendas = Agenda::where('date', '>=', Carbon::today())->orderBy('date', 'asc')->take(3)->get();
+        $agendas = Agenda::where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')->take(3)->get();
         $testimonials = Testimonial::all();
         $creations = Creation::all();
         $about1 = About::take(1)->latest()->get();
@@ -134,7 +136,7 @@ class FrontEndController extends Controller
     {
         // mengarahkan view ke halaman 
         $structure1 = Structure::take(1)->latest()->get();
-        $structure2 = Structure::all();
+        $structure2 = DB::table('structures')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.profil.strukturorganisasi', compact('structure1', 'structure2'));
     }
 
@@ -142,7 +144,7 @@ class FrontEndController extends Controller
     {
         // mengarahkan view ke halaman 
         $calendar1 = Calendar::take(1)->latest()->get();
-        $calendar2 = Calendar::all();
+        $calendar2 = DB::table('calendars')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.kalender.index', compact('calendar1', 'calendar2'));
     }
 
@@ -150,15 +152,22 @@ class FrontEndController extends Controller
     {
         // mengarahkan view ke halaman 
         $achievement1 = Achievement::take(1)->latest()->get();
-        $achievement2 = Achievement::all();
+        $achievement2 = DB::table('achievements')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.capaian.index', compact('achievement1', 'achievement2'));
+    }
+
+    public function panduan()
+    {
+        // mengarahkan view ke halaman 
+        $guides = Guide::all();
+        return view('frontend.panduan.index', compact('guides'));
     }
 
     public function profillulusan()
     {
         // mengarahkan view ke halaman 
         $graduateprofile1 = GraduateProfile::take(1)->latest()->get();
-        $graduateprofile2 = GraduateProfile::all();
+        $graduateprofile2 = DB::table('graduate_profiles')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.profillulusan.index', compact('graduateprofile1', 'graduateprofile2'));
     }
 
@@ -166,7 +175,7 @@ class FrontEndController extends Controller
     {
         // mengarahkan view ke halaman 
         $competence1 = Competence::take(1)->latest()->get();
-        $competence2 = Competence::all();
+        $competence2 = DB::table('competence')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.kompetensi.index', compact('competence1', 'competence2'));
     }
 
@@ -174,7 +183,7 @@ class FrontEndController extends Controller
     {
         // mengarahkan view ke halaman visi dan misi
         $visionandmissions = VisionAndMission::take(1)->latest()->get();
-        $visionandmission2 = VisionAndMission::all();
+        $visionandmission2 = DB::table('vision_and_mission')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.profil.visidanmisi', compact('visionandmissions', 'visionandmission2'));
     }
 
@@ -182,7 +191,7 @@ class FrontEndController extends Controller
     {
         // mengarahkan view ke halaman Akreditasi
         $accreditation1 = Accreditation::take(1)->latest()->get();
-        $accreditation2 = Accreditation::all();
+        $accreditation2 = DB::table('accreditations')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
         return view('frontend.profil.akreditasi', compact('accreditation1', 'accreditation2'));
     }
 

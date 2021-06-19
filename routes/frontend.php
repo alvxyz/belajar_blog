@@ -35,6 +35,9 @@ Route::middleware('visitor')->group(function () {
     Route::get('/akreditasi', 'FrontEndController@akreditasi')->name('akreditasi');
     Route::get('/strukturorganisasi', 'FrontEndController@struktur')->name('struktur');
 
+    // Route Panduan
+    Route::get('/panduan', 'FrontEndController@panduan')->name('panduan');
+
     // Route Kalender Akademik
     Route::get('/kalenderakademik', 'FrontEndController@kalender')->name('kalender');
     Route::get('/kalenderakademik/donwload/{id}', 'FrontEndController@downloadFileKalender')->name('kalender.download');

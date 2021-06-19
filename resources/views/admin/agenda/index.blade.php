@@ -26,8 +26,11 @@
                         <th>Gambar</th>
                         <th>Nama Agenda</th>
                         <th>Tanggal</th>
+                        <th>Waktu</th>
                         <th>Tempat</th>
-                        <th>Content</th>
+                        <th>Penyelenggara</th>
+                        <th>Link Pendaftaran</th>
+                        <th>Kontent</th>
                     </tr>
                 </thead>
 
@@ -51,8 +54,15 @@
                         </td>
                         <td><img src="{{ asset($agenda->image) }}" alt="{{ $agenda->title }}" width="80px"></td>
                         <td>{{$agenda->title }}</td>
-                        <td>{{ Carbon\Carbon::parse($agenda->date)->isoFormat('Do MMMM YYYY') }}</td>
+                        <td>{{ Carbon\Carbon::parse($agenda->date_start)->isoFormat('Do MMMM YYYY') }}
+                            @if($agenda->date_end)
+                            - {{ Carbon\Carbon::parse($agenda->date_end)->isoFormat('Do MMMM YYYY') }}
+                            @endif
+                        </td>
+                        <td>{{$agenda->time_start }} - {{ $agenda->time_end }}</td>
                         <td>{{$agenda->place }}</td>
+                        <td>{{$agenda->organizer }}</td>
+                        <td>{{$agenda->link }}</td>
                         <td>{{$agenda->content }}</td>
                     </tr>
                     @endforeach

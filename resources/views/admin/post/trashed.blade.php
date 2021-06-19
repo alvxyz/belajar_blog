@@ -1,6 +1,6 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Post')
+@section('judulhalaman', 'Berita')
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="card-box">
             <div class="row mb-2">
                 <div class="col-6">
-                    <h4 class="mt-0 mb-2 header-title">List Trashed Post</h4>
+                    <h4 class="mt-0 mb-2 header-title">List Arsip Berita</h4>
                     <p>Daftar berita yang disimpan, namun tidak ditampilkan</p>
                 </div>
                 <div class="col-6 text-right">
@@ -22,9 +22,10 @@
                         <th>No.</th>
                         <th>Aksi</th>
                         <th>Gambar</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Content</th>
+                        <th>Judul</th>
+                        <th>Kreator</th>
+                        <th>Kategori</th>
+                        <th>Konten</th>
                     </tr>
                 </thead>
 
@@ -44,6 +45,7 @@
                             <img src="{{ asset($post->featured) }}" alt="{{ $post->title }}" width="50px">
                         </td>
                         <td>{{ $post->title }}</td>
+                        <td>{{ $post->users->name }}</td>
                         <td>{{ $post->category->name }}</td>
                         <td>{{ substr($post->content, 0, 100) }}</td>
                     </tr>

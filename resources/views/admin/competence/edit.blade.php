@@ -18,9 +18,9 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Nama Kompetensi Lulusan" value="{{ $competence->period }}">
-                            <small id="emailHelp" class="form-text text-muted">Masukkan Gabungan Teks dan Angka (Profil
-                                Lulusan Tahun 2021)</small>
+                                placeholder="Masukkan Periode Kompetensi, contoh: Kompetensi Tahun 2021"
+                                value="{{ $competence->period }}">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gabungan Teks dan Angka </small>
                             @error('period')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

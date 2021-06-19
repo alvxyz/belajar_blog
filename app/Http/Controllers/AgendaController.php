@@ -42,7 +42,10 @@ class AgendaController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'place' => 'required',
-            'date' => 'required',
+            'date_start' => 'required',
+            'time_start' => 'required',
+            'time_end' => 'required',
+            'organizer' => 'required',
             'content' => 'required',
             'image' => 'required'
         ]);
@@ -51,7 +54,12 @@ class AgendaController extends Controller
         $agenda->title = $request->title;
         $agenda->slug = SlugService::createSlug(Agenda::class, 'slug', $request->title);
         $agenda->place = $request->place;
-        $agenda->date = $request->date;
+        $agenda->date_start = $request->date_start;
+        $agenda->date_end = $request->date_end;
+        $agenda->time_start = $request->time_start;
+        $agenda->time_end = $request->time_end;
+        $agenda->link = $request->link;
+        $agenda->organizer = $request->organizer;
         $agenda->content = $request->content;
 
         if ($request->hasFile('image')) {
@@ -108,7 +116,10 @@ class AgendaController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'place' => 'required',
-            'date' => 'required',
+            'date_start' => 'required',
+            'time_start' => 'required',
+            'time_end' => 'required',
+            'organizer' => 'required',
             'content' => 'required',
         ]);
 
@@ -117,7 +128,12 @@ class AgendaController extends Controller
         $agenda->title = $request->title;
         $agenda->slug = SlugService::createSlug(Agenda::class, 'slug', $request->title);
         $agenda->place = $request->place;
-        $agenda->date = $request->date;
+        $agenda->date_start = $request->date_start;
+        $agenda->date_end = $request->date_end;
+        $agenda->time_start = $request->time_start;
+        $agenda->time_end = $request->time_end;
+        $agenda->link = $request->link;
+        $agenda->organizer = $request->organizer;
         $agenda->content = $request->content;
 
         if ($request->hasFile('image')) {

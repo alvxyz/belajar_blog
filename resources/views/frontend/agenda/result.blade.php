@@ -34,6 +34,7 @@
                 </form>
             </div>
             <div class="row">
+                @if($agendas->count() > 0)
                 @foreach ($agendas as $agenda)
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-40">
                     <div class="courses-item">
@@ -67,6 +68,11 @@
                     </div>
                 </div>
                 @endforeach
+                @else
+                <div class="col-12 text-center mt-50">
+                    <img src="{{ asset('images/search/404.png') }}" alt="">
+                </div>
+                @endif
             </div>
         </div>
     </div>

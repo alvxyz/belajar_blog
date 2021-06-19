@@ -18,7 +18,7 @@
                         <div class="col-md-10">
                             <input name="title" type="text" id="simpleinput"
                                 class="form-control @error('title') is-invalid @enderror"
-                                placeholder="Masukkan Nama Judul" value="{{ $agenda->title }}">
+                                placeholder="Masukkan Nama Agenda" value="{{ $agenda->title }}">
                             @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
                                 rows="5" id="editor">{{ $agenda->content }}</textarea>
@@ -67,6 +67,9 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
                         <div class="col-md-10">
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi Optimal
+                                1240x699
+                                px atau dengan Rasio 16:9</small>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

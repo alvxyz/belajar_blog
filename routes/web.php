@@ -122,6 +122,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () 
     Route::post('/competence/update/{id}', 'CompetenceController@update')->name('competence.update');
     Route::get('competence/edit/{id}', 'CompetenceController@edit')->name('competence.edit');
     Route::delete('competence/delete/{id}', 'CompetenceController@destroy')->name('competence.delete');
+
+    //Guide
+    Route::get('/guides', 'GuideController@index')->name('guides');
+    Route::get('/guide/create', 'GuideController@create')->name('guide.create');
+    Route::post('/guide/store', 'GuideController@store')->name('guide.store');
+    Route::post('/guide/update/{id}', 'GuideController@update')->name('guide.update');
+    Route::get('guide/edit/{id}', 'GuideController@edit')->name('guide.edit');
+    Route::delete('guide/delete/{id}', 'GuideController@destroy')->name('guide.delete');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], function () {

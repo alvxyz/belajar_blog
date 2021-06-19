@@ -18,7 +18,8 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Periode" value="{{ $calendar->period }}">
+                                placeholder="Masukkan Periode Kalender Akademik, contoh: Kalender Akademik Tahun 2021"
+                                value="{{ $calendar->period }}">
                             @error('period')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -30,8 +31,8 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
                         <div class="col-md-10">
                             <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi 1600px x
-                                800px atau 2:1</small>
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi
+                                1600x800px atau Rasio 2:1</small>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -47,8 +47,8 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="example-textarea">Pembuat Karya</label>
                         <div class="col-md-10">
-                            <input name="creator"
-                                class="form-control @error('creator') is-invalid @enderror">{{ old('creator') }}
+                            <input name="creator" class="form-control @error('creator') is-invalid @enderror"
+                                placeholder="Nama Pembuat">{{ old('creator') }}
                             @error('creator')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -59,8 +59,8 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="example-textarea">Gelar / Posisi</label>
                         <div class="col-md-10">
-                            <input name="position"
-                                class="form-control @error('position') is-invalid @enderror">{{ old('position') }}
+                            <input name="position" class="form-control @error('position') is-invalid @enderror"
+                                placeholder="Posisi atau Gelar Pembuat">{{ old('position') }}
                             @error('position')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="example-textarea">Content</label>
+                        <label class="col-md-2 col-form-label" for="example-textarea">Konten</label>
                         <div class="col-md-10">
                             <textarea name="content" class="form-control @error('content') is-invalid @enderror"
                                 rows="5" id="editor">{{ old('content') }}</textarea>

@@ -10,7 +10,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src="{{ asset('images/breadcrumb/berita-breadcrumb.jpg') }}" alt="Breadcrumbs Image">
+            <img src="{{ asset('images/breadcrumb/berita2.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h4 class="text-white">Hasil Pencarian</h4>
@@ -34,6 +34,7 @@
                 </form>
             </div>
             <div class="row">
+                @if($posts->count() > 0)
                 @foreach ($posts as $post)
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-40">
                     <div class="courses-item">
@@ -73,6 +74,11 @@
                     </div>
                 </div>
                 @endforeach
+                @else
+                <div class="col-12 text-center mt-50">
+                    <img src="{{ asset('images/search/404.png') }}" alt="">
+                </div>
+                @endif
             </div>
         </div>
     </div>

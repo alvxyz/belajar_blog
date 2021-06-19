@@ -182,6 +182,12 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('guides') }}">
+                        <i class="mdi mdi-help-circle"></i>
+                        <span> Panduan </span>
+                    </a>
+                </li>
 
                 @endhasanyrole()
 

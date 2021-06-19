@@ -1,6 +1,6 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Category')
+@section('judulhalaman', 'Kategori')
 
 @section('content')
 
@@ -15,7 +15,7 @@
                 <div class="col-6 text-right">
                     <a href="{{route('category.create') }}" type="button" class="btn btn-primary"><i
                             class="mdi mdi-plus-circle"></i> Add
-                        Category</a>
+                        Kategori</a>
                 </div>
             </div>
             <table id="datatable" class="table table-bordered dt-responsive nowrap">
@@ -23,7 +23,7 @@
                     <tr>
                         <th>No.</th>
                         <th>Aksi</th>
-                        <th>Name</th>
+                        <th>Nama</th>
                     </tr>
                 </thead>
 

@@ -18,7 +18,7 @@
                         <div class="col-md-10">
                             <input name="name" type="text" id="simpleinput"
                                 class="form-control @error('name') is-invalid @enderror"
-                                placeholder="Masukkan Nama Judul" value="{{ $categorycreation->name }}">
+                                placeholder="Masukkan Nama Kategori Karya" value="{{ $categorycreation->name }}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

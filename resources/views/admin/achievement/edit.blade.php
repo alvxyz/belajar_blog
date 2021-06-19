@@ -18,9 +18,9 @@
                         <div class="col-md-10">
                             <input name="period" type="text" id="simpleinput"
                                 class="form-control @error('period') is-invalid @enderror"
-                                placeholder="Masukkan Nama Capaian Pembelajaran" value="{{ $achievement->period }}">
-                            <small id="emailHelp" class="form-text text-muted">Masukkan Gabungan Teks dan Angka (Capaian
-                                Pembelajaran 2021)</small>
+                                placeholder="Masukkan Periode Capaian Pembelajaran, contoh: Capaian Pembelajaran Tahun 2021"
+                                value="{{ $achievement->period }}">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan Gabungan Teks dan Angka</small>
                             @error('period')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

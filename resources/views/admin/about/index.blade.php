@@ -24,7 +24,7 @@
                         <th>No.</th>
                         <th>Aksi</th>
                         <th>Periode</th>
-                        <th>Content</th>
+                        <th>KOnten</th>
                     </tr>
                 </thead>
 

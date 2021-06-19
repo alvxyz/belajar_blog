@@ -23,7 +23,7 @@
                     <tr>
                         <th>No.</th>
                         <th>Aksi</th>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <th>Role</th>
                         <th>Email</th>
                     </tr>
