@@ -80,7 +80,7 @@
                             </div>
                             <div class="blog-full">
                                 <div class="blog-desc">
-                                    <h3> {{ $agenda->title }} </h3>
+                                    <h2> {{ $agenda->title }} </h2>
                                     {!! $agenda->content !!}
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Profil Lulusan | Teknik Informatika POLNEP')
+@section('title', 'Mata Kuliah | Teknik Informatika POLNEP')
 
 @section('content')
 
@@ -10,49 +10,45 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src={{ asset('images/breadcrumb/tentang2.jpg') }} alt="Breadcrumbs Image">
+            <img src={{ asset('images/breadcrumb/panduan.jpg') }} alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
-            <h1 class="page-title">Profil Lulusan</h1>
+            <h1 class="page-title">Mata Kuliah</h1>
             <ul>
                 <li>
                     <a class="active blue-color" href="/">Beranda</a>
                 </li>
-                <li>Profil Lulusan</li>
+                <li>Mata Kuliah</li>
             </ul>
         </div>
     </div>
     <!-- Breadcrumbs End -->
 
 
+
     <!-- Blog Section Start -->
     <div class="rs-inner-blog rs-color pt-100 pb-100 md-pt-70 md-pb-70">
         <div class="container">
             <div class="pt-10">
-                <div class="blog-full">
-                    <h2 class="text">Profil Lulusan</h2>
-                    @foreach ($graduateprofile1 as $graduateprofile)
-                    <p>{!! $graduateprofile->content !!}</p>
-                    @endforeach
-                </div>
-                <div class="rs-faq-part pt-100 md-pt-70 md-pb-70">
+                <div class="rs-faq-part md-pt-70 md-pb-70">
                     <div class="isi">
                         <div class="content-part mb-50 md-mb-30">
                             <div class="title mb-40 md-mb-15">
-                                <h3 class="text">Riwayat Profil Lulusan</h3>
+                                <h3 class="text">Mata Kuliah</h3>
+                                <p>Kurikulum Program Studi Teknik Informatika dirancang untuk dapat diselesaikan dalam
+                                    waktu 6 semester (tiga tahun). Yang terdiri dari 2 kurikulum yaitu:</p>
                             </div>
                             <div id="accordion" class="accordion">
-                                @foreach ($graduateprofile2 as $graduateprofile)
+                                @foreach ($subjects as $subject)
                                 <div class="card">
                                     <div class="card-header">
                                         <a class="card-link" data-toggle="collapse"
-                                            href="#{{Str::slug($graduateprofile->period)}}">{{ $graduateprofile->period }}</a>
+                                            href="#{{Str::slug($subject->curriculum)}}">{{ $subject->curriculum }}</a>
                                     </div>
-                                    <div id="{{Str::slug($graduateprofile->period)}}" class="collapse"
+                                    <div id="{{Str::slug($subject->curriculum)}}" class="collapse"
                                         data-parent="#accordion">
                                         <div class="card-body">
-                                            {{-- <h3>Profil Lulusan</h3> --}}
-                                            <p>{!! $graduateprofile->content !!}</p>
+                                            <p>{!! $subject->subject !!}</p>
                                         </div>
                                     </div>
                                 </div>

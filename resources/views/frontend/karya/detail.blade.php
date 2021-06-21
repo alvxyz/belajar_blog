@@ -36,7 +36,7 @@
                             </p>
                         </div>
                         <div class="video text-center mt-60">
-                            <div class="intro-video media-icon orange-color2">
+                            <div class="intro-video media-icon orange">
                                 <img class="video-img" src="{{ asset($creation->thumbnail) }}" alt="Video Image"
                                     style="max-width: 80% !important">
                                 <a class="popup-videos" href="{{ $creation->video }}">

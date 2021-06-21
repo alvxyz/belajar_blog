@@ -38,6 +38,9 @@ Route::middleware('visitor')->group(function () {
     // Route Panduan
     Route::get('/panduan', 'FrontEndController@panduan')->name('panduan');
 
+    // Route Mata Kuliah
+    Route::get('/matakuliah', 'FrontEndController@matakuliah')->name('matakuliah');
+
     // Route Kalender Akademik
     Route::get('/kalenderakademik', 'FrontEndController@kalender')->name('kalender');
     Route::get('/kalenderakademik/donwload/{id}', 'FrontEndController@downloadFileKalender')->name('kalender.download');

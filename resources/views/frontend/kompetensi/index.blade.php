@@ -35,7 +35,7 @@
                     @endforeach
                 </div>
                 <div class="rs-faq-part pt-100 md-pt-70 md-pb-70">
-                    <div class="container">
+                    <div class="isi">
                         <div class="content-part mb-50 md-mb-30">
                             <div class="title mb-30 md-mb-15">
                                 <h3 class="text">Riwayat Kompetensi Lulusan</h3>

@@ -62,7 +62,7 @@
                             <div class="bottom-part">
                                 <div class="info-meta">
                                     <i class="fa fa-calendar-check-o mr-7"></i>
-                                    {{ Carbon\Carbon::parse($agenda_data->date)->isoFormat('Do MMMM YYYY') }}
+                                    {{ Carbon\Carbon::parse($agenda_data->date_start)->isoFormat('Do MMMM YYYY') }}
                                 </div>
                                 <div class="btn-part">
                                     <a href="{{ route('agenda.detail', ['slug' => $agenda_data->slug]) }}">Lihat

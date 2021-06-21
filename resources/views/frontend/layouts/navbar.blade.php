@@ -84,12 +84,14 @@
                                             </ul>
                                         </li>
 
-                                        <li class="menu-item-has-children {{ set_active(['capaian', 'kompetensi']) }}">
+                                        <li
+                                            class="menu-item-has-children {{ set_active(['capaian', 'kompetensi', 'matakuliah']) }}">
                                             <a href="#">Kurikulum <i class="fa fa-caret-down"
                                                     aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
                                                 <li><a href="{{ route('capaian') }}">Capaian Pembelajaran</a>
                                                 <li><a href="{{ route('kompetensi') }}">Kompetensi Lulusan</a>
+                                                <li><a href="{{ route('matakuliah') }}">Mata Kuliah</a>
                                             </ul>
                                         </li>
 

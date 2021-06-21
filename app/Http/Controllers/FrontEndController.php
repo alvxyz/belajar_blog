@@ -22,6 +22,7 @@ use App\Publication;
 use App\Repository;
 use App\Slider;
 use App\Structure;
+use App\Subject;
 use App\Testimonial;
 use App\User;
 use App\VisionAndMission;
@@ -161,6 +162,13 @@ class FrontEndController extends Controller
         // mengarahkan view ke halaman 
         $guides = Guide::all();
         return view('frontend.panduan.index', compact('guides'));
+    }
+
+    public function matakuliah()
+    {
+        // mengarahkan view ke halaman 
+        $subjects = Subject::all();
+        return view('frontend.matakuliah.index', compact('subjects'));
     }
 
     public function profillulusan()

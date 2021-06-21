@@ -5082,7 +5082,7 @@ body .modal-backdrop {
   margin-top: -70px;
 }
 .rs-about.video-img {
-  background: url(assets/images/video/bg.png);
+  /* background: url(assets/images/video/bg.png); */
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -5090,6 +5090,7 @@ body .modal-backdrop {
   position: relative;
   padding-bottom: 500px;
 }
+
 .rs-about.video-img .shape-img {
   position: absolute;
   bottom: 0;

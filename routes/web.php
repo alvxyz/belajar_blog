@@ -130,6 +130,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () 
     Route::post('/guide/update/{id}', 'GuideController@update')->name('guide.update');
     Route::get('guide/edit/{id}', 'GuideController@edit')->name('guide.edit');
     Route::delete('guide/delete/{id}', 'GuideController@destroy')->name('guide.delete');
+
+    //Subject
+    Route::get('/subjects', 'SubjectController@index')->name('subjects');
+    Route::get('/subject/create', 'SubjectController@create')->name('subject.create');
+    Route::post('/subject/store', 'SubjectController@store')->name('subject.store');
+    Route::post('/subject/update/{id}', 'SubjectController@update')->name('subject.update');
+    Route::get('subject/edit/{id}', 'SubjectController@edit')->name('subject.edit');
+    Route::delete('subject/delete/{id}', 'SubjectController@destroy')->name('subject.delete');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], function () {
@@ -164,7 +172,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin|operator']], fun
     Route::post('/post/store', 'PostController@store')->name('post.store');
     Route::post('/post/update/{id}', 'PostController@update')->name('post.update');
     Route::get('post/edit/{id}', 'PostController@edit')->name('post.edit');
-    Route::get('post/delete/{id}', 'PostController@destroy')->name('post.delete');
+    Route::delete('post/delete/{id}', 'PostController@destroy')->name('post.delete');
     Route::get('post/trash/{id}', 'PostController@trash')->name('post.trash');
     Route::get('/post/trashed', 'PostController@trashed')->name('post.trashed');
     Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');

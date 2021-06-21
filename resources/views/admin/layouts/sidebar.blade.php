@@ -176,6 +176,13 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('subjects') }}">
+                        <i class="mdi mdi-book"></i>
+                        <span> Mata Kuliah </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="{{ route('calendars') }}">
                         <i class="mdi mdi-calendar-month"></i>
                         <span> Kalender Akademik </span>

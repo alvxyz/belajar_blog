@@ -1,6 +1,6 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Berita')
+@section('judulhalaman', 'Mata Kuliah')
 
 @section('content')
 
@@ -9,11 +9,13 @@
         <div class="card-box">
             <div class="row mb-2">
                 <div class="col-6">
-                    <h4 class="mt-0 mb-2 header-title">List Arsip Berita</h4>
-                    <p>Daftar berita yang disimpan, namun tidak ditampilkan</p>
+                    <h4 class="mt-0 mb-2 header-title">List Mata Kuliah</h4>
+                    <p>Daftar Mata Kuliah yang telah tersimpan</p>
                 </div>
                 <div class="col-6 text-right">
-
+                    <a href="{{route('subject.create') }}" type="button" class="btn btn-primary"><i
+                            class="mdi mdi-plus-circle"></i> Add
+                        Mata Kuliah</a>
                 </div>
             </div>
             <table id="datatable" class="table table-bordered dt-responsive nowrap">
@@ -21,39 +23,31 @@
                     <tr>
                         <th>No.</th>
                         <th>Aksi</th>
-                        <th>Gambar</th>
-                        <th>Judul</th>
-                        <th>Kreator</th>
-                        <th>Kategori</th>
-                        <th>Konten</th>
+                        <th>Kurikulum</th>
+                        <th>Mata Kuliah</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <?php $no = 0 ?>
-                    @foreach ($posts as $post)
+                    @foreach ($subjects as $subject)
                     <?php $no++ ?>
                     <tr>
-                        <td>{{ $no }}</td>
+                        <td>{{$no}}</td>
                         <td>
-                            <a href=" {{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-sm btn-info"><i
-                                    class="mdi mdi-recycle"></i></a>
-                            <a href="#" data-id="{{ $post->id }}" class="btn btn-sm btn-danger swal-confirm">
-                                <form action="{{ route('post.delete', ['id' => $post->id]) }}" method="POST"
-                                    id="delete{{ $post->id }}">
+                            <a href="{{ route('subject.edit', ['id' => $subject->id]) }}" class="btn btn-sm btn-info"><i
+                                    class="mdi mdi-pencil"></i></a>
+                            <a href="#" data-id="{{ $subject->id }}" class="btn btn-sm btn-danger swal-confirm">
+                                <form action="{{ route('subject.delete', ['id' => $subject->id]) }}" method="POST"
+                                    id="delete{{ $subject->id }}">
                                     @csrf
                                     @method('delete')
                                 </form>
                                 <i class="mdi mdi-delete"></i>
                             </a>
                         </td>
-                        <td>
-                            <img src="{{ asset($post->featured) }}" alt="{{ $post->title }}" width="50px">
-                        </td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->users->name }}</td>
-                        <td>{{ $post->category->name }}</td>
-                        <td>{{ substr($post->content, 0, 100) }}</td>
+                        <td>{{$subject->curriculum }}</td>
+                        <td>{{$subject->subject }}</td>
                     </tr>
                     @endforeach
                 </tbody>
