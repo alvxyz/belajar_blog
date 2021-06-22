@@ -20,12 +20,17 @@
                     </div>
                     <div class="blog-full">
                         <ul class="single-post-meta">
-                            <li>
-                                <span class="p-date"> <i
-                                        class="fa fa-calendar"></i>{{ $post->created_at->diffForHumans() }}</span>
+                            <li class="mr-2">
+                                <span class="p-date"> <i class="fa fa-calendar">
+                                    </i>{{ Carbon\Carbon::parse($post->created_at)->isoFormat('Do MMMM YYYY') }}
+                                    | {{ $post->created_at->diffForHumans()}}</span>
                             </li>
-                            <li>
-                                <span class="p-date"> <i class="fa fa-user"></i> {{ $post->users->name }}</span>
+                            <li class="mr-2">
+                                <span class="p-date">
+                                    <i class="fa fa-user"></i> {{$post->users->name }}
+                                    @foreach ($post->users->getRoleNames() as $v)
+                                    | {{ ucfirst($v) }}
+                                    @endforeach
                             </li>
                             <li class="Post-cate">
                                 <div class="tag-line">

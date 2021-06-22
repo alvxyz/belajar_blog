@@ -51,7 +51,6 @@
                     <h4 class="widget-title">Lainnya</h4>
                     <ul class="site-map">
                         <li><a href="{{ route('panduan') }}" target="blank">Panduan</a></li>
-                        <li><a href="http://polnep.ac.id/" target="blank">Lokasi</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Agenda;
+use App\LessonPlan;
 use Illuminate\Support\Facades\Route;
 use App\Post;
 use App\Repository;
@@ -70,6 +71,11 @@ Route::middleware('visitor')->group(function () {
     Route::get('/repositori/detail/{slug}', 'FrontEndController@repositori_detail')->name('repositori.detail');
     Route::get('/repositori/donwload/{id}', 'FrontEndController@downloadFile')->name('repositori.download');
 
+    // Rencana Pembelajaran
+    Route::get('/rencanapemebelajaran', 'FrontEndController@rencanapembelajaran')->name('rencanapembelajaran');
+    Route::get('/rencanapemebelajaran/detail/{slug}', 'FrontEndController@rencanapembelajaran_detail')->name('rencanapembelajaran.detail');
+    Route::get('/rencanapembelajaran/donwload/{id}', 'FrontEndController@downloadFileRPS')->name('rencanapembelajaran.download');
+
 
     // Agenda
     Route::get('/agenda', 'FrontEndController@agenda')->name('agenda');
@@ -84,5 +90,10 @@ Route::middleware('visitor')->group(function () {
     Route::get('/repositori/search', function () {
         $repositories = Repository::where('title', 'like', '%' . request('query') . '%')->get();
         return view('frontend.repositori.result')->with('repositories', $repositories)->with('query', request('query'));
+    });
+
+    Route::get('/rencanapembelajaran/cari', function () {
+        $lessonplans = LessonPlan::where('curriculum', 'like', '%' . request('query') . '%')->get();
+        return view('frontend.rencanapembelajaran.result')->with('lessonplans', $lessonplans)->with('query', request('query'));
     });
 });

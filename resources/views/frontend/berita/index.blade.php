@@ -40,7 +40,7 @@
                             </div>
                         </form>
                         <div class="recent-posts mb-50">
-                            <h3 class="widget-title">Recent Posts</h3>
+                            <h3 class="widget-title">Berita Terbaru</h3>
                             <ul>
                                 @foreach ($post_recent as $recent)
                                 <li><a
@@ -50,7 +50,7 @@
                             </ul>
                         </div>
                         <div class="widget-archives mb-50">
-                            <h3 class="widget-title">Categories</h3>
+                            <h3 class="widget-title">Kategori Berita</h3>
                             <ul>
                                 @foreach ($category as $category)
                                 <li><a
@@ -81,12 +81,16 @@
                                             <li>
                                                 <div class="blog-date">
                                                     <i class="fa fa-calendar"></i>
-                                                    {{ $post->created_at->diffForHumans()}}
+                                                    {{ Carbon\Carbon::parse($post->created_at)->isoFormat('Do MMMM YYYY') }}
+                                                    | {{ $post->created_at->diffForHumans()}}
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="author">
                                                     <i class="fa fa-user"></i> {{$post->users->name }}
+                                                    @foreach ($post->users->getRoleNames() as $v)
+                                                    | {{ ucfirst($v) }}
+                                                    @endforeach
                                                 </div>
                                             </li>
                                             <li>

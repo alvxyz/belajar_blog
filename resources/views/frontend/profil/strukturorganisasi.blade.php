@@ -36,6 +36,7 @@
                     @endforeach
                 </div>
 
+                @if ($structure->count() > 1)
                 <div class="rs-faq-part pt-100 md-pt-70 md-pb-70">
                     <div class="isi">
                         <div class="content-part mb-50 md-mb-30">
@@ -62,6 +63,8 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
             </div>
         </div>
     </div>

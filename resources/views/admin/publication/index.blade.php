@@ -40,12 +40,8 @@
                         <td>
                             <a href="{{ route('publication.edit_from_dosen', ['id' => $publication->id]) }}"
                                 class="btn btn-sm btn-info"><i class="mdi mdi-pencil"></i></a>
-                            <a href="#" data-id="{{ $publication->id }}" class="btn btn-sm btn-danger swal-confirm">
-                                <form action="{{ route('publication.delete', ['id' => $publication->id]) }}"
-                                    method="POST" id="delete{{ $publication->id }}">
-                                    @csrf
-                                    @method('delete')
-                                </form>
+                            <a href="{{ route('publication.delete', ['id' => $publication->id]) }}"
+                                data-id="{{ $publication->id }}" class="btn btn-sm btn-danger swal-confirm">
                                 <i class="mdi mdi-delete"></i>
                             </a>
                         </td>
@@ -67,9 +63,11 @@
 @section('js')
 
 <script>
-    $( document ).ready(function() {
-        $(".swal-confirm").click(function(e) {
-            id = e.target.dataset.id;
+    $(".swal-confirm").on('click', function(e) {
+        
+            e.preventDefault();
+            const href = $(this).attr('href');
+
             Swal.fire({
                 title: 'Apakah Anda Yakin? ',
                 text: 'Data yang telah dihapus tidak akan bisa dikembalikan!',
@@ -84,7 +82,7 @@
                     'Data Anda telah terhapus',
                     'success'
                     )
-                    $(`#delete${id}`).submit();
+                    document.location.href = href;
                     
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire(
@@ -95,6 +93,5 @@
                 }
             })
         });
-    });
 </script>
 @endsection

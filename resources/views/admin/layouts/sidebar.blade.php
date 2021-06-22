@@ -27,7 +27,7 @@
             </div>
             <label class="text-muted">@if(!empty(Auth::user()->getRoleNames()))
                 @foreach(Auth::user()->getRoleNames() as $v)
-                <span class="badge badge-pill badge-primary">{{ $v }}</span>
+                <span class="badge badge-pill badge-primary">{{ ucfirst($v) }}</span>
                 @endforeach
                 @endif</label>
         </div>
@@ -39,7 +39,7 @@
 
                 <li class="menu-title">Daftar Menu</li>
 
-                @hasanyrole('admin|operator')
+                @hasanyrole('administrator|operator')
                 <li>
                     <a href="{{ route('home') }}">
                         <i class="mdi mdi-view-dashboard"></i>
@@ -96,7 +96,7 @@
 
                 @endhasanyrole()
 
-                @hasanyrole('admin')
+                @hasanyrole('administrator')
 
                 <li>
                     <a href="{{ route('users') }}">
@@ -165,6 +165,13 @@
                     <a href="{{ route('achievements') }}">
                         <i class="mdi mdi-vector-point"></i>
                         <span> Capaian Pembelajaran </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('lessonplans') }}">
+                        <i class="mdi mdi-sticker-check"></i>
+                        <span> Rencana Pembelajaran</span>
                     </a>
                 </li>
 

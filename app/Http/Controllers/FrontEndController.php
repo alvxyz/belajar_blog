@@ -15,6 +15,7 @@ use App\Facility;
 use App\GraduateProfile;
 use App\Guide;
 use App\Lecturer;
+use App\LessonPlan;
 use App\Partner;
 use App\Post;
 use App\Profile;
@@ -54,8 +55,27 @@ class FrontEndController extends Controller
         $partners = Partner::all();
         $partner = Partner::latest()->take(4)->get();
         $posts = Post::all();
-        // $agendas = Agenda::orderBy('date', 'asc')->take(3)->get();
-        $agendas = Agenda::where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')->take(3)->get();
+        $agendas = Agenda::orderBy('date_start', 'desc')->take(3)->get();
+        // $agendas = Agenda::where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')->take(3)->get();
+
+        // $agendas = Agenda::where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')->take(3)->get();
+
+        // dd($agendas);
+
+        // if ($agendas->count() < 0) {
+        //     $agendas = Agenda::where('date_start', '<', Carbon::today())->orderBy('date_start', 'desc')->take(3)->get();
+        // } else {
+        //     $agendas = Agenda::where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')->take(3)->get();
+        // }
+
+        // $agendas = DB::table('agenda')
+        //     ->where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')
+        //     ->orWhere(function ($query) {
+        //         $query->where('date_start', '<', Carbon::today())->orderBy('date_start', 'asc');
+        //     })
+        //     ->take(3)->get();
+
+
         $testimonials = Testimonial::all();
         $creations = Creation::all();
         $about1 = About::take(1)->latest()->get();
@@ -136,25 +156,28 @@ class FrontEndController extends Controller
     public function struktur()
     {
         // mengarahkan view ke halaman 
+        $structure = Structure::all();
         $structure1 = Structure::take(1)->latest()->get();
-        $structure2 = DB::table('structures')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.profil.strukturorganisasi', compact('structure1', 'structure2'));
+        $structure2 = DB::table('structures')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.profil.strukturorganisasi', compact('structure1', 'structure2', 'structure'));
     }
 
     public function kalender()
     {
         // mengarahkan view ke halaman 
+        $calendar = Calendar::all();
         $calendar1 = Calendar::take(1)->latest()->get();
-        $calendar2 = DB::table('calendars')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.kalender.index', compact('calendar1', 'calendar2'));
+        $calendar2 = DB::table('calendars')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.kalender.index', compact('calendar1', 'calendar2', 'calendar'));
     }
 
     public function capaianpembelajaran()
     {
         // mengarahkan view ke halaman 
+        $achievement = Achievement::all();
         $achievement1 = Achievement::take(1)->latest()->get();
-        $achievement2 = DB::table('achievements')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.capaian.index', compact('achievement1', 'achievement2'));
+        $achievement2 = DB::table('achievements')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.capaian.index', compact('achievement1', 'achievement2', 'achievement'));
     }
 
     public function panduan()
@@ -173,34 +196,38 @@ class FrontEndController extends Controller
 
     public function profillulusan()
     {
-        // mengarahkan view ke halaman 
+        // mengarahkan view ke halaman
+        $graduateprofile = GraduateProfile::all();
         $graduateprofile1 = GraduateProfile::take(1)->latest()->get();
-        $graduateprofile2 = DB::table('graduate_profiles')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.profillulusan.index', compact('graduateprofile1', 'graduateprofile2'));
+        $graduateprofile2 = DB::table('graduate_profiles')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.profillulusan.index', compact('graduateprofile1', 'graduateprofile2', 'graduateprofile'));
     }
 
     public function kompetensi()
     {
         // mengarahkan view ke halaman 
+        $competence = Competence::all();
         $competence1 = Competence::take(1)->latest()->get();
-        $competence2 = DB::table('competence')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.kompetensi.index', compact('competence1', 'competence2'));
+        $competence2 = DB::table('competence')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.kompetensi.index', compact('competence1', 'competence2', 'competence'));
     }
 
     public function visidanmisi()
     {
         // mengarahkan view ke halaman visi dan misi
+        $visionandmission = VisionAndMission::all();
         $visionandmissions = VisionAndMission::take(1)->latest()->get();
-        $visionandmission2 = DB::table('vision_and_mission')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.profil.visidanmisi', compact('visionandmissions', 'visionandmission2'));
+        $visionandmission2 = DB::table('vision_and_mission')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.profil.visidanmisi', compact('visionandmissions', 'visionandmission2', 'vissionandmission'));
     }
 
     public function akreditasi()
     {
         // mengarahkan view ke halaman Akreditasi
+        $accreditation = Accreditation::all();
         $accreditation1 = Accreditation::take(1)->latest()->get();
-        $accreditation2 = DB::table('accreditations')->orderBy('created_at', 'desc')->skip(1)->take(100)->get();
-        return view('frontend.profil.akreditasi', compact('accreditation1', 'accreditation2'));
+        $accreditation2 = DB::table('accreditations')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
+        return view('frontend.profil.akreditasi', compact('accreditation1', 'accreditation2', 'accreditation'));
     }
 
     public function berita()
@@ -294,6 +321,27 @@ class FrontEndController extends Controller
     {
         $file_name = Repository::find($id);
         // return Storage::download(public_path('uploads/file/' . $file));
+        $file = public_path($file_name->file);
+        return response()->download($file);
+    }
+
+    public function rencanapembelajaran()
+    {
+        // mengarahkan view ke halaman
+        $lessonplans = LessonPlan::latest()->paginate(6);
+        return view('frontend.rencanapembelajaran.index', compact('lessonplans'));
+    }
+
+    public function rencanapembelajaran_detail($slug)
+    {
+        // mengarahkan view ke halaman
+        $lessonplan = LessonPlan::where('slug', $slug)->firstOrFail();
+        return view('frontend.rencanapembelajaran.detail', compact('lessonplan'));
+    }
+
+    public function downloadFileRPS($id)
+    {
+        $file_name = LessonPlan::find($id);
         $file = public_path($file_name->file);
         return response()->download($file);
     }

@@ -53,19 +53,18 @@
                                                             <ul class="sub-menu last-sub-menu">
                                                                 <li><a href="{{ route('akreditasi') }}">Akreditasi</a>
                                                                 </li>
-                                                                <li><a href="{{ route('fasilitas') }}">Fasilitas</a>
-                                                                </li>
+                                                                <li><a href="{{ route('profillulusan') }}">Profil
+                                                                        Lulusan</a> </li>
                                                                 <li><a href="{{ route('struktur') }}">Struktur
                                                                         Organisasi</a> </li>
-
                                                             </ul>
                                                         </div>
                                                         <div class="single-megamenu">
                                                             <ul class="sub-menu last-sub-menu">
                                                                 <li><a href="{{ route('partner') }}">Kerja Sama</a>
                                                                 </li>
-                                                                <li><a href="{{ route('profillulusan') }}">Profil
-                                                                        Lulusan</a> </li>
+                                                                <li><a href="{{ route('fasilitas') }}">Fasilitas</a>
+
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -85,11 +84,13 @@
                                         </li>
 
                                         <li
-                                            class="menu-item-has-children {{ set_active(['capaian', 'kompetensi', 'matakuliah']) }}">
+                                            class="menu-item-has-children {{ set_active(['capaian', 'kompetensi', 'matakuliah', 'rencanapembelajaran']) }}">
                                             <a href="#">Kurikulum <i class="fa fa-caret-down"
                                                     aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
                                                 <li><a href="{{ route('capaian') }}">Capaian Pembelajaran</a>
+                                                <li><a href="{{ route('rencanapembelajaran') }}">Rencana Pembelajaran
+                                                        Semster</a>
                                                 <li><a href="{{ route('kompetensi') }}">Kompetensi Lulusan</a>
                                                 <li><a href="{{ route('matakuliah') }}">Mata Kuliah</a>
                                             </ul>

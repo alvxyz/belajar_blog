@@ -264,7 +264,7 @@
         <div class="container">
             <div class="sec-title mb-60 text-center">
                 <div class="sub-title primary">Kumpulan</div>
-                <h2 class="title mb-0">Karya Terbaik Mahasiswa</h2>
+                <h2 class="title mb-0">Karya Terbaik</h2>
             </div>
             <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true"
                 data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false"
