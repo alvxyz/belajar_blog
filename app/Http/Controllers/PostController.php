@@ -79,7 +79,7 @@ class PostController extends Controller
             $destinationPath = 'uploads/post';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1240, 699);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/post' . '/' . $image_name;
         }
 
@@ -135,7 +135,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->title = $request->title;
-        $post->slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        // $post->slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         $post->category_id = $request->category_id;
         $post->content = $request->content;
 
@@ -149,7 +149,7 @@ class PostController extends Controller
             $destinationPath = 'uploads/post';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1240, 699);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/post' . '/' . $image_name;
 
             $post->featured = $destinationPath;

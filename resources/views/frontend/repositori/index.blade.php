@@ -18,7 +18,7 @@
                 <li>
                     <a class="active blue-color" href="/">Beranda</a>
                 </li>
-                <li>Repository</li>
+                <li>Repositori</li>
             </ul>
         </div>
     </div>

@@ -8,8 +8,12 @@ use App\Repository;
 use Illuminate\Http\Request;
 
 // Route untuk Menu Beranda
+// Route::middleware('visitor')->group(function () {
+//     Route::get('/', 'FrontEndController@beranda')->name('beranda');
+// });
 
-Route::middleware('visitor')->group(function () {
+Route::middleware(['visitor', 'lscache:private;esi=on;max-age=120'])->group(function () {
+
     Route::get('/', 'FrontEndController@beranda')->name('beranda');
 
     // Route::get('/', 'FrontEndController@beranda');

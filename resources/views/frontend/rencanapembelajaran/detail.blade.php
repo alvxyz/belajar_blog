@@ -32,7 +32,7 @@
                 </div> --}}
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-6 col-md-12 mb-100">
                         <h2>{{ $lessonplan->curriculum }}</h2>
                     </div>
                     <div class="col-lg-6 col-md-12 btn-download text-right">

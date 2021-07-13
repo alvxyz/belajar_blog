@@ -9,13 +9,12 @@
 <div class="main-content">
     <!-- Slider Section Start -->
     <div class="rs-slider style1">
-        <div class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="0" data-autoplay="true"
-            data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false"
-            data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
-            data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="1"
-            data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
-            data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="true"
-            data-md-device-dots="false">
+        <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="0" data-autoplay="true"
+            data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="true" data-nav="true"
+            data-nav-speed="false" data-center-mode="true" data-mobile-device="1" data-mobile-device-nav="true"
+            data-mobile-device-dots="true" data-ipad-device="1" data-ipad-device-nav="true" data-ipad-device-dots="true"
+            data-ipad-device2="1" data-ipad-device-nav2="true" data-ipad-device-dots2="true" data-md-device="1"
+            data-md-device-nav="true" data-md-device-dots="true">
             @foreach ($sliders as $slider)
             <div class="slider-content slide1 slider-alvian"
                 style="background: radial-gradient(148.13% 2184.32% at 3.26% 11.5%, rgba(39, 60, 102, 0.83) 0%, rgba(33, 167, 208, 0.62) 88.07%), url({{ asset($slider->image) }}); object-fit:cover !important">
@@ -42,7 +41,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12 md-mb-40">
                     <div class="img-part js-tilt">
-                        <img src="{{ asset('images/beranda/Tentang.png') }}" alt="images">
+                        <img src="{{ asset('images/beranda/3image.png') }}" alt="images">
                     </div>
                 </div>
                 <div class="col-lg-6 pl-100 md-pl-15 col-md-12">
@@ -53,7 +52,7 @@
                         <h2 class="sl-title mb-10 md-mb-20">Program Studi Teknik Informatika POLNEP</h2>
                         <p class="desc">
                             @foreach ($about1 as $about)
-                            {!! substr($about->content, 0, 250) !!}
+                            {!! substr($about->content, 0, 250) . "..."!!}
                             {{-- {{ substr($about->content, 0, 200) }} --}}
                             @endforeach
                         </p>
@@ -96,7 +95,7 @@
                         </ul>
                         <h3 class="title"><a href="{{ route('berita.detail', ['slug' => $post->slug]) }}">{!!
                                 $post->title !!}</a></h3>
-                        <div class="desc"> {!! substr($post->content, 0, 200) !!}</div>
+                        <div class="desc"> {!! substr($post->content, 0, 200) . "..."!!}</div>
                         <ul class="blog-bottom">
                             <li class="btn-part"><a class="readon-arrow"
                                     href="{{ route('berita.detail', ['slug' => $post->slug]) }}">Selengkapnya</a></li>
@@ -177,7 +176,7 @@
                                 </div>
                                 <h4 class="title mb-0"><a
                                         href="{{ route('agenda.detail', ['slug' => $agenda->slug]) }}">{!!
-                                        substr($agenda->title, 0 , 50) !!}</a></h4>
+                                        substr($agenda->title, 0 , 50) . "..."!!}</a></h4>
                             </div>
                         </div>
                         @endforeach
@@ -231,9 +230,9 @@
                             data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000"
                             data-smart-speed="800" data-dots="true" data-nav="false" data-nav-speed="false"
                             data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false"
-                            data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="false"
-                            data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false"
-                            data-ipad-device-dots2="false" data-md-device="2" data-md-device-nav="false"
+                            data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="true"
+                            data-ipad-device-dots="true" data-ipad-device2="1" data-ipad-device-nav2="false"
+                            data-ipad-device-dots2="true" data-md-device="2" data-md-device-nav="false"
                             data-md-device-dots="true">
                             @foreach ($testimonials as $testimonial)
                             <div class="testi-item">
@@ -286,7 +285,7 @@
                         </ul>
                         <h3 class="title"><a href="{{ route('karya.detail', ['slug' => $creation->slug]) }}">{!!
                                 $creation->title !!}</a></h3>
-                        <div class="desc"> {!! substr($creation->content, 0, 200) !!}</div>
+                        <div class="desc"> {!! substr($creation->content, 0, 200) . "..."!!}</div>
                         <ul class="blog-bottom">
                             <li><i class="fa fa-book mr-2"></i> {{$creation->category_creation->name }}</li>
                             <li class="btn-part"><a class="readon-arrow"

@@ -31,7 +31,7 @@
                         <div class="col-md-10">
                             <input name="place" type="text" id="simpleinput"
                                 class="form-control @error('place') is-invalid @enderror"
-                                placeholder="Masukkan Nama Tempat" value="{{ old('title') }}">
+                                placeholder="Masukkan Nama Tempat" value="{{ old('place') }}">
                             @error('place')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                         <div class="col-md-10">
                             <input name="organizer" type="text" id="simpleinput"
                                 class="form-control @error('organizer') is-invalid @enderror"
-                                placeholder="Masukkan Nama Penyelenggara" value="{{ old('title') }}">
+                                placeholder="Masukkan Nama Penyelenggara" value="{{ old('organizer') }}">
                             @error('organizer')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -56,9 +56,10 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Tanggal Mulai</label>
                         <div class="col-md-10">
                             <input name="date_start" type="date" id="simpleinput"
-                                class="form-control @error('date_start') is-invalid @enderror">
+                                class="form-control @error('date_start') is-invalid @enderror"
+                                value="{{ old('date_start') }}">
                             @error('date_start')
-                            <span class="invalid-feedback" role="alert">
+                            <span class=" invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -68,8 +69,10 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Tanggal Selesai</label>
                         <div class="col-md-10">
                             <input name="date_end" type="date" id="simpleinput"
-                                class="form-control @error('date_end') is-invalid @enderror">
-                            <small id="emailHelp" class="form-text text-muted">Kosongkan Jika Agenda Hanya Berlangsung 1
+                                class="form-control @error('date_end') is-invalid @enderror"
+                                value="{{ old('date_end') }}">
+                            <small id=" emailHelp" class="form-text text-muted">Kosongkan Jika Agenda Hanya Berlangsung
+                                1
                                 Hari</small>
                             @error('date_end')
                             <span class="invalid-feedback" role="alert">
@@ -82,9 +85,10 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Waktu Mulai</label>
                         <div class="col-md-10">
                             <input name="time_start" type="time" id="simpleinput"
-                                class="form-control @error('time_start') is-invalid @enderror">
+                                class="form-control @error('time_start') is-invalid @enderror"
+                                value="{{ old('time_start') }}">
                             @error('time_start')
-                            <span class="invalid-feedback" role="alert">
+                            <span class=" invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -94,9 +98,10 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">Waktu Selesai</label>
                         <div class="col-md-10">
                             <input name="time_end" type="time" id="simpleinput"
-                                class="form-control @error('time_end') is-invalid @enderror">
+                                class="form-control @error('time_end') is-invalid @enderror"
+                                value="{{ old('time_end') }}">
                             @error('time_end')
-                            <span class="invalid-feedback" role="alert">
+                            <span class=" invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -119,7 +124,7 @@
                         <div class="col-md-10">
                             <input name="link" type="url" id="simpleinput"
                                 class="form-control @error('link') is-invalid @enderror"
-                                placeholder="Masukkan URL Link Pendaftarn" value="{{ old('title') }}">
+                                placeholder="Masukkan URL Link Pendaftarn" value="{{ old('link') }}">
                             <small id="emailHelp" class="form-text text-muted">Kosongkan Jika Agenda Tidak Memiliki Link
                                 Pendaftaran</small>
                             @error('link')
@@ -132,10 +137,11 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="simpleinput">Gambar</label>
                         <div class="col-md-10">
-                            <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                            <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi Optimal
-                                1240x699
-                                px atau dengan Rasio 16:9</small>
+                            <input name="image" type="file" class="form-control @error('image') is-invalid @enderror"
+                                value="{{ old('image') }}>
+                            <small id=" emailHelp" class="form-text text-muted">Masukkan Gambar dengan Resolusi Optimal
+                            1240x699
+                            px atau dengan Rasio 16:9</small>
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

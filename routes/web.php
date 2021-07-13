@@ -84,20 +84,20 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['role:administrator']], 
     Route::get('about/delete/{id}', 'AboutController@destroy')->name('about.delete');
 
     //Structure
-    Route::get('/structures', 'structureController@index')->name('structures');
-    Route::get('/structure/create', 'structureController@create')->name('structure.create');
-    Route::post('/structure/store', 'structureController@store')->name('structure.store');
-    Route::post('/structure/update/{id}', 'structureController@update')->name('structure.update');
-    Route::get('structure/edit/{id}', 'structureController@edit')->name('structure.edit');
-    Route::get('structure/delete/{id}', 'structureController@destroy')->name('structure.delete');
+    Route::get('/structures', 'StructureController@index')->name('structures');
+    Route::get('/structure/create', 'StructureController@create')->name('structure.create');
+    Route::post('/structure/store', 'StructureController@store')->name('structure.store');
+    Route::post('/structure/update/{id}', 'StructureController@update')->name('structure.update');
+    Route::get('structure/edit/{id}', 'StructureController@edit')->name('structure.edit');
+    Route::get('structure/delete/{id}', 'StructureController@destroy')->name('structure.delete');
 
     //Calendar
-    Route::get('/calendars', 'CalendarController@index')->name('calendars');
-    Route::get('/calendar/create', 'CalendarController@create')->name('calendar.create');
-    Route::post('/calendar/store', 'CalendarController@store')->name('calendar.store');
-    Route::post('/calendar/update/{id}', 'CalendarController@update')->name('calendar.update');
-    Route::get('calendar/edit/{id}', 'CalendarController@edit')->name('calendar.edit');
-    Route::get('calendar/delete1/{id}', 'CalendarController@destroy')->name('calendar.delete');
+    // Route::get('/calendars', 'CalendarController@index')->name('calendars');
+    // Route::get('/calendar/create', 'CalendarController@create')->name('calendar.create');
+    // Route::post('/calendar/store', 'CalendarController@store')->name('calendar.store');
+    // Route::post('/calendar/update/{id}', 'CalendarController@update')->name('calendar.update');
+    // Route::get('calendar/edit/{id}', 'CalendarController@edit')->name('calendar.edit');
+    // Route::get('calendar/delete1/{id}', 'CalendarController@destroy')->name('calendar.delete');
 
     //Achievement
     Route::get('/achievements', 'AchievementController@index')->name('achievements');
@@ -146,6 +146,22 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['role:administrator']], 
     Route::post('/lessonplan/update/{id}', 'LessonPlanController@update')->name('lessonplan.update');
     Route::get('lessonplan/edit/{id}', 'LessonPlanController@edit')->name('lessonplan.edit');
     Route::get('lessonplan/delete/{id}', 'LessonPlanController@destroy')->name('lessonplan.delete');
+
+    //Detail Contact
+    Route::get('/detailcontacts', 'DetailContactController@index')->name('detailcontacts');
+    Route::get('/detailcontact/create', 'DetailContactController@create')->name('detailcontact.create');
+    Route::post('/detailcontact/store', 'DetailContactController@store')->name('detailcontact.store');
+    Route::post('/detailcontact/update/{id}', 'DetailContactController@update')->name('detailcontact.update');
+    Route::get('detailcontact/edit/{id}', 'DetailContactController@edit')->name('detailcontact.edit');
+    Route::get('detailcontact/delete/{id}', 'DetailContactController@destroy')->name('detailcontact.delete');
+
+    //Social Media
+    Route::get('/socialmedias', 'SocialMediaController@index')->name('socialmedias');
+    Route::get('/socialmedia/create', 'SocialMediaController@create')->name('socialmedia.create');
+    Route::post('/socialmedia/store', 'SocialMediaController@store')->name('socialmedia.store');
+    Route::post('/socialmedia/update/{id}', 'SocialMediaController@update')->name('socialmedia.update');
+    Route::get('socialmedia/edit/{id}', 'SocialMediaController@edit')->name('socialmedia.edit');
+    Route::get('socialmedia/delete/{id}', 'SocialMediaController@destroy')->name('socialmedia.delete');
 });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['role:administrator|operator']], function () {

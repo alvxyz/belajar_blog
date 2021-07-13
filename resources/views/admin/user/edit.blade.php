@@ -61,7 +61,9 @@
                         <div class="col-md-10">
                             <select class="multiple-input" name="roles[]">
                                 @foreach ($roles as $role)
-                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                <option value="{{ $role->id }}">
+                                    {{ $role->name }}
+                                </option>
                                 @endforeach
                             </select>
                             <small id="emailHelp" class="form-text text-muted">Pastikan Role yang dipilih tepat, Jika

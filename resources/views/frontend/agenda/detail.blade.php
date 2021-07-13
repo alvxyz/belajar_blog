@@ -62,7 +62,7 @@
                                         <h5 style="margin-top:20px !important">Link Pendaftaran</h5>
                                         <a style="margin:0px !important" class="date" target="blank"
                                             href="{{ $agenda->link }}">
-                                            {{ $agenda->link }}
+                                            {!! substr($agenda->link, 0, 30) . "..." !!}
                                         </a>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@
 
                     (function() { // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');
-                    s.src = 'https://teknik-informatika-politeknik-negeri-pontianak.disqus.com/embed.js';
+                    s.src = 'https://teknik-informatika-politeknik-negeri-pontianak-1.disqus.com/embed.js';
                     s.setAttribute('data-timestamp', +new Date());
                     (d.head || d.body).appendChild(s);
                     })();

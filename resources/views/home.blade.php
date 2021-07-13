@@ -1,5 +1,7 @@
 @extends('layouts.adminto')
 
+@section('judulhalaman', 'Halaman Dashboard')
+
 @section('content')
 
 <div class="row">

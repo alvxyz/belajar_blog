@@ -63,7 +63,7 @@ class SliderController extends Controller
             $destinationPath = 'uploads/slider';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1925, 820);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/slider' . '/' . $image_name;
         }
 
@@ -134,7 +134,7 @@ class SliderController extends Controller
             $destinationPath = 'uploads/slider';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1925, 820);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/slider' . '/' . $image_name;
             $slider->image = $destinationPath;
         }

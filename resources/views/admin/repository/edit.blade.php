@@ -43,9 +43,8 @@
                         <label class="col-md-2 col-form-label" for="simpleinput">File</label>
                         <div class="col-md-10">
                             <input name="file" type="file" id="simpleinput"
-                                class="form-control @error('name') is-invalid @enderror">
-                            <small id="emailHelp" class="form-text text-muted">Masukkan File dengan Format PDF, Doc,
-                                JPG</small>
+                                class="form-control @error('file') is-invalid @enderror">
+                            <small id="emailHelp" class="form-text text-muted">Masukkan File dengan Format PDF</small>
 
                             @error('file')
                             <span class="invalid-feedback" role="alert">

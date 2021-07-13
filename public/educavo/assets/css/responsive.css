@@ -1703,7 +1703,7 @@
     }
 
     .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.nav-menu li a{
-        color: #394459 !important;
+        color: #394459;
     }
 
     .full-width-header.header-style2.modify1.header-home6 .rs-header .rs-menu-area .main-menu .rs-menu ul.nav-menu li a,
@@ -1712,7 +1712,7 @@
     }
     .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.sub-menu li a:hover,
     .full-width-header.header-style2 .rs-header .menu-area .rs-menu-area .main-menu .rs-menu ul.sub-menu li a:hover {
-        color: #fff !important;
+        color: #394459 !important;
     }
 
     .full-width-header.header-style2 .rs-header .menu-area .logo-cat-wrap {

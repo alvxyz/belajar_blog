@@ -73,7 +73,7 @@ class CreationController extends Controller
             $destinationPath = 'uploads/creation';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1240, 699);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/creation' . '/' . $image_name;
         }
 
@@ -168,7 +168,7 @@ class CreationController extends Controller
         $creation = Creation::find($id);
 
         $creation->title = $request->title;
-        $creation->slug = SlugService::createSlug(Creation::class, 'slug', $request->title);
+        // $creation->slug = SlugService::createSlug(Creation::class, 'slug', $request->title);
         $creation->creator = $request->creator;
         $creation->position = $request->position;
         $creation->content = $request->content;
@@ -186,7 +186,7 @@ class CreationController extends Controller
             $destinationPath = 'uploads/creation';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1240, 699);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/creation' . '/' . $image_name;
             $creation->image = $destinationPath;
         }

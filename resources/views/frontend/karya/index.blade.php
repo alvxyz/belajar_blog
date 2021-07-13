@@ -13,12 +13,12 @@
             <img src="{{ asset('images/breadcrumb/mahasiswa3.jpg') }}" alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
-            <h1 class="page-title">Karya</h1>
+            <h1 class="page-title">Karya Terbaik</h1>
             <ul>
                 <li>
                     <a class="active blue-color" href="/">Beranda</a>
                 </li>
-                <li>Karya</li>
+                <li>Karya Terbaik</li>
             </ul>
         </div>
     </div>

@@ -189,18 +189,30 @@
                     </a>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="{{ route('calendars') }}">
-                        <i class="mdi mdi-calendar-month"></i>
-                        <span> Kalender Akademik </span>
-                    </a>
-                </li>
+                <i class="mdi mdi-calendar-month"></i>
+                <span> Kalender Akademik </span>
+                </a>
+                </li> --}}
 
                 <li>
                     <a href="{{ route('guides') }}">
                         <i class="mdi mdi-help-circle"></i>
                         <span> Panduan </span>
                     </a>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-post"></i>
+                        <span> Footer </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{ route('detailcontacts') }}">Detail Footer</a></li>
+                        <li><a href="{{ route('socialmedias') }}">Sosial Media</a></li>
+                    </ul>
                 </li>
 
                 @endhasanyrole()

@@ -112,7 +112,7 @@ class FacilityController extends Controller
         $facility = Facility::find($id);
 
         $facility->name = $request->name;
-        $facility->slug = SlugService::createSlug(Facility::class, 'slug', $request->name);
+        // $facility->slug = SlugService::createSlug(Facility::class, 'slug', $request->name);
         $facility->content = $request->content;
 
         if ($request->hasFile('image')) {

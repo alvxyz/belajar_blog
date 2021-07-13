@@ -43,6 +43,11 @@
                         <div class="blog-desc">
                             <h3> {{ $post->title }} </h3>
                             {!! $post->content !!}
+                            <h6>Tags :
+                                @foreach ($post->tags as $tag)
+                                {{ $tag->tag }} |
+                                @endforeach
+                            </h6>
                         </div>
 
                     </div>
@@ -84,7 +89,7 @@
                     
                     (function() { // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');
-                    s.src = 'https://teknik-informatika-politeknik-negeri-pontianak.disqus.com/embed.js';
+                    s.src = 'https://teknik-informatika-politeknik-negeri-pontianak-1.disqus.com/embed.js';
                     s.setAttribute('data-timestamp', +new Date());
                     (d.head || d.body).appendChild(s);
                     })();

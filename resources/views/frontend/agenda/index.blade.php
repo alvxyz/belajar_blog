@@ -48,7 +48,7 @@
                         </div>
                         <div class="content-part">
                             <h3 class="title"><a href="{{ route('agenda.detail', ['slug' => $agenda_data->slug]) }}">{!!
-                                    substr($agenda_data->title, 0 , 100) !!}</a>
+                                    substr($agenda_data->title, 0 , 100) . "..."!!}</a>
                             </h3>
                             <ul class="meta-part">
                                 <li>
@@ -57,7 +57,7 @@
                                 </li>
                             </ul>
                             <div class="blog-desc">
-                                {!! substr($agenda_data->content, 0, 150) !!}
+                                {!! substr($agenda_data->content, 0, 150) . "..."!!}
                             </div>
                             <div class="bottom-part">
                                 <div class="info-meta">

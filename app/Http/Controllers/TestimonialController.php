@@ -61,7 +61,7 @@ class TestimonialController extends Controller
 
             $destinationPath = 'uploads/testimonial';
             $image_resize = Image::make($image->getRealPath());
-            $image_resize->fit(400, 400);
+            $image_resize->fit(84, 84);
             $image_resize->save($destinationPath . '/' . $image_name);
             $destinationPath = 'uploads/testimonial' . '/' . $image_name;
         }
@@ -130,7 +130,7 @@ class TestimonialController extends Controller
 
             $destinationPath = 'uploads/testimonial';
             $image_resize = Image::make($image->getRealPath());
-            $image_resize->fit(400, 400);
+            $image_resize->fit(84, 84);
             $image_resize->save($destinationPath . '/' . $image_name);
             $destinationPath = 'uploads/testimonial' . '/' . $image_name;
             $testimonial->image = $destinationPath;

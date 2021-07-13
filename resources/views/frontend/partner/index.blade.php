@@ -47,10 +47,11 @@
                 <div class="col-lg-6 col-md-12 md-mb-30">
                     <div class="sec-title2">
                         <h2 class="mb-20">{{ $partner->name }}</h2>
-                        <p class="desc mb-25">{!! substr($partner->content, 0, 200) !!}</p>
+                        <p class="desc mb-25">{!! substr($partner->content, 0, 200). "..." !!}</p>
                         <a href="{{ route('partner.detail', ['slug' => $partner->slug]) }}" class="text-bold">Lihat
                             Selengkapnya
-                            <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@
 
                                         <li
                                             class="rs-mega-menu mega-rs menu-item-has-children {{ set_active(['tentang', 'visidanmisi', 'dosen', 'dosen.detail', 'partner', 'partner.detail', 'akreditasi', 'fasilitas', 'fasilitas.detail', 'struktur', 'profillulusan']) }}">
-                                            <a href="#">Profil <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                            <a>Profil <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="mega-menu">
                                                 <li class="mega-menu-container">
                                                     <div class="mega-menu-innner">
@@ -73,30 +73,29 @@
                                         </li>
 
                                         <li class="menu-item-has-children {{ set_active(['karya', 'karya.detail']) }}">
-                                            <a href="#">Mahasiswa <i class="fa fa-caret-down"
-                                                    aria-hidden="true"></i></a>
+                                            <a>Mahasiswa <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
                                                 <li><a href="{{ route('karya') }}">Karya Terbaik</a>
-                                                <li><a href="{{ route('kalender') }}">Kalender
-                                                        Akademik</a>
+                                                    {{-- <li><a href="{{ route('kalender') }}">Kalender
+                                                    Akademik</a> --}}
                                                 </li>
                                             </ul>
                                         </li>
 
                                         <li
-                                            class="menu-item-has-children {{ set_active(['capaian', 'kompetensi', 'matakuliah', 'rencanapembelajaran']) }}">
-                                            <a href="#">Kurikulum <i class="fa fa-caret-down"
-                                                    aria-hidden="true"></i></a>
+                                            class="menu-item-has-children {{ set_active(['capaian', 'kompetensi', 'matakuliah', 'rencanapembelajaran', 'rencanapembelajaran.detail']) }}">
+                                            <a>Kurikulum <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="sub-menu">
                                                 <li><a href="{{ route('capaian') }}">Capaian Pembelajaran</a>
-                                                <li><a href="{{ route('rencanapembelajaran') }}">Rencana Pembelajaran
-                                                        Semster</a>
                                                 <li><a href="{{ route('kompetensi') }}">Kompetensi Lulusan</a>
                                                 <li><a href="{{ route('matakuliah') }}">Mata Kuliah</a>
+                                                <li><a href="{{ route('rencanapembelajaran') }}">Rencana Pembelajaran
+                                                        Semester</a>
                                             </ul>
                                         </li>
 
-                                        <li class="menu-item {{ set_active(['berita', 'berita.detail']) }}">
+                                        <li
+                                            class="menu-item {{ set_active(['berita', 'berita.detail', 'category.post']) }}">
                                             <a href="{{ route('berita') }}">Berita</a>
                                         </li>
 
@@ -105,8 +104,7 @@
                                             <a href="{{ route('agenda') }}">Agenda</a>
                                         </li>
 
-                                        <li
-                                            class="menu-item {{ set_active(['repositori', 'repositori.detail', 'category.post']) }}">
+                                        <li class="menu-item {{ set_active(['repositori', 'repositori.detail']) }}">
                                             <a href="{{ route('repositori') }}">Repositori</a>
                                         </li>
                                     </ul> <!-- //.nav-menu -->

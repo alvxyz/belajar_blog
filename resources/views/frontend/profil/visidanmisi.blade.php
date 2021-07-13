@@ -31,12 +31,12 @@
         <div class="container">
             <div class="pt-10">
                 <div class="blog-full">
-                    <h3 class="text-center">Visi</h3>
+                    <h3 class="">Visi</h3>
                     @foreach ($visionandmissions as $visionandmission)
                     <p>{!! $visionandmission->vision !!}</p>
                     @endforeach
 
-                    <h3 class="text-center pt-30">Misi</h3>
+                    <h3 class="pt-30">Misi</h3>
                     @foreach ($visionandmissions as $visionandmission)
                     <p>{!! $visionandmission->mission !!}</p>
                     @endforeach

@@ -40,7 +40,7 @@ class RepositoryController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'content' => 'required',
-            'file' => 'required'
+            'file' => 'required|mimes:pdf'
         ]);
 
         $repository = new Repository();
@@ -50,7 +50,11 @@ class RepositoryController extends Controller
 
         if ($request->hasFile('file')) {
             $file = $request->file;
-            $file_name = time() . $file->getClientOriginalName();
+            $file_real_name = time() . $file->getClientOriginalName();
+            $file_name = time() . str_replace(' ', '',  $file_real_name);
+            $file_name = str_replace('(', '',  $file_name);
+            $file_name = str_replace(')', '',  $file_name);
+            $file_name = str_replace('/', '',  $file_name);
             $file->move('uploads/file/', $file_name);
 
             $destinationPath = 'uploads/file/' . $file_name;
@@ -100,7 +104,7 @@ class RepositoryController extends Controller
         $repository = Repository::find($id);
 
         $repository->title = $request->title;
-        $repository->slug = SlugService::createSlug(Repository::class, 'slug', $request->title);
+        // $repository->slug = SlugService::createSlug(Repository::class, 'slug', $request->title);
         $repository->content = $request->content;
 
         if ($request->hasFile('file')) {
@@ -108,7 +112,11 @@ class RepositoryController extends Controller
                 unlink($repository->file);
             }
             $file = $request->file;
-            $file_name = time() . $file->getClientOriginalName();
+            $file_real_name = time() . $file->getClientOriginalName();
+            $file_name = time() . str_replace(' ', '',  $file_real_name);
+            $file_name = str_replace('(', '',  $file_name);
+            $file_name = str_replace(')', '',  $file_name);
+            $file_name = str_replace('/', '',  $file_name);
             $file->move('uploads/file/', $file_name);
 
             $destinationPath = 'uploads/file/' . $file_name;

@@ -123,7 +123,7 @@
                         <div class="col-md-10">
                             <input name="link" type="url" id="simpleinput"
                                 class="form-control @error('link') is-invalid @enderror"
-                                placeholder="Masukkan URL Link Pendaftarn" value="{{ old('title') }}"
+                                placeholder="Masukkan URL Link Pendaftarn" value="{{ $agenda->link }}"
                                 value="{{ $agenda->link }}">
                             <small id="emailHelp" class="form-text text-muted">Kosongkan Jika Agenda Tidak Memiliki Link
                                 Pendaftaran</small>

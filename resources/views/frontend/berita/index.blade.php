@@ -103,7 +103,7 @@
                                         </ul>
                                     </div>
                                     <div class="blog-desc">
-                                        {!! substr($post->content, 0, 200) !!}
+                                        {!! substr($post->content, 0, 200) . "..."!!}
                                     </div>
                                     <div class="blog-button">
                                         <a class="blog-btn"

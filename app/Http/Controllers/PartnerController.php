@@ -44,7 +44,7 @@ class PartnerController extends Controller
             'image' => 'required'
         ]);
 
-        $partner = new partner();
+        $partner = new Partner();
 
         $partner->name = $request->name;
         $partner->slug = SlugService::createSlug(Partner::class, 'slug', $request->name);
@@ -112,7 +112,7 @@ class PartnerController extends Controller
         $partner = Partner::find($id);
 
         $partner->name = $request->name;
-        $partner->slug = SlugService::createSlug(Partner::class, 'slug', $request->name);
+        // $partner->slug = SlugService::createSlug(Partner::class, 'slug', $request->name);
         $partner->content = $request->content;
 
         if ($request->hasFile('image')) {

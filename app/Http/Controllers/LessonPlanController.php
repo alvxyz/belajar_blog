@@ -98,7 +98,7 @@ class LessonPlanController extends Controller
         $lessonplan = LessonPlan::find($id);
 
         $lessonplan->curriculum = $request->curriculum;
-        $lessonplan->slug = SlugService::createSlug(LessonPlan::class, 'slug', $request->curriculum);
+        // $lessonplan->slug = SlugService::createSlug(LessonPlan::class, 'slug', $request->curriculum);
 
         if ($request->hasFile('file')) {
             if (file_exists($lessonplan->file)) {

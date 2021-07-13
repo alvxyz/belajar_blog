@@ -51,10 +51,10 @@ class FrontEndController extends Controller
     public function beranda()
     {
         //mencoba mengunjungi halaman beranda
-        $sliders = Slider::all();
+        $sliders = Slider::latest()->take(5)->get();
         $partners = Partner::all();
         $partner = Partner::latest()->take(4)->get();
-        $posts = Post::all();
+        $posts = Post::latest()->take(9)->get();
         $agendas = Agenda::orderBy('date_start', 'desc')->take(3)->get();
         // $agendas = Agenda::where('date_start', '>=', Carbon::today())->orderBy('date_start', 'asc')->take(3)->get();
 
@@ -76,8 +76,8 @@ class FrontEndController extends Controller
         //     ->take(3)->get();
 
 
-        $testimonials = Testimonial::all();
-        $creations = Creation::all();
+        $testimonials = Testimonial::latest()->take(8)->get();
+        $creations = Creation::latest()->take(9)->get();
         $about1 = About::take(1)->latest()->get();
 
         $now = Carbon::now();
@@ -271,7 +271,7 @@ class FrontEndController extends Controller
             'users.email'
         )
             ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
-            ->where('model_has_roles.role_id', '=', 3)->paginate(3);
+            ->where('model_has_roles.role_id', '=', 3)->orderBy('name', 'asc')->paginate(10);
 
         // dd($dosen);
 

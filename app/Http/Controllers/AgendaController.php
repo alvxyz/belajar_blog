@@ -69,7 +69,7 @@ class AgendaController extends Controller
             $destinationPath = 'uploads/agenda';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1240, 699);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/agenda' . '/' . $image_name;
         }
 
@@ -126,7 +126,7 @@ class AgendaController extends Controller
         $agenda = Agenda::find($id);
 
         $agenda->title = $request->title;
-        $agenda->slug = SlugService::createSlug(Agenda::class, 'slug', $request->title);
+        // $agenda->slug = SlugService::createSlug(Agenda::class, 'slug', $request->title);
         $agenda->place = $request->place;
         $agenda->date_start = $request->date_start;
         $agenda->date_end = $request->date_end;
@@ -146,7 +146,7 @@ class AgendaController extends Controller
             $destinationPath = 'uploads/agenda';
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(1240, 699);
-            $image_resize->save($destinationPath . '/' . $image_name);
+            $image_resize->save($destinationPath . '/' . $image_name, 30);
             $destinationPath = 'uploads/agenda' . '/' . $image_name;
             $agenda->image = $destinationPath;
         }

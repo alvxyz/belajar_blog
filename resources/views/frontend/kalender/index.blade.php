@@ -10,7 +10,7 @@
     <!-- Breadcrumbs Start -->
     <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-            <img src={{ asset('images/breadcrumb/tentang2.jpg') }} alt="Breadcrumbs Image">
+            <img src={{ asset('images/breadcrumb/mahasiswa3.jpg') }} alt="Breadcrumbs Image">
         </div>
         <div class="breadcrumbs-text white-color">
             <h1 class="page-title">Kalender Akademik</h1>
@@ -31,8 +31,14 @@
                 <div class="blog-full">
                     <h2 class="text">Kalender Akademik Program Studi Teknik Informatika</h2>
                     @foreach ($calendar1 as $calendar)
-                    <a class="image-popup" href="{{ asset($calendar->image) }}"><img src="{{ asset($calendar->image) }}"
-                            alt=""></a>
+                    <div class="row mb-100">
+                        <iframe
+                            src="http://docs.google.com/gview?embedded=true&url={{ asset($calendar->file)}}&embedded=true"
+                            style="width:100%; height:700px;" frameborder="0">
+                        </iframe>
+                    </div>
+                    {{-- <a class="image-popup" href="{{ asset($calendar->image) }}"><img
+                        src="{{ asset($calendar->image) }}" alt=""></a> --}}
                     <div class="btn-download mt-5">
                         <a type="button" href="{{ route('kalender.download', ['id' => $calendar->id]) }}"
                             class="btn-alvian"><i class="fa fa-arrow-circle-down"></i>
@@ -57,8 +63,14 @@
                                     <div id="{{Str::slug($calendar->period)}}" class="collapse"
                                         data-parent="#accordion">
                                         <div class="card-body">
-                                            <a class="image-popup" href="{{ asset($calendar->image) }}"><img
-                                                    src="{{ asset($calendar->image) }}" alt=""></a>
+                                            <div class="row mb-100">
+                                                <iframe
+                                                    src="http://docs.google.com/gview?embedded=true&url={{ asset($calendar->file)}}&embedded=true"
+                                                    style="width:100%; height:700px;" frameborder="0">
+                                                </iframe>
+                                            </div>
+                                            {{-- <a class="image-popup" href="{{ asset($calendar->image) }}"><img
+                                                src="{{ asset($calendar->image) }}" alt=""></a> --}}
                                             <div class="btn-download mt-3">
                                                 <a type="button"
                                                     href="{{ route('kalender.download', ['id' => $calendar->id]) }}"
