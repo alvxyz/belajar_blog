@@ -9,8 +9,8 @@
         <div class="card-box">
             <div class="row mb-2">
                 <div class="col-6">
-                    <h4 class="mt-0 mb-2 header-title">List Tag</h4>
-                    <p>Daftar tag yang telah tersimpan</p>
+                    <h4 class="mt-0 mb-2 header-title">List Tag Berita</h4>
+                    <p>Daftar tag berita yang telah tersimpan</p>
                 </div>
                 <div class="col-6 text-right">
                     <a href="{{route('tag.create') }}" type="button" class="btn btn-primary"><i

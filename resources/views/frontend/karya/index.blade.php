@@ -34,9 +34,6 @@
                 @foreach ($categorycreations as $category)
                 <button data-filter=".{{Str::slug($category->name)}}">{{ Str::upper($category->name)}}</button>
                 @endforeach
-                {{-- <button data-filter=".filter2">BUSINESS</button>
-                <button data-filter=".filter3">HUMANITIES</button>
-                <button data-filter=".filter4">DIPLOMA</button> --}}
             </div>
             <div class="row grid">
                 @foreach ($creations as $creation)

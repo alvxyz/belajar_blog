@@ -21,6 +21,13 @@
                 <div class="col-lg-8 col-md-12 md-mb-30">
                     <div class="sec-title2">
                         <h2 class="mb-30">{{ $dosen->name }}</h2>
+
+                        {{-- <h5 class="mb-20 font-blue">NIP</h5>
+                        <p class="desc mb-25">{{ $dosen->lecturer['NIP'] }}</p>
+
+                        <h5 class="mb-20 font-blue">NIDN</h5>
+                        <p class="desc mb-25">{{ $dosen->lecturer['NIDN'] }}</p> --}}
+
                         <h5 class="mb-20 font-blue">Biografi</h5>
                         <p class="desc mb-25">{{ $dosen->lecturer['biography'] }}</p>
 
@@ -45,7 +52,8 @@
                                             @foreach ($publication as $data)
                                             <div class="card-header mb-2">
                                                 <a class="card-link" data-toggle="collapse"
-                                                    href="#{{Str::slug($data->title)}}">{{ $data->title}}</a>
+                                                    href="#{{Str::slug($data->title)}}">{!! substr($data->title, 0, 90)
+                                                    . "..."!!}</a>
                                             </div>
                                             <div id="{{Str::slug($data->title)}}" class="collapse"
                                                 data-parent="#accordion">

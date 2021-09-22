@@ -1,13 +1,13 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Repositori')
+@section('judulhalaman', 'Rencana Pemebelajaran Semseter')
 
 @section('content')
 
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <h4 class="mt-0 mb-2 header-title">Add Repositori</h4>
+            <h4 class="mt-0 mb-2 header-title">Add Rencana Pemebelajaran Semseter</h4>
 
             <div class="p-2">
                 <form action="{{ route('lessonplan.store') }}" method="POST" class="form-horizontal" role="form"

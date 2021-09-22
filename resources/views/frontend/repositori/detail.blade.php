@@ -36,6 +36,11 @@
                         <p>{!! $repositories->content !!}</p>
                     </div>
 
+                    <div class="mt-3">
+                        <p>Jika terdapat ruang kosong atau preview dokumen tidak muncul, dapat mengunjungi
+                            <a href="https://webalvian.powerspolnep.com/panduan" target="blank">halaman panduan</a> </p>
+                    </div>
+
                 </div>
             </div>
         </div>

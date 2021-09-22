@@ -219,6 +219,10 @@ position: relative;
     .full-width-header .rs-header .menu-area .main-menu .rs-menu ul li.current-menu-item > a {
       color: #52a7f7 !important;
     }
+
+    .full-width-header.header-style2 .rs-header .menu-area.sticky .main-menu .rs-menu ul.nav-menu > li > a {
+      color: #394459 !important;
+    }
     
 }
 

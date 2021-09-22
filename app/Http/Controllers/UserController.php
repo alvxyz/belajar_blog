@@ -226,12 +226,16 @@ class UserController extends Controller
         // Update Data Tag
         $user = User::find($id);
 
+        $nip = $request->NIP;
+        $nidn = $request->NIDN;
         $biography = $request->biography;
         $education = $request->education;
         $research = $request->research;
         $expertise = $request->expertise;
 
         $user->lecturer()->update([
+            'NIP' => $nip,
+            'NIDN' => $nidn,
             'biography' => $biography,
             'education' => $education,
             'research' => $research,

@@ -10,12 +10,12 @@
             <div class="row mb-2">
                 <div class="col-6">
                     <h4 class="mt-0 mb-2 header-title">List Repositori</h4>
-                    <p>Daftar tag yang telah tersimpan</p>
+                    <p>Daftar repositori yang telah tersimpan</p>
                 </div>
                 <div class="col-6 text-right">
                     <a href="{{route('repository.create') }}" type="button" class="btn btn-primary"><i
                             class="mdi mdi-plus-circle"></i> Add
-                        Repository</a>
+                        Repositori</a>
                 </div>
             </div>
             <table id="datatable" class="table table-bordered dt-responsive nowrap">

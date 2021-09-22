@@ -93,7 +93,7 @@
             <div class="logo-box">
                 <a href="{{ route('home') }}" class="logo logo-dark text-center">
                     <span class="logo-lg">
-                        <img src="{{ asset('images/logo/logohitamhi.png') }}" alt="" height="26">
+                        <img src="{{ asset('educavo/assets/images/logobiru-baru.png') }}" alt="" height="26">
                     </span>
                     <span class="logo-sm">
                         <img src="{{ asset('images/logo/logo-sm.png') }}" alt="" height="24">

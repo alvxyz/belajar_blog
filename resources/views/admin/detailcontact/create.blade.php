@@ -1,13 +1,13 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'Detail Kontak')
+@section('judulhalaman', 'Detail Footer')
 
 @section('content')
 
 <div class="row">
     <div class="col-12">
         <div class="card-box">
-            <h4 class="mt-0 mb-2 header-title">Add Detail Kontak</h4>
+            <h4 class="mt-0 mb-2 header-title">Add Detail Footer</h4>
 
             <div class="p-2">
                 <form action="{{ route('detailcontact.store') }}" method="POST" class="form-horizontal" role="form">

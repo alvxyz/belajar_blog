@@ -9,6 +9,8 @@ use App\Slider;
 use App\Profile;
 use App\Visitor;
 use App\Creation;
+use App\Guide;
+use App\LessonPlan;
 use Carbon\Carbon;
 use App\Repository;
 use Illuminate\Http\Request;
@@ -41,6 +43,8 @@ class HomeController extends Controller
         $creations = Creation::all();
         $sliders = Slider::all();
         $visitors = Visitor::all();
+        $guides = Guide::all();
+        $lessonplans = LessonPlan::all();
 
         $days = Visitor::whereDate('created_at', Carbon::today())->get();
 
@@ -51,6 +55,6 @@ class HomeController extends Controller
         $years = Visitor::whereYear('created_at', date('Y'))
             ->get(['date', 'created_at']);
 
-        return view('home', compact('posts', 'roles', 'agendas', 'repositories', 'creations', 'sliders', 'visitors', 'days', 'months', 'years'));
+        return view('home', compact('posts', 'roles', 'agendas', 'repositories', 'creations', 'sliders', 'visitors', 'days', 'months', 'years', 'guides', 'lessonplans'));
     }
 }

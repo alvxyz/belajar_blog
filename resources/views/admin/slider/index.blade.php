@@ -61,7 +61,6 @@
 @section('js')
 <script>
     $(".swal-confirm").on('click', function(e) {
-          
             e.preventDefault();
             const href = $(this).attr('href');
 

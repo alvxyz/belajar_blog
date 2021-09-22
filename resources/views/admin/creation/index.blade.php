@@ -26,6 +26,7 @@
                         <th>Gambar</th>
                         <th>Judul</th>
                         <th>Kategori Karya</th>
+                        <th>Nama Kreator</th>
                         <th>Posisi</th>
                         <th>Foto Pembuat</th>
                         <th>Content</th>
@@ -51,6 +52,7 @@
                         <td><img src="{{ asset($creation->image) }}" alt="{{ $creation->title }}" width="80px"></td>
                         <td>{{$creation->title }}</td>
                         <td>{{$creation->category_creation->name }}</td>
+                        <td>{{$creation->creator }}</td>
                         <td>{{$creation->position }}</td>
                         <td><img src="{{ asset($creation->creator_image) }}" alt="{{ $creation->title }}" width="80px">
                         </td>

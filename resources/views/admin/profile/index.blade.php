@@ -56,7 +56,9 @@
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label" for="simpleinput">Photo Profile</label>
                                 <div class="col-md-10">
-                                    <input type="file" name="avatar" id="avatar">
+                                    <input type="file" class="form-control" name="avatar" id="avatar">
+                                    <small id="emailHelp" class="form-text text-muted">Masukkan Gambar dengan Rasio 1:1
+                                        (Square)</small>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -18,7 +18,7 @@
                                 <label class="col-md-2 col-form-label" for="simpleinput">Judul</label>
                                 <div class="col-md-10">
                                     <input name="title" type="text" id="simpleinput" class="form-control"
-                                        value="{{ $publication->title }}">
+                                        value="{{ $publication->title }}" placeholder="Masukkan Judul Publikasi">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -27,6 +27,8 @@
                                     <input name="link1" type="url" id="simpleinput"
                                         class="form-control @error('link1') is-invalid @enderror"
                                         value="{{ $publication->link1 }}">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
 
                                     @error('link1')
                                     <span class="invalid-feedback" role="alert">
@@ -41,6 +43,8 @@
                                 <div class="col-md-10">
                                     <input name="link2" type="url" id="simpleinput" class="form-control"
                                         value="{{ $publication->link2 }}">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
 
                                     @error('link2')
                                     <span class="invalid-feedback" role="alert">
@@ -54,6 +58,8 @@
                                 <div class="col-md-10">
                                     <input name="link3" type="url" id="simpleinput" class="form-control"
                                         value="{{ $publication->link3 }}">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
 
                                     @error('link3')
                                     <span class="invalid-feedback" role="alert">
@@ -69,6 +75,8 @@
                                     <input name="link4" type="url" id="simpleinput"
                                         class="form-control @error('link4') is-invalid @enderror"
                                         value="{{ $publication->link4 }}">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
 
                                     @error('link4')
                                     <span class="invalid-feedback" role="alert">

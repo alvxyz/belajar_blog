@@ -218,7 +218,7 @@ class FrontEndController extends Controller
         $visionandmission = VisionAndMission::all();
         $visionandmissions = VisionAndMission::take(1)->latest()->get();
         $visionandmission2 = DB::table('vision_and_mission')->orderBy('created_at', 'desc')->skip(1)->take(PHP_INT_MAX)->get();
-        return view('frontend.profil.visidanmisi', compact('visionandmissions', 'visionandmission2', 'vissionandmission'));
+        return view('frontend.profil.visidanmisi', compact('visionandmissions', 'visionandmission2', 'visionandmission'));
     }
 
     public function akreditasi()
@@ -285,7 +285,7 @@ class FrontEndController extends Controller
     {
         $dosen = User::find($id);
 
-        // $profil = Profile::all();
+        $profil = Profile::all();
         $lecturer = Lecturer::where('id' . '=' . $request->id);
 
         $publication = Publication::select(

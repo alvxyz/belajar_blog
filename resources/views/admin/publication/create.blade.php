@@ -17,13 +17,16 @@
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label" for="simpleinput">Judul</label>
                                 <div class="col-md-10">
-                                    <input name="title" type="text" id="simpleinput" class="form-control" value="">
+                                    <input name="title" type="text" id="simpleinput" class="form-control" value=""
+                                        placeholder="Masukkan Judul Publikasi">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label" for="simpleinput">Link Google Scholar</label>
                                 <div class="col-md-10">
                                     <input name="link1" type="url" id="simpleinput" class="form-control" value="">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
                                 </div>
                             </div>
 
@@ -31,12 +34,16 @@
                                 <label class="col-md-2 col-form-label" for="simpleinput">Link Scopus</label>
                                 <div class="col-md-10">
                                     <input name="link2" type="url" id="simpleinput" class="form-control" value="">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label" for="simpleinput">Link SINTA</label>
                                 <div class="col-md-10">
                                     <input name="link3" type="url" id="simpleinput" class="form-control" value="">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -44,6 +51,8 @@
                                 <div class="col-md-10">
                                     <input name="link4" type="url" id="simpleinput" class="form-control"
                                         placeholder="Masukkan Sumber lainnya, jika ada">
+                                    <small id=" emailHelp" class="form-text text-muted">Jika data tidak ada, dapat
+                                        dikosongkan</small>
                                 </div>
                             </div>
                             <div class="form-group row">

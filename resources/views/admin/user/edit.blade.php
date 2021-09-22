@@ -1,6 +1,6 @@
 @extends('layouts.adminto')
 
-@section('judulhalaman', 'User')
+@section('judulhalaman', 'Manajemen User')
 
 @section('content')
 

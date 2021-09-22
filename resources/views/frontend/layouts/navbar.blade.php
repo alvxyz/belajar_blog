@@ -11,10 +11,10 @@
                         <div class="logo-cat-wrap">
                             <div class="logo-part">
                                 <a class="dark-logo" href="/">
-                                    <img src={{ asset("educavo/assets/images/logohitamhi.png") }} alt="">
+                                    <img src={{ asset("educavo/assets/images/logobiru-baru.png") }} alt="">
                                 </a>
                                 <a class="light-logo" href="/">
-                                    <img src={{ asset("educavo/assets/images/logoputihhi.png") }} alt="">
+                                    <img src={{ asset("educavo/assets/images/logoputih-baru.png") }} alt="">
                                 </a>
                             </div>
                         </div>

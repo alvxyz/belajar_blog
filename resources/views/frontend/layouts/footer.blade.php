@@ -7,7 +7,7 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 footer-widget md-mb-50">
                     <div class="footer-logo mb-20 mr-50">
                         <a href="/"><img style="min-height: 50px; max-width:233px !important"
-                                src={{ asset("educavo/assets/images/logoputihhi.png") }} alt=""></a>
+                                src={{ asset("educavo/assets/images/logoputih-baru.png") }} alt=""></a>
                     </div>
                 </div>
 
@@ -111,19 +111,22 @@
 
                         @if($facebook->count() > 0)
                         @foreach ($facebook as $datafacebook)
-                        <li><a href="{{ $datafacebook->destination }}"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="{{ $datafacebook->destination }}" target="blank"><i class="fa fa-facebook"></i></a>
+                        </li>
                         @endforeach
                         @endif
 
                         @if($instagram->count() > 0)
                         @foreach ($instagram as $datainstagram)
-                        <li><a href="{{ $datainstagram->destination }}"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="{{ $datainstagram->destination }}" target="blank"><i
+                                    class="fa fa-instagram"></i></a></li>
                         @endforeach
                         @endif
 
                         @if($twiteer->count() > 0)
                         @foreach ($twiteer as $datatwiteer)
-                        <li><a href="{{ $datatwiteer->destination }}}"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="{{ $datatwiteer->destination }}" target="blank"><i class="fa fa-twitter"></i></a>
+                        </li>
                         @endforeach
                         @endif
                     </ul>

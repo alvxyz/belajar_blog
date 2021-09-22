@@ -15,6 +15,20 @@
                         <form action="{{ route('lecturer.update', ['id' => $user->id]) }}" method="POST">
                             @csrf
                             <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="simpleinput">NIP</label>
+                                <div class="col-md-10">
+                                    <input name="NIP" type="number" id="simpleinput" class="form-control" maxlength="18"
+                                        placeholder="Data NIP" value="{{ $user->lecturer['NIP'] }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label" for="simpleinput">NIDN</label>
+                                <div class="col-md-10">
+                                    <input name="NIDN" type="number" id="simpleinput" class="form-control"
+                                        maxlength="10" placeholder="Data NIDN" value="{{ $user->lecturer['NIDN'] }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-md-2 col-form-label" for="simpleinput">Biografi</label>
                                 <div class="col-md-10">
                                     <textarea name="biography" type="text" id="simpleinput" class="form-control"

@@ -10,7 +10,7 @@
             <div class="row mb-2">
                 <div class="col-6">
                     <h4 class="mt-0 mb-2 header-title">List Rencana Pemebelajaran Semseter</h4>
-                    <p>Daftar tag yang telah tersimpan</p>
+                    <p>Daftar Rencana Pemebelajaran Semseter yang telah tersimpan</p>
                 </div>
                 <div class="col-6 text-right">
                     <a href="{{route('lessonplan.create') }}" type="button" class="btn btn-primary"><i

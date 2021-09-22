@@ -9,8 +9,8 @@
         <div class="card-box">
             <div class="row mb-2">
                 <div class="col-6">
-                    <h4 class="mt-0 mb-2 header-title">List Kategori</h4>
-                    <p>Daftar kategori yang telah tersimpan</p>
+                    <h4 class="mt-0 mb-2 header-title">List Kategori berita</h4>
+                    <p>Daftar kategori berita yang telah tersimpan</p>
                 </div>
                 <div class="col-6 text-right">
                     <a href="{{route('category.create') }}" type="button" class="btn btn-primary"><i
